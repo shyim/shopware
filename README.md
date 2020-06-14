@@ -7,7 +7,7 @@ Shopware is a trendsetting ecommerce platform to power your online business. Our
 
 # How to use this image
 
-To run Shopware 6 you will neeed an compatible MySQL or MariaDB container.
+To run Shopware 6 you will need a compatible MySQL or MariaDB container.
 
 Smallest example with docker-compose
 
@@ -62,7 +62,7 @@ When Shopware with SSL behind a reverse proxy such as NGINX which is responsible
 
 # Updates
 
-When you update the image version, automaticly all required migrations will run. Downgrade works in similar way. Please check before here the Blue-Green compability of Shopware.
+When you update the image version, automatically all required migrations will run. Downgrade works in a similar way. Please check before here the Blue-Green compatibility of Shopware.
 
 # Volumes
 
