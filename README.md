@@ -68,6 +68,15 @@ Following environment can be set:
 | REDIS_SESSION_PORT           | 6379             | Redis session port                                      |
 | REDIS_SESSION_DATABASE       | 0                | Redis session index                                     |
 | ACTIVE_PLUGINS               | (empty)          | A list of plugins which should be installed and updated |
+| TZ                           | Europe/Berlin    | PHP default timezone                                    |
+| PHP_MAX_UPLOAD_SIZE          | 128m             | See php documentation                                   |
+| PHP_MAX_EXECUTION_TIME       | 300              | See php documentation                                   |
+| PHP_MEMORY_LIMIT             | 512m             | See php documentation                                   |
+| FPM_PM                       | dynamic          | See php fpm documentation                               |
+| FPM_PM_MAX_CHILDREN          | 5                | See php fpm documentation                               |
+| FPM_PM_START_SERVERS         | 2                | See php fpm documentation                               |
+| FPM_PM_MIN_SPARE_SERVERS     | 1                | See php fpm documentation                               |
+| FPM_PM_MAX_SPARE_SERVERS     | 3                | See php fpm documentation                               |
 
 When Shopware with SSL behind a reverse proxy such as NGINX which is responsible for doing TLS termination, be sure configure [Trusted Headers](https://symfony.com/doc/current/deployment/proxies.html).-
 

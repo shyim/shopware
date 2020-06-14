@@ -1,6 +1,7 @@
 FROM shyim/shopware-platform-nginx-production:php74
 
-ENV APP_ENV=prod \
+ENV TZ=Europe/Berlin \
+    APP_ENV=prod \
     MAILER_URL=null://localhost \
     SHOPWARE_ES_HOSTS= \
     SHOPWARE_ES_ENABLED=0 \
@@ -20,9 +21,15 @@ ENV APP_ENV=prod \
     SESSION_ADAPTER=default \
     REDIS_SESSION_HOST=redis \
     REDIS_SESSION_PORT=6379 \
-    REDIS_SESSION_DATABASE=1
-    
-
+    REDIS_SESSION_DATABASE=1 \
+    FPM_PM=dynamic \
+    FPM_PM_MAX_CHILDREN=5 \
+    FPM_PM_START_SERVERS=2 \
+    FPM_PM_MIN_SPARE_SERVERS=1 \
+    FPM_PM_MAX_SPARE_SERVERS=3 \
+    PHP_MAX_UPLOAD_SIZE=128mb \
+    PHP_MAX_EXECUTION_TIME=300 \
+    PHP_MEMORY_LIMIT=512m
 
 ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
 ARG SHOPWARE_VERSION=6.2.0
