@@ -39,26 +39,35 @@ The installation will be accessible at `http://localhost`. The default credentia
 
 Following environment can be set:
 
-| Variable                     | Default Value    | Description                                            |
-|------------------------------|------------------|--------------------------------------------------------|
-| APP_ENV                      | prod             | Environment                                            |
-| APP_SECRET                   | (empty)          | Can be generated with `openssl rand -hex 32`           |
-| APP_URL                      | (empty)          | Where Shopware will be accessible                      |
+| Variable                     | Default Value    | Description                                             |
+|------------------------------|------------------|---------------------------------------------------------|
+| APP_ENV                      | prod             | Environment                                             |
+| APP_SECRET                   | (empty)          | Can be generated with `openssl rand -hex 32`            |
+| APP_URL                      | (empty)          | Where Shopware will be accessible                       |
 | INSTANCE_ID                  | (empty)          | Unique Identifier for the Store: Can be generated with `openssl rand -hex 32`                        |
-| DATABASE_HOST                | (empty)          | Host of MySQL (needed for for checking is MySQL alive) |
-| DATABASE_URL                 | (empty)          | MySQL credentials as DSN                               |
-| MAILER_URL                   | null://localhost | Mailer DSN (Admin Configuration overwrites this)       |
-| SHOPWARE_ES_HOSTS            | (empty)          | Elasticsearch Hosts                                    |
-| SHOPWARE_ES_ENABLED          | 0                | Elasticsearch Support Enabled?                         |
-| SHOPWARE_ES_INDEXING_ENABLED | 0                | Elasticsearch Indexing Enabled?                        |
-| SHOPWARE_ES_INDEX_PREFIX     | (empty)          | Elasticsearch Index Prefix                             |
-| COMPOSER_HOME                | /tmp/composer    | Caching for the Plugin Manager                         |
-| SHOPWARE_HTTP_CACHE_ENABLED  | 1                | Is HTTP Cache enabled?                                 |
-| SHOPWARE_HTTP_DEFAULT_TTL    | 7200             | Default TTL for Http Cache                             |
-| INSTALL_LOCALE               | en-GB            | Default locale for the Shop                            |
-| INSTALL_CURRENCY             | EUR              | Default currency for the Shop                          |
-| INSTALL_ADMIN_USERNAME       | admin            | Default admin username                                 |
-| INSTALL_ADMIN_PASSWORD       | shopware         | Default admin password                                 |
+| DATABASE_HOST                | (empty)          | Host of MySQL (needed for for checking is MySQL alive)  |
+| DATABASE_URL                 | (empty)          | MySQL credentials as DSN                                |
+| MAILER_URL                   | null://localhost | Mailer DSN (Admin Configuration overwrites this)        |
+| SHOPWARE_ES_HOSTS            | (empty)          | Elasticsearch Hosts                                     |
+| SHOPWARE_ES_ENABLED          | 0                | Elasticsearch Support Enabled?                          |
+| SHOPWARE_ES_INDEXING_ENABLED | 0                | Elasticsearch Indexing Enabled?                         |
+| SHOPWARE_ES_INDEX_PREFIX     | (empty)          | Elasticsearch Index Prefix                              |
+| COMPOSER_HOME                | /tmp/composer    | Caching for the Plugin Manager                          |
+| SHOPWARE_HTTP_CACHE_ENABLED  | 1                | Is HTTP Cache enabled?                                  |
+| SHOPWARE_HTTP_DEFAULT_TTL    | 7200             | Default TTL for Http Cache                              |
+| INSTALL_LOCALE               | en-GB            | Default locale for the Shop                             |
+| INSTALL_CURRENCY             | EUR              | Default currency for the Shop                           |
+| INSTALL_ADMIN_USERNAME       | admin            | Default admin username                                  |
+| INSTALL_ADMIN_PASSWORD       | shopware         | Default admin password                                  |
+| CACHE_ADAPTER                | default          | Set this to redis to enable redis caching               |
+| REDIS_CACHE_HOST             | redis            | Host for redis caching                                  |
+| REDIS_CACHE_PORT             | 6379             | Redis cache port                                        |
+| REDIS_CACHE_DATABASE         | 0                | Redis database index                                    |
+| SESSION_ADAPTER              | default          | Set this to redis to enable redis session adapter       |
+| REDIS_SESSION_HOST           | redis            | Host for redis session                                  |
+| REDIS_SESSION_PORT           | 6379             | Redis session port                                      |
+| REDIS_SESSION_DATABASE       | 0                | Redis session index                                     |
+| ACTIVE_PLUGINS               | (empty)          | A list of plugins which should be installed and updated |
 
 When Shopware with SSL behind a reverse proxy such as NGINX which is responsible for doing TLS termination, be sure configure [Trusted Headers](https://symfony.com/doc/current/deployment/proxies.html).-
 
@@ -80,3 +89,22 @@ When you update the image version, automatically all required migrations will ru
 | /var/www/html/public/sitemap   | Sitemap                                         |
 | /var/www/html/public/thumbnail | Generated Thumbnails                            |
 | /var/www/html/config/jwt       | JWT Certificate for API                         |
+
+# Extending the image
+
+## Additional startup scripts
+
+Add a new bash file to `/etc/shopware/scripts/xx.sh`
+
+## Install plugins from packages.friendsofshopware.com
+
+```docker
+FROM shyim/shopware:6.2.0
+
+# Add repository
+RUN jq '.repositories += [{"type": "composer","url": "https://packages.friendsofshopware.com/","options": {"http": {"header": ["Token: MyToken"]}}}]' /var/www/html/composer.json > /var/www/html/composer2.json && \
+  cp composer2.json composer.json && \
+  chown 1000:1000 composer.json
+
+RUN sudo -u www-data composer require store.shopware.com/swagcmsextensions
+```

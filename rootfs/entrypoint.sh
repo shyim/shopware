@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 until nc -z -v -w30 $DATABASE_HOST 3306
 do
@@ -24,5 +24,7 @@ else
    sudo -E -u www-data php /var/www/html/bin/console theme:change --all Storefront
    cp /shopware_version /state/installed_version
 fi
+
+for f in /etc/shopware/scripts/*; do source $f; done
 
 /usr/bin/supervisord -c /etc/supervisord.conf
