@@ -51,4 +51,4 @@ VOLUME /state /var/www/html/custom/plugins /var/www/html/files /var/www/html/var
 
 CMD ["/entrypoint.sh"]
 
-HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:80/fpm-ping
+HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:80/admin
