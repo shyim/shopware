@@ -77,3 +77,4 @@ When you update the image version, automatically all required migrations will ru
 | /var/www/html/public/bundles   | Bundle Assets                                   |
 | /var/www/html/public/sitemap   | Sitemap                                         |
 | /var/www/html/public/thumbnail | Generated Thumbnails                            |
+| /var/www/html/config/jwt       | JWT Certificate for API                         |
