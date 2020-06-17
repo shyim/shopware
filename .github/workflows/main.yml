@@ -8,8 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Login into Docker
+
+    - name: Login into Docker Registery
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
+
+    - name: Login into Github Docker Registery
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u shyim --password-stdin
+
     - uses: denolib/setup-deno@master
       with:
         deno-version: v1.x

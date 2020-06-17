@@ -6,15 +6,17 @@ async function main() {
     // Build
     for (let release of releases) {
         for (let tag of release.tags) {
-            let process = Deno.run({
-                cmd: ['docker', 'build', '-t', `shyim/shopware:${tag}`, '--build-arg', `SHOPWARE_DL=${release.download}`, '--build-arg', `SHOPWARE_VERSION=${release.version}`, '.'],
-                stdout: 'inherit'
-            });
-
-            const {success} = await process.status();
-
-            if (!success) {
-                Deno.exit(-1);
+            for (let imageName of release.imageNames) {
+                let process = Deno.run({
+                    cmd: ['docker', 'build', '-t', `${imageName}:${tag}`, '--build-arg', `SHOPWARE_DL=${release.download}`, '--build-arg', `SHOPWARE_VERSION=${release.version}`, '.'],
+                    stdout: 'inherit'
+                });
+    
+                const {success} = await process.status();
+    
+                if (!success) {
+                    Deno.exit(-1);
+                }
             }
         }
     }
@@ -22,15 +24,17 @@ async function main() {
     // Push
     for (let release of releases) {
         for (let tag of release.tags) {
-            let process = Deno.run({
-                cmd: ['docker', 'push', `shyim/shopware:${tag}`],
-                stdout: 'inherit'
-            });
+            for (let imageName of release.imageNames) {
+                let process = Deno.run({
+                    cmd: ['docker', 'push', `${imageName}:${tag}`],
+                    stdout: 'inherit'
+                });
 
-            const {success} = await process.status();
+                const {success} = await process.status();
 
-            if (!success) {
-                Deno.exit(-1);
+                if (!success) {
+                    Deno.exit(-1);
+                }
             }
         }
     }
@@ -62,6 +66,7 @@ async function getReleases() {
         const majorVersion = getMajorVersion(release.version);
 
         let image = {
+            imageNames: ['docker.pkg.github.com/shyim/shopware-image/shopware', 'shyim/shopware'],
             version: release.version,
             download: release.uri,
             tags: [release.version]
