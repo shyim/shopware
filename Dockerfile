@@ -33,6 +33,7 @@ ENV TZ=Europe/Berlin \
 
 COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/supervisord
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
 ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
 ARG SHOPWARE_VERSION=6.2.0
@@ -41,53 +42,12 @@ RUN set -x && \
       apk add --no-cache \
       nginx \
       shadow \
-      bzip2-dev \
-      libzip-dev \
-      gettext \
-      ca-certificates \
-      freetype-dev \
-      icu-dev \
-      libjpeg-turbo-dev \
-      libpng-dev \
-      libzip-dev \
-      libwebp-dev \
-      libxml2-dev \
-      libxslt-dev \
-      libffi-dev \
-      pcre-dev \
-      gmp-dev \
       unzip \
       wget \
       sudo \
       bash \
       jq && \
-    apk add --no-cache --virtual build-deps \
-      coreutils \
-      build-base \
-      autoconf \
-      automake && \
-    docker-php-ext-configure gd \
-      --enable-gd \
-      --with-freetype \
-      --with-jpeg \
-      --with-webp && \
-    docker-php-ext-configure ffi --with-ffi && \
-    docker-php-ext-install -j$(nproc) \
-      bcmath \
-      gd \
-      intl \
-      mysqli \
-      pdo_mysql \
-      sockets \
-      bz2 \
-      gmp \
-      intl \
-      soap \
-      zip \
-      ffi \
-      opcache \
-    > /dev/null && \
-    update-ca-certificates && \
+    install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip gmp ffi redis opcache && \
     ln -s /usr/local/bin/php /usr/bin/php && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
@@ -96,9 +56,6 @@ RUN set -x && \
     mkdir -p /var/tmp/nginx/ || true && \
     chown -R www-data:www-data /var/lib/nginx /var/tmp/nginx/ && \
     chmod 777 -R /var/tmp/nginx/ && \
-    pecl install redis && \
-    docker-php-ext-enable redis && \
-    apk del build-deps && \
     rm -rf /tmp/* && \
     chown -R www-data:www-data /var/www && \
     usermod -u 1000 www-data && \
@@ -107,7 +64,6 @@ RUN set -x && \
     unzip *.zip && \
     rm *.zip && \
     mkdir /state && \
-    apk add --no-cache sudo bash jq && \
     touch /var/www/html/install.lock && \
     echo $SHOPWARE_VERSION > /shopware_version && \
     chown -R 1000 /var/www/html
