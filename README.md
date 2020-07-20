@@ -55,6 +55,7 @@ Following environment can be set:
 | COMPOSER_HOME                | /tmp/composer    | Caching for the Plugin Manager                          |
 | SHOPWARE_HTTP_CACHE_ENABLED  | 1                | Is HTTP Cache enabled?                                  |
 | SHOPWARE_HTTP_DEFAULT_TTL    | 7200             | Default TTL for Http Cache                              |
+| DISABLE_ADMIN_WORKER         | false            | Disables the admin worker                               |
 | INSTALL_LOCALE               | en-GB            | Default locale for the Shop                             |
 | INSTALL_CURRENCY             | EUR              | Default currency for the Shop                           |
 | INSTALL_ADMIN_USERNAME       | admin            | Default admin username                                  |
@@ -78,11 +79,48 @@ Following environment can be set:
 | FPM_PM_MIN_SPARE_SERVERS     | 1                | See php fpm documentation                               |
 | FPM_PM_MAX_SPARE_SERVERS     | 3                | See php fpm documentation                               |
 
-When Shopware with SSL behind a reverse proxy such as NGINX which is responsible for doing TLS termination, be sure configure [Trusted Headers](https://symfony.com/doc/current/deployment/proxies.html).-
+When Shopware with SSL behind a reverse proxy such as NGINX which is responsible for doing TLS termination, be sure configure [Trusted Headers](https://symfony.com/doc/current/deployment/proxies.html).
 
 # Updates
 
 When you update the image version, automatically all required migrations will run. Downgrade works in a similar way. Please check before here the Blue-Green compatibility of Shopware.
+
+# Running multiple containers
+
+See `docker-compose-advanced.yml` for a full docker-compose example.
+
+## Mode: default
+
+* The container will check is Shopware installed and install or update it (and execute hooks). 
+* Will start Web server
+
+``yaml
+command: ['default']
+``
+
+## Mode: web
+
+* Will start Web server
+
+``yaml
+command: ['web']
+``
+
+## Mode: maintenance
+
+* The container will check is Shopware installed and install or update it (and execute hooks). 
+
+``yaml
+command: ['maintenance']
+``
+
+## Mode: cli
+
+* Allows to run cli commands like message consumer and other tasks
+
+``yaml
+command: ['cli', 'symfony:command', 'arg1', 'arg2']
+``
 
 # Volumes
 
@@ -101,9 +139,11 @@ When you update the image version, automatically all required migrations will ru
 
 # Extending the image
 
-## Additional startup scripts
+## Additional hooks
 
-Add a new bash file to `/etc/shopware/scripts/xx.sh`
+* To run script on installation, add a new file to `/etc/shopware/scripts/on-install/xx.sh`
+* To run script on update, add a new file to `/etc/shopware/scripts/on-update/xx.sh`
+* To run script on startup, add a new file to `/etc/shopware/scripts/on-startup/xx.sh`
 
 ## Install plugins from packages.friendsofshopware.com
 
