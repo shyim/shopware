@@ -94,33 +94,33 @@ See `docker-compose-advanced.yml` for a full docker-compose example.
 * The container will check is Shopware installed and install or update it (and execute hooks). 
 * Will start Web server
 
-``yaml
+```yaml
 command: ['default']
-``
+```
 
 ## Mode: web
 
 * Will start Web server
 
-``yaml
+```yaml
 command: ['web']
-``
+```
 
 ## Mode: maintenance
 
 * The container will check is Shopware installed and install or update it (and execute hooks). 
 
-``yaml
+```yaml
 command: ['maintenance']
-``
+```
 
 ## Mode: cli
 
 * Allows to run cli commands like message consumer and other tasks
 
-``yaml
+```yaml
 command: ['cli', 'symfony:command', 'arg1', 'arg2']
-``
+```
 
 # Volumes
 
