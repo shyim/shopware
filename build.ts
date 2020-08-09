@@ -59,8 +59,11 @@ async function getReleases() {
 
 
     for (let release of json) {
-        if (semver.lt(release.version, '6.2.0')) {
-            continue;
+        try {
+            if (semver.lt(release.version, '6.2.0')) {
+                continue;
+            }
+        } catch (e) {
         }
 
         const majorVersion = getMajorVersion(release.version);
