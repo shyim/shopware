@@ -191,12 +191,12 @@ class LocaleAndCurrencySwapper
         $stmt = $this->connection->prepare(
             '
             INSERT INTO `language`
-            (id,name,locale_id,translation_code_id)
+            (id,name,locale_id,translation_code_id, created_at)
             VALUES
-            (?,?,UNHEX(?),UNHEX(?))'
+            (?,?,UNHEX(?),UNHEX(?), ?)'
         );
 
-        $stmt->execute([$id, $name, $localeId, $localeId]);
+        $stmt->execute([$id, $name, $localeId, $localeId, (new \DateTime())->format(Defaults::STORAGE_DATE_TIME_FORMAT)]);
 
         return $id;
     }
