@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+for f in /etc/shopware/scripts/on-init/*; do source $f; done
+
 case $1 in
   cli)
     source /etc/shopware/mode/cli.sh
