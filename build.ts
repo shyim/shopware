@@ -69,7 +69,7 @@ async function getReleases() {
         const majorVersion = getMajorVersion(release.version);
 
         let image = {
-            imageNames: ['docker.pkg.github.com/shyim/shopware-image/shopware', 'shyim/shopware'],
+            imageNames: ['ghcr.io/shyim/shopware', 'shyim/shopware'],
             version: release.version,
             download: release.uri,
             tags: [release.version]
