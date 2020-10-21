@@ -1,14 +1,14 @@
 version: "3.8"
 services:
   mysql:
-    image: mysql:5.7
+    image: bitnami/mysql:5.7
     tmpfs:
       - /var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: shopware
+      ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
+      MYSQL_DATABASE: shopware
   shopware:
     image: shyim/shopware:6.2.0
     build:

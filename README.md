@@ -46,6 +46,7 @@ Following environment can be set:
 | APP_URL                      | (empty)          | Where Shopware will be accessible                       |
 | INSTANCE_ID                  | (empty)          | Unique Identifier for the Store: Can be generated with `openssl rand -hex 32`                        |
 | DATABASE_HOST                | (empty)          | Host of MySQL (needed for for checking is MySQL alive)  |
+| BLUE_GREEN_DEPLOYMENT        | 1                | This needs super priviledge to create trigger           |
 | DATABASE_URL                 | (empty)          | MySQL credentials as DSN                                |
 | MAILER_URL                   | null://localhost | Mailer DSN (Admin Configuration overwrites this)        |
 | SHOPWARE_ES_HOSTS            | (empty)          | Elasticsearch Hosts                                     |

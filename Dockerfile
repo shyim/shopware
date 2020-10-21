@@ -10,6 +10,7 @@ ENV TZ=Europe/Berlin \
     COMPOSER_HOME=/tmp/composer \
     SHOPWARE_HTTP_CACHE_ENABLED=1 \
     SHOPWARE_HTTP_DEFAULT_TTL=7200 \
+    BLUE_GREEN_DEPLOYMENT=1 \
     INSTALL_LOCALE=en-GB \
     INSTALL_CURRENCY=EUR \
     INSTALL_ADMIN_USERNAME=admin \
@@ -38,14 +39,14 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
 ARG SHOPWARE_VERSION=6.2.0
 
-RUN set -x && \
-      apk add --no-cache \
+RUN apk add --no-cache \
       nginx \
       shadow \
       unzip \
       wget \
       sudo \
       bash \
+      patch \
       jq && \
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip gmp ffi redis opcache && \
     ln -s /usr/local/bin/php /usr/bin/php && \
@@ -58,14 +59,18 @@ RUN set -x && \
     chmod 777 -R /var/tmp/nginx/ && \
     rm -rf /tmp/* && \
     chown -R www-data:www-data /var/www && \
-    usermod -u 1000 www-data && \
-    cd /var/www/html && \
+    usermod -u 1000 www-data
+
+COPY patches /usr/local/src/sw-patches
+
+ RUN cd /var/www/html && \
     wget $SHOPWARE_DL && \
     unzip *.zip && \
     rm *.zip && \
     mkdir /state && \
     touch /var/www/html/install.lock && \
     echo $SHOPWARE_VERSION > /shopware_version && \
+    for f in /usr/local/src/sw-patches/*.patch; do patch -p1 < $f || true; done && \
     chown -R 1000 /var/www/html
 
 COPY rootfs / 
