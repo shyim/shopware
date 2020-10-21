@@ -48,6 +48,10 @@ Following environment can be set:
 | DATABASE_HOST                | (empty)          | Host of MySQL (needed for for checking is MySQL alive)  |
 | BLUE_GREEN_DEPLOYMENT        | 1                | This needs super priviledge to create trigger           |
 | DATABASE_URL                 | (empty)          | MySQL credentials as DSN                                |
+| DATABASE_SSL_CA              | (empty)          | Path to SSL CA file (needs to be readable for uid 1000) |
+| DATABASE_SSL_CERT            | (empty)          | Path to SSL Cert file (needs to be readable for uid 1000) |
+| DATABASE_SSL_KEY             | (empty)          | Path to SSL Key file (needs to be readable for uid 1000) |
+| DATABASE_SSL_DONT_VERIFY_SERVER_CERT | (empty)          | Disables verification of the server certificate (1 disables it) |
 | MAILER_URL                   | null://localhost | Mailer DSN (Admin Configuration overwrites this)        |
 | SHOPWARE_ES_HOSTS            | (empty)          | Elasticsearch Hosts                                     |
 | SHOPWARE_ES_ENABLED          | 0                | Elasticsearch Support Enabled?                          |

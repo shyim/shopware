@@ -36,9 +36,6 @@ COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/su
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
-ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
-ARG SHOPWARE_VERSION=6.2.0
-
 RUN apk add --no-cache \
       nginx \
       shadow \
@@ -60,6 +57,9 @@ RUN apk add --no-cache \
     rm -rf /tmp/* && \
     chown -R www-data:www-data /var/www && \
     usermod -u 1000 www-data
+
+ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
+ARG SHOPWARE_VERSION=6.2.0
 
 COPY patches /usr/local/src/sw-patches
 

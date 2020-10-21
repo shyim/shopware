@@ -25,6 +25,22 @@ $parameters = [
     'charset' => 'utf8mb4',
 ];
 
+if (isset($_ENV['DATABASE_SSL_CA'])) {
+    $parameters['driverOptions'][\PDO::MYSQL_ATTR_SSL_CA] = $_ENV['DATABASE_SSL_CA'];
+}
+
+if (isset($_ENV['DATABASE_SSL_CERT'])) {
+    $parameters['driverOptions'][\PDO::MYSQL_ATTR_SSL_CERT] = $_ENV['DATABASE_SSL_CERT'];
+}
+
+if (isset($_ENV['DATABASE_SSL_KEY'])) {
+    $parameters['driverOptions'][\PDO::MYSQL_ATTR_SSL_KEY] = $_ENV['DATABASE_SSL_KEY'];
+}
+
+if (isset($_ENV['DATABASE_SSL_DONT_VERIFY_SERVER_CERT'])) {
+    $parameters['driverOptions'][\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+}
+
 $connection = DriverManager::getConnection($parameters, new Configuration());
 $connection->exec('USE `' . $dbName . '`');
 
