@@ -64,8 +64,8 @@ ARG SHOPWARE_VERSION=6.2.0
 COPY patches /usr/local/src/sw-patches
 
  RUN cd /var/www/html && \
-    wget $SHOPWARE_DL && \
-    unzip *.zip && \
+    wget -qq $SHOPWARE_DL && \
+    unzip -qq *.zip && \
     rm *.zip && \
     mkdir /state && \
     touch /var/www/html/install.lock && \
