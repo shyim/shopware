@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: shopware
       MYSQL_DATABASE: shopware
   shopware:
-    image: shyim/shopware:6.2.0
+    image: shyim/shopware:latest
     build:
       context: .
     environment:
@@ -28,5 +28,6 @@ services:
       SHOPWARE_HTTP_CACHE_ENABLED: 1
       SHOPWARE_HTTP_DEFAULT_TTL: 7200
       INSTALL_LOCALE: de-DE
+      INSTALLED_SHOPWARE_VERSION: 6.2.0
     ports:
       - 80:80

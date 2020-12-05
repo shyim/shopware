@@ -142,6 +142,16 @@ command: ['cli', 'symfony:command', 'arg1', 'arg2']
 | /var/www/html/public/thumbnail | Generated Thumbnails                            |
 | /var/www/html/config/jwt       | JWT Certificate for API                         |
 
+
+## Reducing usage of Volumes
+
+* /state
+  * The state can be ignored by having a `INSTALLED_SHOPWARE_VERSION` environment variable with the current used Shopware version. This will be used to detect if database migrations needs to be executed.
+* /config/jwt
+  * In Kubernetes you can mount a secretmap to this location with your certificates
+* /public/*
+  * Use external storage adapter, see Shopware documentation
+
 # Extending the image
 
 ## Additional hooks

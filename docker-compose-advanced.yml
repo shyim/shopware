@@ -2,23 +2,22 @@ version: "3.8"
 services:
   mysql:
     image: mysql:5.7
-    tmpfs:
-      - /var/lib/mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: shopware
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
   maintenance:
-    image: shyim/shopware:6.2.0
+    image: shyim/shopware:latest
     depends_on:
       - mysql
     env_file:
       - .env
-    build:
-      context: .
     command: ['maintenance']
     volumes:
+      - state:/state
       - plugins:/var/www/html/custom/plugins
       - files:/var/www/html/files
       - jwt:/var/www/html/config/jwt
@@ -28,7 +27,7 @@ services:
       - bundles:/var/www/html/public/bundles
       - sitemap:/var/www/html/public/sitemap
   shopware:
-    image: shyim/shopware:6.2.0
+    image: shyim/shopware:latest
     command: ['web']
     depends_on:
       - maintenance
@@ -48,7 +47,7 @@ services:
       - bundles:/var/www/html/public/bundles
       - sitemap:/var/www/html/public/sitemap
   worker:
-    image: shyim/shopware:6.2.0
+    image: shyim/shopware:latest
     restart: always
     depends_on:
       - shopware
@@ -65,7 +64,7 @@ services:
       - bundles:/var/www/html/public/bundles
       - sitemap:/var/www/html/public/sitemap
   task:
-    image: shyim/shopware:6.2.0
+    image: shyim/shopware:latest
     restart: always
     depends_on:
       - shopware
@@ -82,6 +81,8 @@ services:
       - bundles:/var/www/html/public/bundles
       - sitemap:/var/www/html/public/sitemap
 volumes:
+  state:
+  mysql-data:
   plugins:
   files:
   jwt:
