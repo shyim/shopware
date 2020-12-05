@@ -3,41 +3,26 @@ import * as semver from "https://deno.land/x/semver/mod.ts";
 async function main() {
     let releases = await getReleases();
 
+    const ghConfig = {
+        'fail-fast': false,
+        matrix: {
+            include: []
+        }
+    };
+
     // Build
     for (let release of releases) {
         for (let tag of release.tags) {
-            for (let imageName of release.imageNames) {
-                let process = Deno.run({
-                    cmd: ['docker', 'build', '-t', `${imageName}:${tag}`, '--build-arg', `SHOPWARE_DL=${release.download}`, '--build-arg', `SHOPWARE_VERSION=${release.version}`, '.'],
-                    stdout: 'inherit'
-                });
-    
-                const {success} = await process.status();
-    
-                if (!success) {
-                    Deno.exit(-1);
+            ghConfig.matrix.include.push({
+                name: `Shopware ${tag}`,
+                runs: {
+                    build: `docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --build-arg SHOPWARE_DL=${release.download} --build-arg SHOPWARE_VERSION=${release.version} --tag ghcr.io/shyim/shopware:${tag} --tag shyim/shopware:${tag} --push .`
                 }
-            }
+            });
         }
     }
 
-    // Push
-    for (let release of releases) {
-        for (let tag of release.tags) {
-            for (let imageName of release.imageNames) {
-                let process = Deno.run({
-                    cmd: ['docker', 'push', `${imageName}:${tag}`],
-                    stdout: 'inherit'
-                });
-
-                const {success} = await process.status();
-
-                if (!success) {
-                    Deno.exit(-1);
-                }
-            }
-        }
-    }
+    await Deno.stdout.write(new TextEncoder().encode(JSON.stringify(ghConfig)));
 }
 
 function getMajorVersion(version: string) {
@@ -69,7 +54,6 @@ async function getReleases() {
         const majorVersion = getMajorVersion(release.version);
 
         let image = {
-            imageNames: ['ghcr.io/shyim/shopware', 'shyim/shopware'],
             version: release.version,
             download: release.uri,
             tags: [release.version]

@@ -1,25 +1,53 @@
 name: CI
 on:
   push:
-    branches: [ master ]
   schedule:
     - cron: '0 1 * * *'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  generate-jobs:
+    name: Generate Jobs
+    runs-on: ubuntu-20.04
+    outputs:
+      strategy: ${{ steps.generate-jobs.outputs.strategy }}
     steps:
     - uses: actions/checkout@v2
-
-    - name: Login into Docker Registery
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
-
-    - name: Login into Github Docker Registery
-      run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u shyim --password-stdin
 
     - uses: denolib/setup-deno@master
       with:
         deno-version: v1.x
 
-    - name: Run Docker
-      run: deno run --allow-net --allow-run build.ts
+    - id: generate-jobs
+      name: Generate Jobs
+      run: |
+        deno run --allow-net --no-check build.ts
+        strategy="$(deno run --allow-net --no-check build.ts)"
+        echo $strategy
+        echo "::set-output name=strategy::$strategy"
+
+  build:
+    needs: generate-jobs
+    strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy) }}
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login into Docker Registery
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
+
+      - name: Login into Github Docker Registery
+        run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u shyim --password-stdin
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+
+      - name: Build ${{ matrix.name }}
+        run: ${{ matrix.runs.build }}
