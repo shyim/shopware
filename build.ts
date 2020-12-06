@@ -16,7 +16,7 @@ async function main() {
             ghConfig.matrix.include.push({
                 name: `Shopware ${tag}`,
                 runs: {
-                    build: `docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --build-arg SHOPWARE_DL=${release.download} --build-arg SHOPWARE_VERSION=${release.version} --tag ghcr.io/shyim/shopware:${tag} --tag shyim/shopware:${tag} --push .`
+                    build: `docker buildx build --platform linux/amd64,linux/arm64 --build-arg SHOPWARE_DL=${release.download} --build-arg SHOPWARE_VERSION=${release.version} --tag ghcr.io/shyim/shopware:${tag} --tag shyim/shopware:${tag} --push .`
                 }
             });
         }
