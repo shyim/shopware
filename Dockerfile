@@ -32,7 +32,7 @@ ENV TZ=Europe/Berlin \
     PHP_MAX_EXECUTION_TIME=300 \
     PHP_MEMORY_LIMIT=512m
 
-COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/supervisord
+COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
