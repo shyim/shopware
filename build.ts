@@ -6,7 +6,7 @@ async function main() {
     const ghConfig = {
         'fail-fast': false,
         matrix: {
-            include: []
+            include: [] as any
         }
     };
 

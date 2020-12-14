@@ -20,8 +20,8 @@ jobs:
     - id: generate-jobs
       name: Generate Jobs
       run: |
-        deno run --allow-net --no-check build.ts
-        strategy="$(deno run --allow-net --no-check build.ts)"
+        deno run --allow-net build.ts
+        strategy="$(deno run --allow-net build.ts)"
         echo $strategy
         echo "::set-output name=strategy::$strategy"
 
