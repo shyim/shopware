@@ -36,6 +36,7 @@ ENV TZ=Europe/Berlin \
 COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
+COPY --from=ghcr.io/shyim/alpine-iconv /usr/lib/preloadable_libiconv.so /usr/lib/preloadable_libiconv.so
 
 RUN apk add --no-cache \
       nginx \
@@ -45,6 +46,7 @@ RUN apk add --no-cache \
       sudo \
       bash \
       patch \
+      gnu-libiconv \
       jq && \
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip gmp ffi redis opcache && \
     ln -s /usr/local/bin/php /usr/bin/php && \
@@ -57,8 +59,7 @@ RUN apk add --no-cache \
     chmod 777 -R /var/tmp/nginx/ && \
     rm -rf /tmp/* && \
     chown -R www-data:www-data /var/www && \
-    usermod -u 1000 www-data && \
-    apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/v3.13/community gnu-libiconv
+    usermod -u 1000 www-data
 
 ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
 ARG SHOPWARE_VERSION=6.2.0
