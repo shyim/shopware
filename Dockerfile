@@ -36,7 +36,7 @@ ENV TZ=Europe/Berlin \
 COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
-COPY --from=ghcr.io/shyim/alpine-iconv /usr/lib/preloadable_libiconv.so /usr/lib/preloadable_libiconv.so
+COPY --from=ghcr.io/shyim/gnu-libiconv:v3.14 /gnu-libiconv-1.15-r3.apk /gnu-libiconv-1.15-r3.apk
 
 RUN apk add --no-cache \
       nginx \
@@ -46,8 +46,8 @@ RUN apk add --no-cache \
       sudo \
       bash \
       patch \
-      gnu-libiconv \
       jq && \
+    apk add --no-cache --allow-untrusted /gnu-libiconv-1.15-r3.apk && rm /gnu-libiconv-1.15-r3.apk && \
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip gmp ffi redis opcache && \
     ln -s /usr/local/bin/php /usr/bin/php && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
@@ -76,7 +76,7 @@ COPY patches /usr/local/src/sw-patches
     for f in /usr/local/src/sw-patches/*.patch; do patch -p1 < $f || true; done && \
     chown -R 1000 /var/www/html
 
-COPY rootfs / 
+COPY rootfs /
 
 VOLUME /state /var/www/html/custom/plugins /var/www/html/files /var/www/html/var/log /var/www/html/public/theme /var/www/html/public/media /var/www/html/public/bundles /var/www/html/public/sitemap /var/www/html/public/thumbnail /var/www/html/config/jwt
 EXPOSE 80
