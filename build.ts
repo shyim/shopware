@@ -3,30 +3,95 @@ import * as semver from "https://deno.land/x/semver/mod.ts";
 async function main() {
     let releases = await getReleases();
 
+    const availableArch: string[] = ['amd64', 'arm64'];
     const ghConfig = {
-        'fail-fast': false,
-        matrix: {
-            include: [] as any
+        amd64: {
+            'fail-fast': false,
+            matrix: {
+                include: [] as any
+            }
+        },
+        arm64: {
+            'fail-fast': false,
+            matrix: {
+                include: [] as any
+            }
+        },
+        merge: {
+            'fail-fast': false,
+            matrix: {
+                include: [] as any
+            }
         }
     };
 
+    let mergeCommands = '';
+
     // Build
     for (let release of releases) {
+        ghConfig.amd64.matrix.include.push({
+            name: `AMD64: Shopware ${release.tags.join(',')}`,
+            runs: {
+                build: `docker build --build-arg SHOPWARE_DL=${release.download} --build-arg SHOPWARE_VERSION=${release.version} ${buildImageTags(release.tags, 'amd64', '--tag ', '')} .`,
+                push: `${buildImageTags(release.tags, 'amd64', 'docker push ', ';')}`
+            }
+        });
+
+        ghConfig.arm64.matrix.include.push({
+            name: `ARM64: Shopware ${release.tags.join(',')}`,
+            runs: {
+                build: `docker build --build-arg SHOPWARE_DL=${release.download} --build-arg SHOPWARE_VERSION=${release.version} ${buildImageTags(release.tags, 'arm64', '--tag ', '')} .`,
+                push: `${buildImageTags(release.tags, 'arm64', 'docker push ', ';')}`
+            }
+        });
+
         for (let tag of release.tags) {
-            ghConfig.matrix.include.push({
-                name: `Shopware ${tag}`,
-                runs: {
-                    build: `docker buildx build --platform linux/amd64,linux/arm64 --build-arg SHOPWARE_DL=${release.download} --build-arg SHOPWARE_VERSION=${release.version} --tag ghcr.io/shyim/shopware:${tag} --tag shyim/shopware:${tag} --push .`
-                }
-            });
+            const images = ['shyim/shopware', 'ghcr.io/shyim/shopware'];
+
+            for (let image of images) {
+                mergeCommands = `${mergeCommands}docker manifest create ${image}:${tag} --amend ${image}:${tag}-amd64 --amend ${image}:${tag}-arm64;`
+                mergeCommands = `${mergeCommands}docker manifest push ${image}:${tag};`
+            }
         }
     }
+
+    ghConfig.merge.matrix.include.push({
+        name: 'Create Manifest',
+        runs: {
+            merge: mergeCommands
+        }
+    });
 
     await Deno.stdout.write(new TextEncoder().encode(JSON.stringify(ghConfig)));
 }
 
+function buildImageTags(tags : string[], arch: string, prefix: string, suffix: string): string {
+    let ret = '';
+
+    const images = ['shyim/shopware', 'ghcr.io/shyim/shopware'];
+
+    for (let image of images) {
+        for (let tag of tags) {
+            ret = `${ret} ${prefix}${image}:${tag}-${arch}${suffix}`;
+        }
+    }
+
+    return ret.trim();
+}
+
+
 function getMajorVersion(version: string) {
     let majorVersion = /\d+\.\d+/gm.exec(version);
+
+    if (majorVersion && majorVersion[0]) {
+        return majorVersion[0];
+    } 
+
+    return '';
+}
+
+function getVersion(version: string) {
+    let majorVersion = /\d+\.\d+.\d+/gm.exec(version);
 
     if (majorVersion && majorVersion[0]) {
         return majorVersion[0];
@@ -44,11 +109,8 @@ async function getReleases() {
 
 
     for (let release of json) {
-        try {
-            if (semver.lt(release.version, '6.2.0')) {
-                continue;
-            }
-        } catch (e) {
+        if (semver.lt(getVersion(release.version), '6.4.0')) {
+            continue;
         }
 
         const majorVersion = getMajorVersion(release.version);

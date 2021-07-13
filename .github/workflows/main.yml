@@ -26,9 +26,9 @@ jobs:
         echo $strategy
         echo "::set-output name=strategy::$strategy"
 
-  build:
+  build-amd64:
     needs: generate-jobs
-    strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy) }}
+    strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy).amd64 }}
     name: ${{ matrix.name }}
     runs-on: ubuntu-20.04
     steps:
@@ -40,15 +40,50 @@ jobs:
       - name: Login into Github Docker Registery
         run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u shyim --password-stdin
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+      - name: Build ${{ matrix.name }}
+        run: ${{ matrix.runs.build }}
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
+      - name: Push ${{ matrix.name }}
+        run: ${{ matrix.runs.push }}
 
-      - name: Available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
+  build-arm64:
+    needs: generate-jobs
+    strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy).arm64 }}
+    name: ${{ matrix.name }}
+    runs-on: ARM64
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login into Docker Registery
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
+
+      - name: Login into Github Docker Registery
+        run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u shyim --password-stdin
 
       - name: Build ${{ matrix.name }}
         run: ${{ matrix.runs.build }}
+
+      - name: Push ${{ matrix.name }}
+        run: ${{ matrix.runs.push }}
+
+  build-manifest:
+    name: Generate Manifest file
+    strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy).merge }}
+    needs:
+      - generate-jobs
+      - build-amd64
+      - build-arm64
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login into Docker Registery
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
+
+      - name: Login into Github Docker Registery
+        run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u shyim --password-stdin
+
+      - name: Merge
+        run: ${{ matrix.runs.merge }}
+
+
