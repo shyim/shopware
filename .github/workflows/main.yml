@@ -2,9 +2,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-  schedule:
-    - cron: '0 1 * * *'
-
+  
 jobs:
   generate-jobs:
     name: Generate Jobs
