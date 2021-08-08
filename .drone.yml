@@ -11,5 +11,5 @@ steps:
   image: alpine
   commands:
   - cat /proc/cpuinfo
-  - echo nproc
+  - nproc
   - free -m
