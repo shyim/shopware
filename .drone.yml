@@ -7,9 +7,5 @@ platform:
   arch: amd64
 
 steps:
-- name: greeting
-  image: alpine
-  commands:
-  - cat /proc/cpuinfo
-  - nproc
-  - free -m
+- name: docker
+  image: plugins/docker
