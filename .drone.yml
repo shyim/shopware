@@ -4,10 +4,11 @@ name: default
 
 platform:
   os: linux
-  arch: arm64
+  arch: amd64
 
 steps:
 - name: greeting
   image: alpine
   commands:
-  - uname -m
+  - cat /proc/cpuinfo
+  - free -m
