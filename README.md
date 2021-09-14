@@ -160,15 +160,15 @@ command: ['cli', 'symfony:command', 'arg1', 'arg2']
 * To run script on update, add a new file to `/etc/shopware/scripts/on-update/xx.sh`
 * To run script on startup, add a new file to `/etc/shopware/scripts/on-startup/xx.sh`
 
-## Install plugins from packages.friendsofshopware.com
+## Install plugins from packages.shopware.com
 
 ```docker
-FROM shyim/shopware:6.2.0
+FROM shyim/shopware:6.4
 
 # Add repository
-RUN jq '.repositories += [{"type": "composer","url": "https://packages.friendsofshopware.com/","options": {"http": {"header": ["Token: MyToken"]}}}]' /var/www/html/composer.json > /var/www/html/composer2.json && \
+RUN jq '.repositories += [{"type": "composer","url": "https://packages.shopware.com/","options": {"http": {"header": ["Token: MyToken"]}}}]' /var/www/html/composer.json > /var/www/html/composer2.json && \
   cp composer2.json composer.json && \
   chown 1000:1000 composer.json
 
-RUN sudo -u www-data composer require store.shopware.com/swagcmsextensions
+RUN sudo -E -u www-data composer require store.shopware.com/swagcmsextensions
 ```
