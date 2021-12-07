@@ -74,7 +74,7 @@ COPY patches /usr/local/src/sw-patches
     touch /var/www/html/install.lock && \
     echo $SHOPWARE_VERSION > /shopware_version && \
     for f in /usr/local/src/sw-patches/*.patch; do patch -p1 < $f || true; done && \
-    chown -R 1000 /var/www/html
+    chown -R www-data:www-data /var/www
 
 COPY rootfs /
 
