@@ -38,7 +38,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
 
       - name: Login into Github Docker Registery
-        run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u shyim --password-stdin
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
