@@ -60,6 +60,8 @@ Following environment can be set:
 | COMPOSER_HOME                | /tmp/composer    | Caching for the Plugin Manager                          |
 | SHOPWARE_HTTP_CACHE_ENABLED  | 1                | Is HTTP Cache enabled?                                  |
 | SHOPWARE_HTTP_DEFAULT_TTL    | 7200             | Default TTL for Http Cache                              |
+| SHOPWARE_AUTOMATICALLY_EMPTY_CACHE_ENABLED | false            | Empty cache automatically. See [Caches & Indexes > Empty cache automatically](https://docs.shopware.com/en/shopware-6-en/configuration/caches-indexes#empty-cache-automatically) |
+| SHOPWARE_EMPTY_CACHE_INTERVAL| 86400 (24 hours) | Interval with which to clear the cache in seconds.      |
 | DISABLE_ADMIN_WORKER         | false            | Disables the admin worker                               |
 | INSTALL_LOCALE               | en-GB            | Default locale for the Shop                             |
 | INSTALL_CURRENCY             | EUR              | Default currency for the Shop                           |
