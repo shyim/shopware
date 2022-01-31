@@ -115,7 +115,7 @@ TPL;
 
         if ($php !== $phpIndex[$php] ?? $php) {
             $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
-            $tags .= '--tagshyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
+            $tags .= '--tag shyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
         }
     }
 
