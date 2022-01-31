@@ -1,6 +1,6 @@
 ARG PHP_VERSION=7.4
 
-FROM ghcr.io/shyim/shopware-php-base:${PHP_VERSION}
+FROM ghcr.io/shyim/shopware-php:${PHP_VERSION}
 
 ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
 ARG SHOPWARE_VERSION=6.2.0
