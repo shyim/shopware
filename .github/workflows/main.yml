@@ -26,8 +26,26 @@ jobs:
         echo $strategy
         echo "::set-output name=strategy::$strategy"
 
-  build:
-    needs: generate-jobs
+  build-php:
+    name: Build PHP images
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        php: [74, 80, 81]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login into Github Docker Registery
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build PHP
+        run: docker buildx build --platform linux/amd64,linux/arm64 --build-arg PHP_VERSION=${{ matrix.php }} --tag ghcr.io/shyim/shopware-php:${tag} --push .
+
+  build-shopware:
+    needs: 
+      - generate-jobs
+      - build-php
     strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy) }}
     name: ${{ matrix.name }}
     runs-on: ubuntu-20.04
