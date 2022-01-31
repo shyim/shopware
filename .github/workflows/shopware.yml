@@ -1,4 +1,4 @@
-name: Shopware Build
+name: Build Shopware
 on:
   workflow_dispatch:
   push:

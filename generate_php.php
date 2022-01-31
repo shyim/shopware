@@ -1,6 +1,6 @@
 <?php
 
-$supportedVersions = ['7.4', '8.0'];
+$supportedVersions = ['7.4', '8.0', '8.1'];
 $index = [];
 $tpl = file_get_contents('Dockerfile.php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';
