@@ -1,4 +1,4 @@
-name: CI
+name: Shopware Build
 on:
   workflow_dispatch:
   push:

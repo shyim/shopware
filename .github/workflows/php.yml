@@ -21,7 +21,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build PHP
-        run: docker buildx build -f php/7.4/ --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:7.4 --tag ghcr.io/shyim/shopware-php:7.4.27 --push .
+        run: docker buildx build -f ./php/7.4/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:7.4 --tag ghcr.io/shyim/shopware-php:7.4.27 --push .
   php80:
     name: PHP 8.0
     runs-on: ubuntu-20.04
@@ -39,4 +39,4 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build PHP
-        run: docker buildx build -f php/8.0/ --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:8.0 --tag ghcr.io/shyim/shopware-php:8.0.15 --push .
+        run: docker buildx build -f ./php/8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:8.0 --tag ghcr.io/shyim/shopware-php:8.0.15 --push .

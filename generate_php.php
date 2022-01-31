@@ -52,7 +52,7 @@ foreach ($supportedVersions as $supportedVersion)
         uses: docker/setup-buildx-action@v1
 
       - name: Build PHP
-        run: docker buildx build -f %s --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:%s --tag ghcr.io/shyim/shopware-php:%s --push .
+        run: docker buildx build -f ./%sDockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:%s --tag ghcr.io/shyim/shopware-php:%s --push .
 TPL;
 
     $workflow .= sprintf($workflowTpl, str_replace('.', '', $supportedVersion), $supportedVersion, $folder, $supportedVersion, $patchVersion['version']);
