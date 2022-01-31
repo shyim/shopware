@@ -47,7 +47,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build PHP
-        run: docker buildx build --platform linux/amd64,linux/arm64 --build-arg PHP_VERSION=${{ matrix.php }} --tag ghcr.io/shyim/shopware-php:${{ matrix.php }} --push .
+        run: docker buildx build -f Dockerfile.php --platform linux/amd64,linux/arm64 --build-arg PHP_VERSION=${{ matrix.php }} --tag ghcr.io/shyim/shopware-php:${{ matrix.php }} --push .
 
   build-shopware:
     needs: 
