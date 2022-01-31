@@ -106,13 +106,16 @@ TPL;
     foreach($versionTags as $tag) {
         // default php version is always lowest
         if ($i === 0 ) {
-            $tags .= '--tag ' . $tag . ' ';
+            $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . ' ';
+            $tags .= '--tag shyim/shopware:' . $tag . ' ';
         }
 
-        $tags .= '--tag ' . $tag . '-php' . $php . ' ';
+        $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . '-php' . $php . ' ';
+        $tags .= '--tag shyim/shopware:' . $tag . '-php' . $php . ' ';
 
         if ($php !== $phpIndex[$php] ?? $php) {
-            $tags .= '--tag ' . $tag . '-php' . $phpIndex[$php] . ' ';
+            $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
+            $tags .= '--tagshyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
         }
     }
 
