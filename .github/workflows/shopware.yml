@@ -1,4 +1,4 @@
-name: CI
+name: Build Shopware
 on:
   workflow_dispatch:
   push:
@@ -26,8 +26,9 @@ jobs:
         echo $strategy
         echo "::set-output name=strategy::$strategy"
 
-  build:
-    needs: generate-jobs
+  build-shopware:
+    needs: 
+      - generate-jobs
     strategy: ${{ fromJson(needs.generate-jobs.outputs.strategy) }}
     name: ${{ matrix.name }}
     runs-on: ubuntu-20.04
@@ -38,7 +39,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
 
       - name: Login into Github Docker Registery
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
