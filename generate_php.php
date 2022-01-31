@@ -10,7 +10,9 @@ name: Build PHP
 on:
   workflow_dispatch:
   push:
-
+    paths:
+      - ".github/workflows/php.yml"
+      - "rootfs/**"
 jobs:
 YML;
 

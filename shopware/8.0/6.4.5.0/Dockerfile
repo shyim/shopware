@@ -1,19 +1,14 @@
-ARG PHP_VERSION=7.4
-
-FROM ghcr.io/shyim/shopware-php:${PHP_VERSION}
-
-ARG SHOPWARE_DL=https://www.shopware.com/de/Download/redirect/version/sw6/file/install_6.2.0_1589874223.zip
-ARG SHOPWARE_VERSION=6.2.0
+FROM ghcr.io/shyim/shopware-php:8.0.15
 
 COPY patches /usr/local/src/sw-patches
 
 RUN cd /var/www/html && \
-    wget -qq $SHOPWARE_DL && \
+    wget -qq "https://releases.shopware.com/sw6/install_v6.4.5.0_4b668799439e7a5c0f72efc93b13eb3802340b42.zip" && \
     unzip -qq *.zip && \
     rm *.zip && \
     mkdir /state && \
     touch /var/www/html/install.lock && \
-    echo $SHOPWARE_VERSION > /shopware_version && \
+    echo "6.4.5.0" > /shopware_version && \
     for f in /usr/local/src/sw-patches/*.patch; do patch -p1 < $f || true; done && \
     chown -R www-data:www-data /var/www
 
