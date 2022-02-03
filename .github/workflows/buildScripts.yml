@@ -1,0 +1,35 @@
+name: Build PHP
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/buildScripts.yml"
+      - "index_php.json"
+
+jobs:
+  generateShopware:
+    name: Generate Builds
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PRIVATETOKEN }}
+
+      - name: Generate files
+        run: |
+          php generate_shopware.php
+          php generate_php.php
+
+          if [[ -z $(git status -s) ]]
+          then
+            echo "Nothing changed"
+            exit 0
+          fi
+          
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add -A .
+          git commit -m "chore: update builds"
+          git push origin addBuildScripts
+        env:
+          PRIVATETOKEN: ${{ secrets.PRIVATETOKEN }}
