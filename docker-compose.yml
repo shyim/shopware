@@ -1,18 +1,16 @@
 version: "3.8"
 services:
   mysql:
-    image: bitnami/mysql:5.7
-    tmpfs:
-      - /var/lib/mysql
+    image: mysql:8.0
     environment:
       ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
       MYSQL_DATABASE: shopware
+    volumes:
+      - mysql-data:/var/lib/mysql
   shopware:
     image: shyim/shopware:latest
-    build:
-      context: .
     environment:
       APP_SECRET: 440dec3766de53010c5ccf6231c182acfc90bd25cff82e771245f736fd276518
       INSTANCE_ID: 10612e3916e153dd3447850e944a03fabe89440970295447a30a75b151bd844e
@@ -30,3 +28,24 @@ services:
       INSTALL_LOCALE: de-DE
     ports:
       - 80:80
+    volumes:
+      - state:/state
+      - plugins:/var/www/html/custom/plugins
+      - files:/var/www/html/files
+      - jwt:/var/www/html/config/jwt
+      - theme:/var/www/html/public/theme
+      - media:/var/www/html/public/media
+      - thumbnail:/var/www/html/public/thumbnail
+      - bundles:/var/www/html/public/bundles
+      - sitemap:/var/www/html/public/sitemap
+volumes:
+  state:
+  mysql-data:
+  plugins:
+  files:
+  jwt:
+  theme:
+  media:
+  thumbnail:
+  bundles:
+  sitemap:
