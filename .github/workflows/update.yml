@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PRIVATETOKEN }}
+          token: ${{ secrets.GH_USER_SECRET }}
 
       - name: Generate files
         run: |
