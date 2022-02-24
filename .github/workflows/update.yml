@@ -36,3 +36,35 @@ jobs:
           --body "Automated PR to update Shopware images" \
           --base master \
           --head $BRANCH
+
+  php:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Generate files
+      run: |
+        php generate_php.php
+      
+    - name: Create Pull Request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        if [[ -z $(git status -s) ]]
+        then
+          echo "Nothing changed"
+          exit 0
+        fi
+      
+        BRANCH="update-php"
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action"
+        git checkout -b $BRANCH
+        git commit -am "chore: Update PHP images"
+        git push --set-upstream origin $BRANCH
+        gh pr create \
+          --title "Update PHP images" \
+          --body "Automated PR to update PHP images" \
+          --base master \
+          --head $BRANCH
