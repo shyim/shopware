@@ -1,5 +1,5 @@
 name: Update Images
-
+permissions: write-all
 on:
   workflow_dispatch:
   schedule:
