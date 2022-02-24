@@ -1,0 +1,37 @@
+name: Update Shopware Images
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Generate files
+      run: |
+        php generate_shopware.php
+        if [[ -z $(git status -s) ]]
+        then
+          echo "Nothing changed"
+          exit 0
+        fi
+      
+    - name: Create Pull Request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        BRANCH="update-shopware"
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action"
+        git checkout -b $BRANCH
+        git commit -am "chore: Update Shopware images"
+        git push --set-upstream origin $BRANCH
+        gh pr create \
+          --title "Update Shopware images" \
+          --body "Automated PR to update Shopware images" \
+          --base master \
+          --head $BRANCH
