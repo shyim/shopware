@@ -1,11 +1,11 @@
-name: Update Shopware Images
+name: Update Images
 
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 1 * * *'
 jobs:
-  build:
+  shopware:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,16 +14,17 @@ jobs:
     - name: Generate files
       run: |
         php generate_shopware.php
+      
+    - name: Create Pull Request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
         if [[ -z $(git status -s) ]]
         then
           echo "Nothing changed"
           exit 0
         fi
       
-    - name: Create Pull Request
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
         BRANCH="update-shopware"
         git config user.email "action@github.com"
         git config user.name "GitHub Action"
