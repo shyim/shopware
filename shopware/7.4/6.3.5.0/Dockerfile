@@ -1,4 +1,4 @@
-FROM ghcr.io/shyim/shopware-php:7.4.27
+FROM ghcr.io/shyim/shopware-php:7.4.28
 
 COPY patches /usr/local/src/sw-patches
 
