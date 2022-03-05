@@ -24,6 +24,10 @@ foreach ($supportedVersions as $supportedVersion)
     if (!is_array($apiResponse)) {
         throw new \RuntimeException("invalid api response");
     }
+  
+    if (str_contains($apiResponse['results'][0]['name'], 'rc')) {
+        continue; 
+    }
 
     preg_match($versionRegex, $apiResponse['results'][0]['name'], $patchVersion);
 
