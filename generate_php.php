@@ -16,7 +16,6 @@ on:
 jobs:
 YML;
 
-
 foreach ($supportedVersions as $supportedVersion)
 {
     $apiResponse = json_decode(file_get_contents('https://hub.docker.com/v2/repositories/library/php/tags/?page_size=25&page=1&name=' . $supportedVersion), true);
@@ -24,12 +23,20 @@ foreach ($supportedVersions as $supportedVersion)
     if (!is_array($apiResponse)) {
         throw new \RuntimeException("invalid api response");
     }
-  
-    if (str_contains($apiResponse['results'][0]['name'], 'rc')) {
-        continue; 
+
+    $curVersion = null;
+
+    foreach ($apiResponse['results'] as $entry) {
+        if (str_contains($entry['name'], 'RC')) {
+            continue;
+        }
+
+        $curVersion = $entry['name'];
+
+        break;
     }
 
-    preg_match($versionRegex, $apiResponse['results'][0]['name'], $patchVersion);
+    preg_match($versionRegex, $curVersion, $patchVersion);
 
     $folder = 'php/' . $supportedVersion . '/';
     if (!file_exists($folder)) {
