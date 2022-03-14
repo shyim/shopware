@@ -1,4 +1,4 @@
-FROM php:-fpm-alpine
+FROM php:8.1.3-fpm-alpine
 
 ENV TZ=Europe/Berlin \
     APP_ENV=prod \

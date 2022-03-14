@@ -27,16 +27,16 @@ foreach ($supportedVersions as $supportedVersion)
     $curVersion = null;
 
     foreach ($apiResponse['results'] as $entry) {
-        if (str_contains($entry['name'], 'RC')) {
+        if (strpos($entry['name'], 'RC') !== false) {
             continue;
         }
 
-        $curVersion = $entry['name'];
+        preg_match($versionRegex, $entry['name'], $patchVersion);
 
-        break;
+        if (count($patchVersion) > 0) {
+          break;
+        }
     }
-
-    preg_match($versionRegex, $curVersion, $patchVersion);
 
     $folder = 'php/' . $supportedVersion . '/';
     if (!file_exists($folder)) {
