@@ -19,6 +19,7 @@ on:
   push:
     paths:
       - ".github/workflows/shopware.yml"
+      - "version.txt"
 jobs:
 YML;
 
