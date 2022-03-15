@@ -1,14 +1,14 @@
-FROM ghcr.io/shyim/shopware-php:8.1.3
+FROM ghcr.io/shyim/shopware-php:7.4.28
 
 COPY patches /usr/local/src/sw-patches
 
 RUN cd /var/www/html && \
-    wget -qq "https://releases.shopware.com/sw6/install_v6.4.8.0_2a7a580c3e9237f8476d6d8c3636d05eef3ee7e3.zip" && \
+    wget -qq "https://releases.shopware.com/sw6/install_v6.4.9.0_a8fcd291f6294c63f861bab9d0af205715a4d212.zip" && \
     unzip -qq *.zip && \
     rm *.zip && \
     mkdir /state && \
     touch /var/www/html/install.lock && \
-    echo "6.4.8.0" > /shopware_version && \
+    echo "6.4.9.0" > /shopware_version && \
     for f in /usr/local/src/sw-patches/*.patch; do patch -p1 < $f || true; done && \
     chown -R www-data:www-data /var/www
 
