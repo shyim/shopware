@@ -18,7 +18,7 @@ YML;
 
 foreach ($supportedVersions as $supportedVersion)
 {
-    $apiResponse = json_decode(file_get_contents('https://hub.docker.com/v2/repositories/library/php/tags/?page_size=25&page=1&name=' . $supportedVersion), true);
+    $apiResponse = json_decode(file_get_contents('https://hub.docker.com/v2/repositories/library/php/tags/?page_size=25&page=1&name=' . $supportedVersion. '.'), true);
 
     if (!is_array($apiResponse)) {
         throw new \RuntimeException("invalid api response");
