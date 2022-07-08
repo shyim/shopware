@@ -1,43 +1,17 @@
-# What is Shopware?
+# Shopware MyParcel Docker
 
-Shopware is a trendsetting ecommerce platform to power your online business. Our ecommerce solution offers the perfect combination of beauty & brains you need to build and customize a fully responsive online store.
-
-![Shopware Logo](https://assets.shopware.com/media/logos/shopware_logo_blue.svg)
-
+Special docker image for coding on the MyParcel plugin for Shopware.
 
 # How to use this image
 
-To run Shopware 6 you will need a compatible MySQL or MariaDB container.
-
-Smallest example with docker-compose
-
+Adjust the **docker-compose.yml** to change the default values and spin the container up.
+The installation will be accessible at `http://localhost`. The default credentials for the administration are `admin` and `shopware` as password.
 ```yaml
-version: "3.8"
-services:
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: shopware
-      MYSQL_USER: shopware
-      MYSQL_PASSWORD: shopware
-  shopware:
-    image: shyim/shopware:6.2.0
-    environment:
-      APP_SECRET: 440dec3766de53010c5ccf6231c182acfc90bd25cff82e771245f736fd276518
-      INSTANCE_ID: 10612e3916e153dd3447850e944a03fabe89440970295447a30a75b151bd844e
-      APP_URL: http://localhost
-      DATABASE_HOST: mysql
-      DATABASE_URL: mysql://shopware:shopware@mysql:3306/shopware
-    ports:
-      - 80:80
+docker compose up -d
 ```
 
-[![Try](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/shyim/shopware-image/master/docker-compose.yml)
 
-The installation will be accessible at `http://localhost`. The default credentials for the administration are `admin` and `shopware` as password.
-
-Following environment can be set:
+# Following environment can be set:
 
 | Variable                     | Default Value    | Description                                             |
 |------------------------------|------------------|---------------------------------------------------------|
@@ -86,48 +60,6 @@ Following environment can be set:
 | FPM_PM_MIN_SPARE_SERVERS     | 1                | See php fpm documentation                               |
 | FPM_PM_MAX_SPARE_SERVERS     | 3                | See php fpm documentation                               |
 
-When Shopware with SSL behind a reverse proxy such as NGINX which is responsible for doing TLS termination, be sure configure [Trusted Headers](https://symfony.com/doc/current/deployment/proxies.html).
-
-# Updates
-
-When you update the image version, automatically all required migrations will run. Downgrade works in a similar way. Please check before here the Blue-Green compatibility of Shopware.
-
-# Running multiple containers
-
-See `docker-compose-advanced.yml` for a full docker-compose example.
-
-## Mode: default
-
-* The container will check is Shopware installed and install or update it (and execute hooks). 
-* Will start Web server
-
-```yaml
-command: ['default']
-```
-
-## Mode: web
-
-* Will start Web server
-
-```yaml
-command: ['web']
-```
-
-## Mode: maintenance
-
-* The container will check is Shopware installed and install or update it (and execute hooks). 
-
-```yaml
-command: ['maintenance']
-```
-
-## Mode: cli
-
-* Allows to run cli commands like message consumer and other tasks
-
-```yaml
-command: ['cli', 'symfony:command', 'arg1', 'arg2']
-```
 
 # Volumes
 
@@ -145,32 +77,9 @@ command: ['cli', 'symfony:command', 'arg1', 'arg2']
 | /var/www/html/config/jwt       | JWT Certificate for API                         |
 
 
-## Reducing usage of Volumes
-
-* /state
-  * The state can be ignored by having a `INSTALLED_SHOPWARE_VERSION` environment variable with the current used Shopware version. This will be used to detect if database migrations needs to be executed.
-* /config/jwt
-  * In Kubernetes you can mount a secretmap to this location with your certificates
-* /public/*
-  * Use external storage adapter, see Shopware documentation
-
-# Extending the image
 
 ## Additional hooks
 
 * To run script on installation, add a new file to `/etc/shopware/scripts/on-install/xx.sh`
 * To run script on update, add a new file to `/etc/shopware/scripts/on-update/xx.sh`
 * To run script on startup, add a new file to `/etc/shopware/scripts/on-startup/xx.sh`
-
-## Install plugins from packages.shopware.com
-
-```docker
-FROM shyim/shopware:6.4
-
-# Add repository
-RUN jq '.repositories += [{"type": "composer","url": "https://packages.shopware.com/","options": {"http": {"header": ["Token: MyToken"]}}}]' /var/www/html/composer.json > /var/www/html/composer2.json && \
-  cp composer2.json composer.json && \
-  chown 1000:1000 composer.json
-
-RUN sudo -E -u www-data composer require store.shopware.com/swagcmsextensions
-```
