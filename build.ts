@@ -1,4 +1,4 @@
-import * as semver from "https://deno.land/x/semver/mod.ts";
+import * as semver from "https://deno.land/std/semver/mod.ts";
 
 async function main() {
     let releases = await getReleases();
