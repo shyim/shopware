@@ -18,13 +18,14 @@ YML;
 
 foreach ($supportedVersions as $supportedVersion)
 {
-    $apiResponse = json_decode(file_get_contents('https://hub.docker.com/v2/repositories/library/php/tags/?page_size=25&page=1&name=' . $supportedVersion. '.'), true);
+    $apiResponse = json_decode(file_get_contents('https://hub.docker.com/v2/repositories/library/php/tags/?page_size=50&page=1&name=' . $supportedVersion. '.'), true);
 
     if (!is_array($apiResponse)) {
         throw new \RuntimeException("invalid api response");
     }
 
     $curVersion = null;
+    $patchVersion = null;
 
     foreach ($apiResponse['results'] as $entry) {
         if (strpos($entry['name'], 'RC') !== false) {
@@ -34,8 +35,12 @@ foreach ($supportedVersions as $supportedVersion)
         preg_match($versionRegex, $entry['name'], $patchVersion);
 
         if (count($patchVersion) > 0) {
-          break;
+            break;
         }
+    }
+
+    if ($patchVersion === null) {
+        throw new \RuntimeException('There is no version found for PHP ' . $supportedVersion);
     }
 
     $folder = 'php/' . $supportedVersion . '/';
