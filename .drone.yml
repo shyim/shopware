@@ -16,3 +16,5 @@ steps:
       from_secret: DOCKER_HUB_USER
     password:
       from_secret: DOCKER_HUB_SECRET
+    email:
+      from_secret: DOCKER_HUB_EMAIL
