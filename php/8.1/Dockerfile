@@ -33,6 +33,7 @@ ENV APP_ENV=prod \
     PHP_MAX_EXECUTION_TIME=300 \
     PHP_MEMORY_LIMIT=512m \
     PHP_ERROR_REPORTING=E_ALL \
+    RUN_NGINX=1 \
     LD_PRELOAD="/usr/lib/preloadable_libiconv.so php"
 
 COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord

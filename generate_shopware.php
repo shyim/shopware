@@ -76,7 +76,7 @@ foreach($shopwareVersions as $shopwareVersion) {
         ];
 
         file_put_contents($folder . '/Dockerfile', str_replace(array_keys($replacements), $replacements, $dockerTpl));
-        file_put_contents($folder . '/Dockerfile.cli', str_replace(array_keys($replacements), $replacements, $dockerTpl) . PHP_EOL . PHP_EOL . 'HEALTHCHECK NONE');
+        file_put_contents($folder . '/Dockerfile.cli', str_replace(array_keys($replacements), $replacements, $dockerTpl) . PHP_EOL . 'ENV RUN_NGINX=0' . PHP_EOL . 'HEALTHCHECK NONE');
 
         $workflowTpl = <<<'TPL'
 
