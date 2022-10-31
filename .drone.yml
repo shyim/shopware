@@ -1,0 +1,12 @@
+kind: pipeline
+type: docker
+name: default
+platform:
+  os: linux
+  arch: arm64
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    dockerfile: ./php/7.4/Dockerfile
+    context: .
