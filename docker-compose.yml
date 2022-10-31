@@ -26,6 +26,7 @@ services:
       SHOPWARE_HTTP_CACHE_ENABLED: 1
       SHOPWARE_HTTP_DEFAULT_TTL: 7200
       INSTALL_LOCALE: de-DE
+      BLUE_GREEN_DEPLOYMENT: 0
     ports:
       - 80:80
     volumes:
