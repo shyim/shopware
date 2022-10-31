@@ -1,7 +1,6 @@
-FROM php:8.1.12-fpm-alpine
+FROM php:8.1-fpm-alpine
 
-ENV TZ=Europe/Berlin \
-    APP_ENV=prod \
+ENV APP_ENV=prod \
     MAILER_URL=null://localhost \
     SHOPWARE_ES_HOSTS= \
     SHOPWARE_ES_ENABLED=0 \
@@ -33,6 +32,7 @@ ENV TZ=Europe/Berlin \
     PHP_MAX_UPLOAD_SIZE=128m \
     PHP_MAX_EXECUTION_TIME=300 \
     PHP_MEMORY_LIMIT=512m \
+    PHP_ERROR_REPORTING=E_ALL \
     LD_PRELOAD="/usr/lib/preloadable_libiconv.so php"
 
 COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord
@@ -50,7 +50,16 @@ RUN apk add --no-cache \
       patch \
       jq && \
     apk add --no-cache --allow-untrusted /gnu-libiconv-1.15-r3.apk && rm /gnu-libiconv-1.15-r3.apk && \
+
+    # Remove when install-php-extensions has fixed it
+    apk add --no-cache libavif libavif-dev aom-libs aom-dev dav1d dav1d-dev && \
+
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip ffi redis opcache apcu && \
+
+    # Remove when fixed
+    apk del libavif-dev aom-dev dav1d-dev && \
+
+
     ln -s /usr/local/bin/php /usr/bin/php && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
