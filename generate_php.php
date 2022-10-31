@@ -77,11 +77,16 @@ foreach ($supportedVersions as $supportedVersion)
           restore-keys: |
             ${{ runner.os }}-buildx-%s
 
+      - name: Try to pull the image to maybe cache the layers
+        run: |
+          docker pull ghcr.io/shyim/shopware-php:%s --platform linux/amd64 || true
+          docker pull ghcr.io/shyim/shopware-php:%s --platform linux/arm64 || true
+
       - name: Build PHP
         run: docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -f ./%sDockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:%s --tag ghcr.io/shyim/shopware-php:%s --push .
 TPL;
 
-    $workflow .= sprintf($workflowTpl, str_replace('.', '', $supportedVersion), $supportedVersion, $supportedVersion, $supportedVersion, $folder, $supportedVersion, $patchVersion['version']);
+    $workflow .= sprintf($workflowTpl, str_replace('.', '', $supportedVersion), $supportedVersion, $supportedVersion, $supportedVersion, $patchVersion['version'], $patchVersion['version'], $folder, $supportedVersion, $patchVersion['version']);
 }
 
 file_put_contents('.github/workflows/php.yml', $workflow);

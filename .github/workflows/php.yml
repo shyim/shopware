@@ -30,6 +30,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-7.4
 
+      - name: Try to pull the image to maybe cache the layers
+        run: |
+          docker pull ghcr.io/shyim/shopware-php:7.4.32 --platform linux/amd64 || true
+          docker pull ghcr.io/shyim/shopware-php:7.4.32 --platform linux/arm64 || true
+
       - name: Build PHP
         run: docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -f ./php/7.4/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:7.4 --tag ghcr.io/shyim/shopware-php:7.4.32 --push .
   php80:
@@ -56,6 +61,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-8.0
 
+      - name: Try to pull the image to maybe cache the layers
+        run: |
+          docker pull ghcr.io/shyim/shopware-php:8.0.25 --platform linux/amd64 || true
+          docker pull ghcr.io/shyim/shopware-php:8.0.25 --platform linux/arm64 || true
+
       - name: Build PHP
         run: docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -f ./php/8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:8.0 --tag ghcr.io/shyim/shopware-php:8.0.25 --push .
   php81:
@@ -81,6 +91,11 @@ jobs:
           key: ${{ runner.os }}-buildx-8.1-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-8.1
+
+      - name: Try to pull the image to maybe cache the layers
+        run: |
+          docker pull ghcr.io/shyim/shopware-php:8.1.12 --platform linux/amd64 || true
+          docker pull ghcr.io/shyim/shopware-php:8.1.12 --platform linux/arm64 || true
 
       - name: Build PHP
         run: docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -f ./php/8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:8.1 --tag ghcr.io/shyim/shopware-php:8.1.12 --push .
