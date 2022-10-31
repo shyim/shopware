@@ -76,6 +76,7 @@ foreach($shopwareVersions as $shopwareVersion) {
         ];
 
         file_put_contents($folder . '/Dockerfile', str_replace(array_keys($replacements), $replacements, $dockerTpl));
+        file_put_contents($folder . '/Dockerfile.cli', str_replace(array_keys($replacements), $replacements, $dockerTpl) . PHP_EOL . PHP_EOL . 'HEALTHCHECK NONE');
 
         $workflowTpl = <<<'TPL'
 
@@ -98,25 +99,38 @@ foreach($shopwareVersions as $shopwareVersion) {
         id: buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Build PHP
+      - name: Build PHP Web
         run: docker buildx build -f #DOCKER_FILE# --platform linux/amd64,linux/arm64 #TAGS# --push .
+
+      - name: Build PHP CLI
+        run: docker buildx build -f #DOCKER_FILE#.cli --platform linux/amd64,linux/arm64 #CLI_TAGS# --push .
 TPL;
 
     $tags = '';
+    $cliTags = '';
 
     foreach($versionTags as $tag) {
         // default php version is always lowest
         if ($i === 0 ) {
             $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . ' ';
             $tags .= '--tag shyim/shopware:' . $tag . ' ';
+
+            $cliTags .= '--tag ghcr.io/shyim/shopware:cli-' . $tag . ' ';
+            $cliTags .= '--tag shyim/shopware:cli-' . $tag . ' ';
         }
 
         $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . '-php' . $php . ' ';
         $tags .= '--tag shyim/shopware:' . $tag . '-php' . $php . ' ';
 
+        $cliTags .= '--tag ghcr.io/shyim/shopware:cli-' . $tag . '-php' . $php . ' ';
+        $cliTags .= '--tag shyim/shopware:cli-' . $tag . '-php' . $php . ' ';
+
         if ($php !== $phpIndex[$php] ?? $php) {
             $tags .= '--tag ghcr.io/shyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
             $tags .= '--tag shyim/shopware:' . $tag . '-php' . $phpIndex[$php] . ' ';
+
+            $cliTags .= '--tag ghcr.io/shyim/shopware:cli-' . $tag . '-php' . $phpIndex[$php] . ' ';
+            $cliTags .= '--tag shyim/shopware:cli-' . $tag . '-php' . $phpIndex[$php] . ' ';
         }
     }
 
@@ -124,6 +138,7 @@ TPL;
         '#JOBKEY#' => str_replace('.', '_', 'shopware-' . $shopwareVersion['version'] . '-' . $php),
         '#NAME#' => $shopwareVersion['version'] . ' with PHP ' . $php,
         '#TAGS#' => $tags,
+        '#CLI_TAGS#' => $cliTags,
         '#DOCKER_FILE#' => './' . $folder . '/Dockerfile'
     ];
 
