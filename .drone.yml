@@ -11,6 +11,7 @@ steps:
     dockerfile: ./php/7.4/Dockerfile
     context: .
     registry: docker.io
+    mirror: mirror.gcr.io
     username:
       from_secret: DOCKER_HUB_USER
     password:
