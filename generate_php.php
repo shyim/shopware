@@ -69,11 +69,19 @@ foreach ($supportedVersions as $supportedVersion)
         id: buildx
         uses: docker/setup-buildx-action@v1
 
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-%s-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-%s
+
       - name: Build PHP
-        run: docker buildx build -f ./%sDockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:%s --tag ghcr.io/shyim/shopware-php:%s --push .
+        run: docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -f ./%sDockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:%s --tag ghcr.io/shyim/shopware-php:%s --push .
 TPL;
 
-    $workflow .= sprintf($workflowTpl, str_replace('.', '', $supportedVersion), $supportedVersion, $folder, $supportedVersion, $patchVersion['version']);
+    $workflow .= sprintf($workflowTpl, str_replace('.', '', $supportedVersion), $supportedVersion, $supportedVersion, $supportedVersion, $folder, $supportedVersion, $patchVersion['version']);
 }
 
 file_put_contents('.github/workflows/php.yml', $workflow);
