@@ -22,7 +22,7 @@ services:
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
   shopware:
-    image: shyim/shopware:6.2.0
+    image: shyim/shopware:6.4.17-php8.1
     environment:
       APP_SECRET: 440dec3766de53010c5ccf6231c182acfc90bd25cff82e771245f736fd276518
       INSTANCE_ID: 10612e3916e153dd3447850e944a03fabe89440970295447a30a75b151bd844e
