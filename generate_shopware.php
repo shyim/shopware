@@ -1,9 +1,9 @@
 <?php
 
 $phpMatrix = [
-    '6.4.7.0' => ['7.4', '8.0', '8.1'],
-    '6.4.1.2' => ['7.4', '8.0'],
-    'default' => ['7.4'],
+    '6.4.7.0' => ['8.0', '8.1'],
+    '6.4.1.2' => ['8.0'],
+    'default' => [],
 ];
 $phpIndex = json_decode(file_get_contents('index_php.json'), true);
 
@@ -22,6 +22,8 @@ on:
       - "version.txt"
 jobs:
 YML;
+
+exec('rm -rf shopware');
 
 foreach($shopwareVersions as $shopwareVersion) {
     // skip very old versions

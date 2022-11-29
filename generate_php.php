@@ -1,20 +1,23 @@
 <?php
 
-$supportedVersions = ['7.4', '8.0', '8.1'];
+$supportedVersions = ['8.0', '8.1'];
 $index = [];
 $tpl = file_get_contents('Dockerfile.php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';
 
 $workflow = <<<YML
-name: Build PHP
-on:
-  workflow_dispatch:
-  push:
-    paths:
-      - ".github/workflows/php.yml"
-      - "rootfs/**"
+version: 2.1
+
+parameters:
+  build-image:
+    type: boolean
+    default: false
+
 jobs:
 YML;
+
+$stages = [];
+$dockerMerges = [];
 
 foreach ($supportedVersions as $supportedVersion)
 {
@@ -53,41 +56,91 @@ foreach ($supportedVersions as $supportedVersion)
 
     $workflowTpl = <<<'TPL'
 
-  php%s:
-    name: PHP %s
-    runs-on: ubuntu-20.04
+  php${PHP_VERSION_SHORT}-arm64:
+    machine:
+      image: ubuntu-2004:current
+      docker_layer_caching: true 
+    resource_class: arm.medium
     steps:
-      - uses: actions/checkout@v2
-    
-      - name: Login into Github Docker Registery
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - checkout
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
+      - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64 -f php/${PHP_VERSION}/Dockerfile .
 
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-%s-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-%s
+      - run: docker push ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64
 
-      - name: Try to pull the image to maybe cache the layers
-        run: |
-          docker pull ghcr.io/shyim/shopware-php:%s --platform linux/amd64 || true
-          docker pull ghcr.io/shyim/shopware-php:%s --platform linux/arm64 || true
+      - run: docker push ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64
 
-      - name: Build PHP
-        run: docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -f ./%sDockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware-php:%s --tag ghcr.io/shyim/shopware-php:%s --push .
+  php${PHP_VERSION_SHORT}-amd64:
+      machine:
+        image: ubuntu-2004:current
+        docker_layer_caching: true 
+      resource_class: medium
+      steps:
+        - checkout
+  
+        - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
+  
+        - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-amd64 -f php/${PHP_VERSION}/Dockerfile .
+  
+        - run: docker push ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64
+
+        - run: docker push ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-amd64
+  
 TPL;
 
-    $workflow .= sprintf($workflowTpl, str_replace('.', '', $supportedVersion), $supportedVersion, $supportedVersion, $supportedVersion, $patchVersion['version'], $patchVersion['version'], $folder, $supportedVersion, $patchVersion['version']);
+    $phpShort = str_replace('.', '', $supportedVersion);
+    $replaces = [
+      '${PHP_VERSION_SHORT}' => $phpShort,
+      '${PHP_VERSION}' => $supportedVersion,
+      '${PHP_PATCH_VERSION}' => $patchVersion['version'],
+    ];
+
+    $workflow .= str_replace(array_keys($replaces), array_values($replaces), $workflowTpl);
+
+    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-php:' . $supportedVersion . ' --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-arm64';
+    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . ' --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-arm64';
+    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-php:' . $supportedVersion;
+    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-php:' . $patchVersion['version'];
+
+    $stages[] = 'php' . $phpShort . '-arm64';
+    $stages[] = 'php' . $phpShort . '-amd64';
 }
 
-file_put_contents('.github/workflows/php.yml', $workflow);
+$workflow .= '
+
+  merge-manifest:
+    machine:
+      image: ubuntu-2004:current
+      docker_layer_caching: true 
+    resource_class: medium
+    steps:
+      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
+
+';
+
+foreach ($dockerMerges as $merge) {
+  $workflow .= "      - run: " . $merge . "\n\n";
+}
+
+$workflow .= 'workflows:
+  build-base-image:
+    when: << pipeline.parameters.build-image >>
+    jobs:
+';
+
+foreach ($stages as $stage) {
+  $workflow .= '      - ' . $stage . "\n";
+}
+
+
+$workflow .= "      - merge-manifest:
+          requires:\n";
+
+foreach ($stages as $stage) {
+  $workflow .= '            - ' . $stage . "\n";
+}
+
+file_put_contents('.circleci/docker-build.yml', $workflow);
 file_put_contents('index_php.json', json_encode($index, true, JSON_PRETTY_PRINT));
