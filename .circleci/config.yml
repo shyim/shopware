@@ -9,7 +9,7 @@ workflows:
   setup-workflow:
     jobs:
       - path-filtering/filter:
-          base-revision: circleci-project-setup
+          base-revision: main
           config-path: .circleci/docker-build.yml
           mapping: |
             php/.* build-image true
