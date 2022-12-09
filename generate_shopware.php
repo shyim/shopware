@@ -17,6 +17,8 @@ name: Build Shopware
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - ".github/workflows/shopware.yml"
       - "version.txt"
