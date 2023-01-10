@@ -88,7 +88,7 @@ foreach($shopwareVersions as $shopwareVersion) {
     name: #NAME#
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -97,11 +97,11 @@ foreach($shopwareVersions as $shopwareVersion) {
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f #DOCKER_FILE# --platform linux/amd64,linux/arm64 #TAGS# --push .
