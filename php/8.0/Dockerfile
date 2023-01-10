@@ -1,4 +1,4 @@
-FROM php:8.0.26-fpm-alpine
+FROM php:8.0.27-fpm-alpine
 
 ENV APP_ENV=prod \
     MAILER_URL=null://localhost \
