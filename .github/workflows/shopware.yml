@@ -12,7 +12,7 @@ jobs:
     name: 6.4.18.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -21,11 +21,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.18.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:latest --tag shyim/shopware:latest --tag ghcr.io/shyim/shopware:latest-php8.0 --tag shyim/shopware:latest-php8.0 --tag ghcr.io/shyim/shopware:latest-php8.0.26 --tag shyim/shopware:latest-php8.0.26 --tag ghcr.io/shyim/shopware:6.4 --tag shyim/shopware:6.4 --tag ghcr.io/shyim/shopware:6.4-php8.0 --tag shyim/shopware:6.4-php8.0 --tag ghcr.io/shyim/shopware:6.4-php8.0.26 --tag shyim/shopware:6.4-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.18 --tag shyim/shopware:6.4.18 --tag ghcr.io/shyim/shopware:6.4.18-php8.0 --tag shyim/shopware:6.4.18-php8.0 --tag ghcr.io/shyim/shopware:6.4.18-php8.0.26 --tag shyim/shopware:6.4.18-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.18.0 --tag shyim/shopware:6.4.18.0 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.0 --tag shyim/shopware:6.4.18.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.0.26 --tag shyim/shopware:6.4.18.0-php8.0.26  --push .
@@ -36,7 +36,7 @@ jobs:
     name: 6.4.18.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -45,11 +45,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.18.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:latest-php8.1 --tag shyim/shopware:latest-php8.1 --tag ghcr.io/shyim/shopware:latest-php8.1.13 --tag shyim/shopware:latest-php8.1.13 --tag ghcr.io/shyim/shopware:6.4-php8.1 --tag shyim/shopware:6.4-php8.1 --tag ghcr.io/shyim/shopware:6.4-php8.1.13 --tag shyim/shopware:6.4-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.18-php8.1 --tag shyim/shopware:6.4.18-php8.1 --tag ghcr.io/shyim/shopware:6.4.18-php8.1.13 --tag shyim/shopware:6.4.18-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.1 --tag shyim/shopware:6.4.18.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.1.13 --tag shyim/shopware:6.4.18.0-php8.1.13  --push .
@@ -60,7 +60,7 @@ jobs:
     name: 6.4.17.2 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -69,11 +69,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.17.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17 --tag shyim/shopware:6.4.17 --tag ghcr.io/shyim/shopware:6.4.17-php8.0 --tag shyim/shopware:6.4.17-php8.0 --tag ghcr.io/shyim/shopware:6.4.17-php8.0.26 --tag shyim/shopware:6.4.17-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.17.2 --tag shyim/shopware:6.4.17.2 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.0 --tag shyim/shopware:6.4.17.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.0.26 --tag shyim/shopware:6.4.17.2-php8.0.26  --push .
@@ -84,7 +84,7 @@ jobs:
     name: 6.4.17.2 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -93,11 +93,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.17.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17-php8.1 --tag shyim/shopware:6.4.17-php8.1 --tag ghcr.io/shyim/shopware:6.4.17-php8.1.13 --tag shyim/shopware:6.4.17-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.1 --tag shyim/shopware:6.4.17.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.1.13 --tag shyim/shopware:6.4.17.2-php8.1.13  --push .
@@ -108,7 +108,7 @@ jobs:
     name: 6.4.17.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -117,11 +117,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.17.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.1 --tag shyim/shopware:6.4.17.1 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.0 --tag shyim/shopware:6.4.17.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.0.26 --tag shyim/shopware:6.4.17.1-php8.0.26  --push .
@@ -132,7 +132,7 @@ jobs:
     name: 6.4.17.1 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -141,11 +141,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.17.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.1 --tag shyim/shopware:6.4.17.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.1.13 --tag shyim/shopware:6.4.17.1-php8.1.13  --push .
@@ -156,7 +156,7 @@ jobs:
     name: 6.4.17.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -165,11 +165,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.17.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.0 --tag shyim/shopware:6.4.17.0 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.0 --tag shyim/shopware:6.4.17.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.0.26 --tag shyim/shopware:6.4.17.0-php8.0.26  --push .
@@ -180,7 +180,7 @@ jobs:
     name: 6.4.17.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -189,11 +189,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.17.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.1 --tag shyim/shopware:6.4.17.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.1.13 --tag shyim/shopware:6.4.17.0-php8.1.13  --push .
@@ -204,7 +204,7 @@ jobs:
     name: 6.4.16.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -213,11 +213,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.16.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16 --tag shyim/shopware:6.4.16 --tag ghcr.io/shyim/shopware:6.4.16-php8.0 --tag shyim/shopware:6.4.16-php8.0 --tag ghcr.io/shyim/shopware:6.4.16-php8.0.26 --tag shyim/shopware:6.4.16-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.16.1 --tag shyim/shopware:6.4.16.1 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.0 --tag shyim/shopware:6.4.16.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.0.26 --tag shyim/shopware:6.4.16.1-php8.0.26  --push .
@@ -228,7 +228,7 @@ jobs:
     name: 6.4.16.1 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -237,11 +237,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.16.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16-php8.1 --tag shyim/shopware:6.4.16-php8.1 --tag ghcr.io/shyim/shopware:6.4.16-php8.1.13 --tag shyim/shopware:6.4.16-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.1 --tag shyim/shopware:6.4.16.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.1.13 --tag shyim/shopware:6.4.16.1-php8.1.13  --push .
@@ -252,7 +252,7 @@ jobs:
     name: 6.4.16.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -261,11 +261,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.16.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16.0 --tag shyim/shopware:6.4.16.0 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.0 --tag shyim/shopware:6.4.16.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.0.26 --tag shyim/shopware:6.4.16.0-php8.0.26  --push .
@@ -276,7 +276,7 @@ jobs:
     name: 6.4.16.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -285,11 +285,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.16.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.1 --tag shyim/shopware:6.4.16.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.1.13 --tag shyim/shopware:6.4.16.0-php8.1.13  --push .
@@ -300,7 +300,7 @@ jobs:
     name: 6.4.15.2 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -309,11 +309,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.15.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15 --tag shyim/shopware:6.4.15 --tag ghcr.io/shyim/shopware:6.4.15-php8.0 --tag shyim/shopware:6.4.15-php8.0 --tag ghcr.io/shyim/shopware:6.4.15-php8.0.26 --tag shyim/shopware:6.4.15-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.15.2 --tag shyim/shopware:6.4.15.2 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.0 --tag shyim/shopware:6.4.15.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.0.26 --tag shyim/shopware:6.4.15.2-php8.0.26  --push .
@@ -324,7 +324,7 @@ jobs:
     name: 6.4.15.2 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -333,11 +333,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.15.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15-php8.1 --tag shyim/shopware:6.4.15-php8.1 --tag ghcr.io/shyim/shopware:6.4.15-php8.1.13 --tag shyim/shopware:6.4.15-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.1 --tag shyim/shopware:6.4.15.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.1.13 --tag shyim/shopware:6.4.15.2-php8.1.13  --push .
@@ -348,7 +348,7 @@ jobs:
     name: 6.4.15.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -357,11 +357,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.15.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.1 --tag shyim/shopware:6.4.15.1 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.0 --tag shyim/shopware:6.4.15.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.0.26 --tag shyim/shopware:6.4.15.1-php8.0.26  --push .
@@ -372,7 +372,7 @@ jobs:
     name: 6.4.15.1 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -381,11 +381,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.15.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.1 --tag shyim/shopware:6.4.15.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.1.13 --tag shyim/shopware:6.4.15.1-php8.1.13  --push .
@@ -396,7 +396,7 @@ jobs:
     name: 6.4.15.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -405,11 +405,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.15.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.0 --tag shyim/shopware:6.4.15.0 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.0 --tag shyim/shopware:6.4.15.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.0.26 --tag shyim/shopware:6.4.15.0-php8.0.26  --push .
@@ -420,7 +420,7 @@ jobs:
     name: 6.4.15.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -429,11 +429,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.15.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.1 --tag shyim/shopware:6.4.15.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.1.13 --tag shyim/shopware:6.4.15.0-php8.1.13  --push .
@@ -444,7 +444,7 @@ jobs:
     name: 6.4.14.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -453,11 +453,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.14.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.14 --tag shyim/shopware:6.4.14 --tag ghcr.io/shyim/shopware:6.4.14-php8.0 --tag shyim/shopware:6.4.14-php8.0 --tag ghcr.io/shyim/shopware:6.4.14-php8.0.26 --tag shyim/shopware:6.4.14-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.14.0 --tag shyim/shopware:6.4.14.0 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.0 --tag shyim/shopware:6.4.14.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.0.26 --tag shyim/shopware:6.4.14.0-php8.0.26  --push .
@@ -468,7 +468,7 @@ jobs:
     name: 6.4.14.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -477,11 +477,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.14.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.14-php8.1 --tag shyim/shopware:6.4.14-php8.1 --tag ghcr.io/shyim/shopware:6.4.14-php8.1.13 --tag shyim/shopware:6.4.14-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.1 --tag shyim/shopware:6.4.14.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.1.13 --tag shyim/shopware:6.4.14.0-php8.1.13  --push .
@@ -492,7 +492,7 @@ jobs:
     name: 6.4.13.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -501,11 +501,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.13.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.13 --tag shyim/shopware:6.4.13 --tag ghcr.io/shyim/shopware:6.4.13-php8.0 --tag shyim/shopware:6.4.13-php8.0 --tag ghcr.io/shyim/shopware:6.4.13-php8.0.26 --tag shyim/shopware:6.4.13-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.13.0 --tag shyim/shopware:6.4.13.0 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.0 --tag shyim/shopware:6.4.13.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.0.26 --tag shyim/shopware:6.4.13.0-php8.0.26  --push .
@@ -516,7 +516,7 @@ jobs:
     name: 6.4.13.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -525,11 +525,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.13.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.13-php8.1 --tag shyim/shopware:6.4.13-php8.1 --tag ghcr.io/shyim/shopware:6.4.13-php8.1.13 --tag shyim/shopware:6.4.13-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.1 --tag shyim/shopware:6.4.13.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.1.13 --tag shyim/shopware:6.4.13.0-php8.1.13  --push .
@@ -540,7 +540,7 @@ jobs:
     name: 6.4.12.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -549,11 +549,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.12.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.12 --tag shyim/shopware:6.4.12 --tag ghcr.io/shyim/shopware:6.4.12-php8.0 --tag shyim/shopware:6.4.12-php8.0 --tag ghcr.io/shyim/shopware:6.4.12-php8.0.26 --tag shyim/shopware:6.4.12-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.12.0 --tag shyim/shopware:6.4.12.0 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.0 --tag shyim/shopware:6.4.12.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.0.26 --tag shyim/shopware:6.4.12.0-php8.0.26  --push .
@@ -564,7 +564,7 @@ jobs:
     name: 6.4.12.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -573,11 +573,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.12.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.12-php8.1 --tag shyim/shopware:6.4.12-php8.1 --tag ghcr.io/shyim/shopware:6.4.12-php8.1.13 --tag shyim/shopware:6.4.12-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.1 --tag shyim/shopware:6.4.12.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.1.13 --tag shyim/shopware:6.4.12.0-php8.1.13  --push .
@@ -588,7 +588,7 @@ jobs:
     name: 6.4.11.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -597,11 +597,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.11.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11 --tag shyim/shopware:6.4.11 --tag ghcr.io/shyim/shopware:6.4.11-php8.0 --tag shyim/shopware:6.4.11-php8.0 --tag ghcr.io/shyim/shopware:6.4.11-php8.0.26 --tag shyim/shopware:6.4.11-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.11.1 --tag shyim/shopware:6.4.11.1 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.0 --tag shyim/shopware:6.4.11.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.0.26 --tag shyim/shopware:6.4.11.1-php8.0.26  --push .
@@ -612,7 +612,7 @@ jobs:
     name: 6.4.11.1 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -621,11 +621,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.11.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11-php8.1 --tag shyim/shopware:6.4.11-php8.1 --tag ghcr.io/shyim/shopware:6.4.11-php8.1.13 --tag shyim/shopware:6.4.11-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.1 --tag shyim/shopware:6.4.11.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.1.13 --tag shyim/shopware:6.4.11.1-php8.1.13  --push .
@@ -636,7 +636,7 @@ jobs:
     name: 6.4.11.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -645,11 +645,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.11.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11.0 --tag shyim/shopware:6.4.11.0 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.0 --tag shyim/shopware:6.4.11.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.0.26 --tag shyim/shopware:6.4.11.0-php8.0.26  --push .
@@ -660,7 +660,7 @@ jobs:
     name: 6.4.11.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -669,11 +669,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.11.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.1 --tag shyim/shopware:6.4.11.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.1.13 --tag shyim/shopware:6.4.11.0-php8.1.13  --push .
@@ -684,7 +684,7 @@ jobs:
     name: 6.4.10.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -693,11 +693,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.10.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10 --tag shyim/shopware:6.4.10 --tag ghcr.io/shyim/shopware:6.4.10-php8.0 --tag shyim/shopware:6.4.10-php8.0 --tag ghcr.io/shyim/shopware:6.4.10-php8.0.26 --tag shyim/shopware:6.4.10-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.10.1 --tag shyim/shopware:6.4.10.1 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.0 --tag shyim/shopware:6.4.10.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.0.26 --tag shyim/shopware:6.4.10.1-php8.0.26  --push .
@@ -708,7 +708,7 @@ jobs:
     name: 6.4.10.1 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -717,11 +717,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.10.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10-php8.1 --tag shyim/shopware:6.4.10-php8.1 --tag ghcr.io/shyim/shopware:6.4.10-php8.1.13 --tag shyim/shopware:6.4.10-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.1 --tag shyim/shopware:6.4.10.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.1.13 --tag shyim/shopware:6.4.10.1-php8.1.13  --push .
@@ -732,7 +732,7 @@ jobs:
     name: 6.4.10.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -741,11 +741,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.10.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10.0 --tag shyim/shopware:6.4.10.0 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.0 --tag shyim/shopware:6.4.10.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.0.26 --tag shyim/shopware:6.4.10.0-php8.0.26  --push .
@@ -756,7 +756,7 @@ jobs:
     name: 6.4.10.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -765,11 +765,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.10.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.1 --tag shyim/shopware:6.4.10.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.1.13 --tag shyim/shopware:6.4.10.0-php8.1.13  --push .
@@ -780,7 +780,7 @@ jobs:
     name: 6.4.9.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -789,11 +789,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.9.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.9 --tag shyim/shopware:6.4.9 --tag ghcr.io/shyim/shopware:6.4.9-php8.0 --tag shyim/shopware:6.4.9-php8.0 --tag ghcr.io/shyim/shopware:6.4.9-php8.0.26 --tag shyim/shopware:6.4.9-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.9.0 --tag shyim/shopware:6.4.9.0 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.0 --tag shyim/shopware:6.4.9.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.0.26 --tag shyim/shopware:6.4.9.0-php8.0.26  --push .
@@ -804,7 +804,7 @@ jobs:
     name: 6.4.9.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -813,11 +813,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.9.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.9-php8.1 --tag shyim/shopware:6.4.9-php8.1 --tag ghcr.io/shyim/shopware:6.4.9-php8.1.13 --tag shyim/shopware:6.4.9-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.1 --tag shyim/shopware:6.4.9.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.1.13 --tag shyim/shopware:6.4.9.0-php8.1.13  --push .
@@ -828,7 +828,7 @@ jobs:
     name: 6.4.8.2 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -837,11 +837,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.8.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8 --tag shyim/shopware:6.4.8 --tag ghcr.io/shyim/shopware:6.4.8-php8.0 --tag shyim/shopware:6.4.8-php8.0 --tag ghcr.io/shyim/shopware:6.4.8-php8.0.26 --tag shyim/shopware:6.4.8-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.8.2 --tag shyim/shopware:6.4.8.2 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.0 --tag shyim/shopware:6.4.8.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.0.26 --tag shyim/shopware:6.4.8.2-php8.0.26  --push .
@@ -852,7 +852,7 @@ jobs:
     name: 6.4.8.2 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -861,11 +861,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.8.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8-php8.1 --tag shyim/shopware:6.4.8-php8.1 --tag ghcr.io/shyim/shopware:6.4.8-php8.1.13 --tag shyim/shopware:6.4.8-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.1 --tag shyim/shopware:6.4.8.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.1.13 --tag shyim/shopware:6.4.8.2-php8.1.13  --push .
@@ -876,7 +876,7 @@ jobs:
     name: 6.4.8.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -885,11 +885,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.1 --tag shyim/shopware:6.4.8.1 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.0 --tag shyim/shopware:6.4.8.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.0.26 --tag shyim/shopware:6.4.8.1-php8.0.26  --push .
@@ -900,7 +900,7 @@ jobs:
     name: 6.4.8.1 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -909,11 +909,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.1 --tag shyim/shopware:6.4.8.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.1.13 --tag shyim/shopware:6.4.8.1-php8.1.13  --push .
@@ -924,7 +924,7 @@ jobs:
     name: 6.4.8.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -933,11 +933,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.0 --tag shyim/shopware:6.4.8.0 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.0 --tag shyim/shopware:6.4.8.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.0.26 --tag shyim/shopware:6.4.8.0-php8.0.26  --push .
@@ -948,7 +948,7 @@ jobs:
     name: 6.4.8.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -957,11 +957,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.1 --tag shyim/shopware:6.4.8.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.1.13 --tag shyim/shopware:6.4.8.0-php8.1.13  --push .
@@ -972,7 +972,7 @@ jobs:
     name: 6.4.7.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -981,11 +981,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.7.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.7 --tag shyim/shopware:6.4.7 --tag ghcr.io/shyim/shopware:6.4.7-php8.0 --tag shyim/shopware:6.4.7-php8.0 --tag ghcr.io/shyim/shopware:6.4.7-php8.0.26 --tag shyim/shopware:6.4.7-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.7.0 --tag shyim/shopware:6.4.7.0 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.0 --tag shyim/shopware:6.4.7.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.0.26 --tag shyim/shopware:6.4.7.0-php8.0.26  --push .
@@ -996,7 +996,7 @@ jobs:
     name: 6.4.7.0 with PHP 8.1
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1005,11 +1005,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.1/6.4.7.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.7-php8.1 --tag shyim/shopware:6.4.7-php8.1 --tag ghcr.io/shyim/shopware:6.4.7-php8.1.13 --tag shyim/shopware:6.4.7-php8.1.13 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.1 --tag shyim/shopware:6.4.7.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.1.13 --tag shyim/shopware:6.4.7.0-php8.1.13  --push .
@@ -1020,7 +1020,7 @@ jobs:
     name: 6.4.6.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1029,11 +1029,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.6.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.6 --tag shyim/shopware:6.4.6 --tag ghcr.io/shyim/shopware:6.4.6-php8.0 --tag shyim/shopware:6.4.6-php8.0 --tag ghcr.io/shyim/shopware:6.4.6-php8.0.26 --tag shyim/shopware:6.4.6-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.6.1 --tag shyim/shopware:6.4.6.1 --tag ghcr.io/shyim/shopware:6.4.6.1-php8.0 --tag shyim/shopware:6.4.6.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.6.1-php8.0.26 --tag shyim/shopware:6.4.6.1-php8.0.26  --push .
@@ -1044,7 +1044,7 @@ jobs:
     name: 6.4.6.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1053,11 +1053,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.6.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.6.0 --tag shyim/shopware:6.4.6.0 --tag ghcr.io/shyim/shopware:6.4.6.0-php8.0 --tag shyim/shopware:6.4.6.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.6.0-php8.0.26 --tag shyim/shopware:6.4.6.0-php8.0.26  --push .
@@ -1068,7 +1068,7 @@ jobs:
     name: 6.4.5.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1077,11 +1077,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.5.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.5 --tag shyim/shopware:6.4.5 --tag ghcr.io/shyim/shopware:6.4.5-php8.0 --tag shyim/shopware:6.4.5-php8.0 --tag ghcr.io/shyim/shopware:6.4.5-php8.0.26 --tag shyim/shopware:6.4.5-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.5.1 --tag shyim/shopware:6.4.5.1 --tag ghcr.io/shyim/shopware:6.4.5.1-php8.0 --tag shyim/shopware:6.4.5.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.5.1-php8.0.26 --tag shyim/shopware:6.4.5.1-php8.0.26  --push .
@@ -1092,7 +1092,7 @@ jobs:
     name: 6.4.5.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1101,11 +1101,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.5.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.5.0 --tag shyim/shopware:6.4.5.0 --tag ghcr.io/shyim/shopware:6.4.5.0-php8.0 --tag shyim/shopware:6.4.5.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.5.0-php8.0.26 --tag shyim/shopware:6.4.5.0-php8.0.26  --push .
@@ -1116,7 +1116,7 @@ jobs:
     name: 6.4.4.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1125,11 +1125,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.4.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.4 --tag shyim/shopware:6.4.4 --tag ghcr.io/shyim/shopware:6.4.4-php8.0 --tag shyim/shopware:6.4.4-php8.0 --tag ghcr.io/shyim/shopware:6.4.4-php8.0.26 --tag shyim/shopware:6.4.4-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.4.1 --tag shyim/shopware:6.4.4.1 --tag ghcr.io/shyim/shopware:6.4.4.1-php8.0 --tag shyim/shopware:6.4.4.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.4.1-php8.0.26 --tag shyim/shopware:6.4.4.1-php8.0.26  --push .
@@ -1140,7 +1140,7 @@ jobs:
     name: 6.4.4.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1149,11 +1149,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.4.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.4.0 --tag shyim/shopware:6.4.4.0 --tag ghcr.io/shyim/shopware:6.4.4.0-php8.0 --tag shyim/shopware:6.4.4.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.4.0-php8.0.26 --tag shyim/shopware:6.4.4.0-php8.0.26  --push .
@@ -1164,7 +1164,7 @@ jobs:
     name: 6.4.3.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1173,11 +1173,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.3.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.3 --tag shyim/shopware:6.4.3 --tag ghcr.io/shyim/shopware:6.4.3-php8.0 --tag shyim/shopware:6.4.3-php8.0 --tag ghcr.io/shyim/shopware:6.4.3-php8.0.26 --tag shyim/shopware:6.4.3-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.3.1 --tag shyim/shopware:6.4.3.1 --tag ghcr.io/shyim/shopware:6.4.3.1-php8.0 --tag shyim/shopware:6.4.3.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.3.1-php8.0.26 --tag shyim/shopware:6.4.3.1-php8.0.26  --push .
@@ -1188,7 +1188,7 @@ jobs:
     name: 6.4.3.0 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1197,11 +1197,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.3.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.3.0 --tag shyim/shopware:6.4.3.0 --tag ghcr.io/shyim/shopware:6.4.3.0-php8.0 --tag shyim/shopware:6.4.3.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.3.0-php8.0.26 --tag shyim/shopware:6.4.3.0-php8.0.26  --push .
@@ -1212,7 +1212,7 @@ jobs:
     name: 6.4.2.1 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1221,11 +1221,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.2.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.2 --tag shyim/shopware:6.4.2 --tag ghcr.io/shyim/shopware:6.4.2-php8.0 --tag shyim/shopware:6.4.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.2-php8.0.26 --tag shyim/shopware:6.4.2-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.2.1 --tag shyim/shopware:6.4.2.1 --tag ghcr.io/shyim/shopware:6.4.2.1-php8.0 --tag shyim/shopware:6.4.2.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.2.1-php8.0.26 --tag shyim/shopware:6.4.2.1-php8.0.26  --push .
@@ -1236,7 +1236,7 @@ jobs:
     name: 6.4.1.2 with PHP 8.0
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
     
       - name: Login into Docker Hub Registery
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "shyim" --password-stdin
@@ -1245,11 +1245,11 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
         run: docker buildx build -f ./shopware/8.0/6.4.1.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.1 --tag shyim/shopware:6.4.1 --tag ghcr.io/shyim/shopware:6.4.1-php8.0 --tag shyim/shopware:6.4.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.1-php8.0.26 --tag shyim/shopware:6.4.1-php8.0.26 --tag ghcr.io/shyim/shopware:6.4.1.2 --tag shyim/shopware:6.4.1.2 --tag ghcr.io/shyim/shopware:6.4.1.2-php8.0 --tag shyim/shopware:6.4.1.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.1.2-php8.0.26 --tag shyim/shopware:6.4.1.2-php8.0.26  --push .
