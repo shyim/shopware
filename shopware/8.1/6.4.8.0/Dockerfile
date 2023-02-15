@@ -1,4 +1,4 @@
-FROM ghcr.io/shyim/shopware-php:8.1.15
+FROM ghcr.io/shyim/shopware-php:8.1.16
 
 COPY patches /usr/local/src/sw-patches
 

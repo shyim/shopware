@@ -28,10 +28,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.19.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:latest --tag shyim/shopware:latest --tag ghcr.io/shyim/shopware:latest-php8.0 --tag shyim/shopware:latest-php8.0 --tag ghcr.io/shyim/shopware:latest-php8.0.27 --tag shyim/shopware:latest-php8.0.27 --tag ghcr.io/shyim/shopware:6.4 --tag shyim/shopware:6.4 --tag ghcr.io/shyim/shopware:6.4-php8.0 --tag shyim/shopware:6.4-php8.0 --tag ghcr.io/shyim/shopware:6.4-php8.0.27 --tag shyim/shopware:6.4-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.19 --tag shyim/shopware:6.4.19 --tag ghcr.io/shyim/shopware:6.4.19-php8.0 --tag shyim/shopware:6.4.19-php8.0 --tag ghcr.io/shyim/shopware:6.4.19-php8.0.27 --tag shyim/shopware:6.4.19-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.19.0 --tag shyim/shopware:6.4.19.0 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.0 --tag shyim/shopware:6.4.19.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.0.27 --tag shyim/shopware:6.4.19.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.19.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:latest --tag shyim/shopware:latest --tag ghcr.io/shyim/shopware:latest-php8.0 --tag shyim/shopware:latest-php8.0 --tag ghcr.io/shyim/shopware:latest-php8.0.28 --tag shyim/shopware:latest-php8.0.28 --tag ghcr.io/shyim/shopware:6.4 --tag shyim/shopware:6.4 --tag ghcr.io/shyim/shopware:6.4-php8.0 --tag shyim/shopware:6.4-php8.0 --tag ghcr.io/shyim/shopware:6.4-php8.0.28 --tag shyim/shopware:6.4-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.19 --tag shyim/shopware:6.4.19 --tag ghcr.io/shyim/shopware:6.4.19-php8.0 --tag shyim/shopware:6.4.19-php8.0 --tag ghcr.io/shyim/shopware:6.4.19-php8.0.28 --tag shyim/shopware:6.4.19-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.19.0 --tag shyim/shopware:6.4.19.0 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.0 --tag shyim/shopware:6.4.19.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.0.28 --tag shyim/shopware:6.4.19.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.19.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-latest --tag shyim/shopware:cli-latest --tag ghcr.io/shyim/shopware:cli-latest-php8.0 --tag shyim/shopware:cli-latest-php8.0 --tag ghcr.io/shyim/shopware:cli-latest-php8.0.27 --tag shyim/shopware:cli-latest-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4 --tag shyim/shopware:cli-6.4 --tag ghcr.io/shyim/shopware:cli-6.4-php8.0 --tag shyim/shopware:cli-6.4-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4-php8.0.27 --tag shyim/shopware:cli-6.4-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.19 --tag shyim/shopware:cli-6.4.19 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.0 --tag shyim/shopware:cli-6.4.19-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.0.27 --tag shyim/shopware:cli-6.4.19-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.19.0 --tag shyim/shopware:cli-6.4.19.0 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.0 --tag shyim/shopware:cli-6.4.19.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.0.27 --tag shyim/shopware:cli-6.4.19.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.19.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-latest --tag shyim/shopware:cli-latest --tag ghcr.io/shyim/shopware:cli-latest-php8.0 --tag shyim/shopware:cli-latest-php8.0 --tag ghcr.io/shyim/shopware:cli-latest-php8.0.28 --tag shyim/shopware:cli-latest-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4 --tag shyim/shopware:cli-6.4 --tag ghcr.io/shyim/shopware:cli-6.4-php8.0 --tag shyim/shopware:cli-6.4-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4-php8.0.28 --tag shyim/shopware:cli-6.4-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.19 --tag shyim/shopware:cli-6.4.19 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.0 --tag shyim/shopware:cli-6.4.19-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.0.28 --tag shyim/shopware:cli-6.4.19-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.19.0 --tag shyim/shopware:cli-6.4.19.0 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.0 --tag shyim/shopware:cli-6.4.19.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.0.28 --tag shyim/shopware:cli-6.4.19.0-php8.0.28  --push .
   shopware-6_4_19_0-8_1:
     name: 6.4.19.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -52,10 +52,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.19.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:latest-php8.1 --tag shyim/shopware:latest-php8.1 --tag ghcr.io/shyim/shopware:latest-php8.1.15 --tag shyim/shopware:latest-php8.1.15 --tag ghcr.io/shyim/shopware:6.4-php8.1 --tag shyim/shopware:6.4-php8.1 --tag ghcr.io/shyim/shopware:6.4-php8.1.15 --tag shyim/shopware:6.4-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.19-php8.1 --tag shyim/shopware:6.4.19-php8.1 --tag ghcr.io/shyim/shopware:6.4.19-php8.1.15 --tag shyim/shopware:6.4.19-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.1 --tag shyim/shopware:6.4.19.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.1.15 --tag shyim/shopware:6.4.19.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.19.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:latest-php8.1 --tag shyim/shopware:latest-php8.1 --tag ghcr.io/shyim/shopware:latest-php8.1.16 --tag shyim/shopware:latest-php8.1.16 --tag ghcr.io/shyim/shopware:6.4-php8.1 --tag shyim/shopware:6.4-php8.1 --tag ghcr.io/shyim/shopware:6.4-php8.1.16 --tag shyim/shopware:6.4-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.19-php8.1 --tag shyim/shopware:6.4.19-php8.1 --tag ghcr.io/shyim/shopware:6.4.19-php8.1.16 --tag shyim/shopware:6.4.19-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.1 --tag shyim/shopware:6.4.19.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.19.0-php8.1.16 --tag shyim/shopware:6.4.19.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.19.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-latest-php8.1 --tag shyim/shopware:cli-latest-php8.1 --tag ghcr.io/shyim/shopware:cli-latest-php8.1.15 --tag shyim/shopware:cli-latest-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4-php8.1 --tag shyim/shopware:cli-6.4-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4-php8.1.15 --tag shyim/shopware:cli-6.4-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.1 --tag shyim/shopware:cli-6.4.19-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.1.15 --tag shyim/shopware:cli-6.4.19-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.1 --tag shyim/shopware:cli-6.4.19.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.1.15 --tag shyim/shopware:cli-6.4.19.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.19.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-latest-php8.1 --tag shyim/shopware:cli-latest-php8.1 --tag ghcr.io/shyim/shopware:cli-latest-php8.1.16 --tag shyim/shopware:cli-latest-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4-php8.1 --tag shyim/shopware:cli-6.4-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4-php8.1.16 --tag shyim/shopware:cli-6.4-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.1 --tag shyim/shopware:cli-6.4.19-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.19-php8.1.16 --tag shyim/shopware:cli-6.4.19-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.1 --tag shyim/shopware:cli-6.4.19.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.19.0-php8.1.16 --tag shyim/shopware:cli-6.4.19.0-php8.1.16  --push .
   shopware-6_4_18_1-8_0:
     name: 6.4.18.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -76,10 +76,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.18.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18 --tag shyim/shopware:6.4.18 --tag ghcr.io/shyim/shopware:6.4.18-php8.0 --tag shyim/shopware:6.4.18-php8.0 --tag ghcr.io/shyim/shopware:6.4.18-php8.0.27 --tag shyim/shopware:6.4.18-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.18.1 --tag shyim/shopware:6.4.18.1 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.0 --tag shyim/shopware:6.4.18.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.0.27 --tag shyim/shopware:6.4.18.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.18.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18 --tag shyim/shopware:6.4.18 --tag ghcr.io/shyim/shopware:6.4.18-php8.0 --tag shyim/shopware:6.4.18-php8.0 --tag ghcr.io/shyim/shopware:6.4.18-php8.0.28 --tag shyim/shopware:6.4.18-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.18.1 --tag shyim/shopware:6.4.18.1 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.0 --tag shyim/shopware:6.4.18.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.0.28 --tag shyim/shopware:6.4.18.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.18.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18 --tag shyim/shopware:cli-6.4.18 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.0 --tag shyim/shopware:cli-6.4.18-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.0.27 --tag shyim/shopware:cli-6.4.18-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.18.1 --tag shyim/shopware:cli-6.4.18.1 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.0 --tag shyim/shopware:cli-6.4.18.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.0.27 --tag shyim/shopware:cli-6.4.18.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.18.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18 --tag shyim/shopware:cli-6.4.18 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.0 --tag shyim/shopware:cli-6.4.18-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.0.28 --tag shyim/shopware:cli-6.4.18-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.18.1 --tag shyim/shopware:cli-6.4.18.1 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.0 --tag shyim/shopware:cli-6.4.18.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.0.28 --tag shyim/shopware:cli-6.4.18.1-php8.0.28  --push .
   shopware-6_4_18_1-8_1:
     name: 6.4.18.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -100,10 +100,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.18.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18-php8.1 --tag shyim/shopware:6.4.18-php8.1 --tag ghcr.io/shyim/shopware:6.4.18-php8.1.15 --tag shyim/shopware:6.4.18-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.1 --tag shyim/shopware:6.4.18.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.1.15 --tag shyim/shopware:6.4.18.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.18.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18-php8.1 --tag shyim/shopware:6.4.18-php8.1 --tag ghcr.io/shyim/shopware:6.4.18-php8.1.16 --tag shyim/shopware:6.4.18-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.1 --tag shyim/shopware:6.4.18.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.18.1-php8.1.16 --tag shyim/shopware:6.4.18.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.18.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.1 --tag shyim/shopware:cli-6.4.18-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.1.15 --tag shyim/shopware:cli-6.4.18-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.1 --tag shyim/shopware:cli-6.4.18.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.1.15 --tag shyim/shopware:cli-6.4.18.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.18.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.1 --tag shyim/shopware:cli-6.4.18-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.18-php8.1.16 --tag shyim/shopware:cli-6.4.18-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.1 --tag shyim/shopware:cli-6.4.18.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.18.1-php8.1.16 --tag shyim/shopware:cli-6.4.18.1-php8.1.16  --push .
   shopware-6_4_18_0-8_0:
     name: 6.4.18.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -124,10 +124,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.18.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18.0 --tag shyim/shopware:6.4.18.0 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.0 --tag shyim/shopware:6.4.18.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.0.27 --tag shyim/shopware:6.4.18.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.18.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18.0 --tag shyim/shopware:6.4.18.0 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.0 --tag shyim/shopware:6.4.18.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.0.28 --tag shyim/shopware:6.4.18.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.18.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18.0 --tag shyim/shopware:cli-6.4.18.0 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.0 --tag shyim/shopware:cli-6.4.18.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.0.27 --tag shyim/shopware:cli-6.4.18.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.18.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18.0 --tag shyim/shopware:cli-6.4.18.0 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.0 --tag shyim/shopware:cli-6.4.18.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.0.28 --tag shyim/shopware:cli-6.4.18.0-php8.0.28  --push .
   shopware-6_4_18_0-8_1:
     name: 6.4.18.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -148,10 +148,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.18.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.1 --tag shyim/shopware:6.4.18.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.1.15 --tag shyim/shopware:6.4.18.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.18.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.1 --tag shyim/shopware:6.4.18.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.18.0-php8.1.16 --tag shyim/shopware:6.4.18.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.18.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.1 --tag shyim/shopware:cli-6.4.18.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.1.15 --tag shyim/shopware:cli-6.4.18.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.18.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.1 --tag shyim/shopware:cli-6.4.18.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.18.0-php8.1.16 --tag shyim/shopware:cli-6.4.18.0-php8.1.16  --push .
   shopware-6_4_17_2-8_0:
     name: 6.4.17.2 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -172,10 +172,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.17.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17 --tag shyim/shopware:6.4.17 --tag ghcr.io/shyim/shopware:6.4.17-php8.0 --tag shyim/shopware:6.4.17-php8.0 --tag ghcr.io/shyim/shopware:6.4.17-php8.0.27 --tag shyim/shopware:6.4.17-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.17.2 --tag shyim/shopware:6.4.17.2 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.0 --tag shyim/shopware:6.4.17.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.0.27 --tag shyim/shopware:6.4.17.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.17.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17 --tag shyim/shopware:6.4.17 --tag ghcr.io/shyim/shopware:6.4.17-php8.0 --tag shyim/shopware:6.4.17-php8.0 --tag ghcr.io/shyim/shopware:6.4.17-php8.0.28 --tag shyim/shopware:6.4.17-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.17.2 --tag shyim/shopware:6.4.17.2 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.0 --tag shyim/shopware:6.4.17.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.0.28 --tag shyim/shopware:6.4.17.2-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.17.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17 --tag shyim/shopware:cli-6.4.17 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.0 --tag shyim/shopware:cli-6.4.17-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.0.27 --tag shyim/shopware:cli-6.4.17-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.17.2 --tag shyim/shopware:cli-6.4.17.2 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.0 --tag shyim/shopware:cli-6.4.17.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.0.27 --tag shyim/shopware:cli-6.4.17.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.17.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17 --tag shyim/shopware:cli-6.4.17 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.0 --tag shyim/shopware:cli-6.4.17-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.0.28 --tag shyim/shopware:cli-6.4.17-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.17.2 --tag shyim/shopware:cli-6.4.17.2 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.0 --tag shyim/shopware:cli-6.4.17.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.0.28 --tag shyim/shopware:cli-6.4.17.2-php8.0.28  --push .
   shopware-6_4_17_2-8_1:
     name: 6.4.17.2 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -196,10 +196,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.17.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17-php8.1 --tag shyim/shopware:6.4.17-php8.1 --tag ghcr.io/shyim/shopware:6.4.17-php8.1.15 --tag shyim/shopware:6.4.17-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.1 --tag shyim/shopware:6.4.17.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.1.15 --tag shyim/shopware:6.4.17.2-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.17.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17-php8.1 --tag shyim/shopware:6.4.17-php8.1 --tag ghcr.io/shyim/shopware:6.4.17-php8.1.16 --tag shyim/shopware:6.4.17-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.1 --tag shyim/shopware:6.4.17.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.2-php8.1.16 --tag shyim/shopware:6.4.17.2-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.17.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.1 --tag shyim/shopware:cli-6.4.17-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.1.15 --tag shyim/shopware:cli-6.4.17-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.1 --tag shyim/shopware:cli-6.4.17.2-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.1.15 --tag shyim/shopware:cli-6.4.17.2-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.17.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.1 --tag shyim/shopware:cli-6.4.17-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17-php8.1.16 --tag shyim/shopware:cli-6.4.17-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.1 --tag shyim/shopware:cli-6.4.17.2-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.2-php8.1.16 --tag shyim/shopware:cli-6.4.17.2-php8.1.16  --push .
   shopware-6_4_17_1-8_0:
     name: 6.4.17.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -220,10 +220,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.17.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.1 --tag shyim/shopware:6.4.17.1 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.0 --tag shyim/shopware:6.4.17.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.0.27 --tag shyim/shopware:6.4.17.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.17.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.1 --tag shyim/shopware:6.4.17.1 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.0 --tag shyim/shopware:6.4.17.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.0.28 --tag shyim/shopware:6.4.17.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.17.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.1 --tag shyim/shopware:cli-6.4.17.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.0 --tag shyim/shopware:cli-6.4.17.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.0.27 --tag shyim/shopware:cli-6.4.17.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.17.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.1 --tag shyim/shopware:cli-6.4.17.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.0 --tag shyim/shopware:cli-6.4.17.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.0.28 --tag shyim/shopware:cli-6.4.17.1-php8.0.28  --push .
   shopware-6_4_17_1-8_1:
     name: 6.4.17.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -244,10 +244,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.17.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.1 --tag shyim/shopware:6.4.17.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.1.15 --tag shyim/shopware:6.4.17.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.17.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.1 --tag shyim/shopware:6.4.17.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.1-php8.1.16 --tag shyim/shopware:6.4.17.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.17.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.1 --tag shyim/shopware:cli-6.4.17.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.1.15 --tag shyim/shopware:cli-6.4.17.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.17.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.1 --tag shyim/shopware:cli-6.4.17.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.1-php8.1.16 --tag shyim/shopware:cli-6.4.17.1-php8.1.16  --push .
   shopware-6_4_17_0-8_0:
     name: 6.4.17.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -268,10 +268,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.17.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.0 --tag shyim/shopware:6.4.17.0 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.0 --tag shyim/shopware:6.4.17.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.0.27 --tag shyim/shopware:6.4.17.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.17.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.0 --tag shyim/shopware:6.4.17.0 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.0 --tag shyim/shopware:6.4.17.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.0.28 --tag shyim/shopware:6.4.17.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.17.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.0 --tag shyim/shopware:cli-6.4.17.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.0 --tag shyim/shopware:cli-6.4.17.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.0.27 --tag shyim/shopware:cli-6.4.17.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.17.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.0 --tag shyim/shopware:cli-6.4.17.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.0 --tag shyim/shopware:cli-6.4.17.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.0.28 --tag shyim/shopware:cli-6.4.17.0-php8.0.28  --push .
   shopware-6_4_17_0-8_1:
     name: 6.4.17.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -292,10 +292,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.17.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.1 --tag shyim/shopware:6.4.17.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.1.15 --tag shyim/shopware:6.4.17.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.17.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.1 --tag shyim/shopware:6.4.17.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.17.0-php8.1.16 --tag shyim/shopware:6.4.17.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.17.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.1 --tag shyim/shopware:cli-6.4.17.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.1.15 --tag shyim/shopware:cli-6.4.17.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.17.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.1 --tag shyim/shopware:cli-6.4.17.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.17.0-php8.1.16 --tag shyim/shopware:cli-6.4.17.0-php8.1.16  --push .
   shopware-6_4_16_1-8_0:
     name: 6.4.16.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -316,10 +316,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.16.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16 --tag shyim/shopware:6.4.16 --tag ghcr.io/shyim/shopware:6.4.16-php8.0 --tag shyim/shopware:6.4.16-php8.0 --tag ghcr.io/shyim/shopware:6.4.16-php8.0.27 --tag shyim/shopware:6.4.16-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.16.1 --tag shyim/shopware:6.4.16.1 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.0 --tag shyim/shopware:6.4.16.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.0.27 --tag shyim/shopware:6.4.16.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.16.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16 --tag shyim/shopware:6.4.16 --tag ghcr.io/shyim/shopware:6.4.16-php8.0 --tag shyim/shopware:6.4.16-php8.0 --tag ghcr.io/shyim/shopware:6.4.16-php8.0.28 --tag shyim/shopware:6.4.16-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.16.1 --tag shyim/shopware:6.4.16.1 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.0 --tag shyim/shopware:6.4.16.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.0.28 --tag shyim/shopware:6.4.16.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.16.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16 --tag shyim/shopware:cli-6.4.16 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.0 --tag shyim/shopware:cli-6.4.16-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.0.27 --tag shyim/shopware:cli-6.4.16-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.16.1 --tag shyim/shopware:cli-6.4.16.1 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.0 --tag shyim/shopware:cli-6.4.16.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.0.27 --tag shyim/shopware:cli-6.4.16.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.16.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16 --tag shyim/shopware:cli-6.4.16 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.0 --tag shyim/shopware:cli-6.4.16-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.0.28 --tag shyim/shopware:cli-6.4.16-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.16.1 --tag shyim/shopware:cli-6.4.16.1 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.0 --tag shyim/shopware:cli-6.4.16.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.0.28 --tag shyim/shopware:cli-6.4.16.1-php8.0.28  --push .
   shopware-6_4_16_1-8_1:
     name: 6.4.16.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -340,10 +340,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.16.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16-php8.1 --tag shyim/shopware:6.4.16-php8.1 --tag ghcr.io/shyim/shopware:6.4.16-php8.1.15 --tag shyim/shopware:6.4.16-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.1 --tag shyim/shopware:6.4.16.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.1.15 --tag shyim/shopware:6.4.16.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.16.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16-php8.1 --tag shyim/shopware:6.4.16-php8.1 --tag ghcr.io/shyim/shopware:6.4.16-php8.1.16 --tag shyim/shopware:6.4.16-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.1 --tag shyim/shopware:6.4.16.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.16.1-php8.1.16 --tag shyim/shopware:6.4.16.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.16.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.1 --tag shyim/shopware:cli-6.4.16-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.1.15 --tag shyim/shopware:cli-6.4.16-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.1 --tag shyim/shopware:cli-6.4.16.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.1.15 --tag shyim/shopware:cli-6.4.16.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.16.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.1 --tag shyim/shopware:cli-6.4.16-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.16-php8.1.16 --tag shyim/shopware:cli-6.4.16-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.1 --tag shyim/shopware:cli-6.4.16.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.16.1-php8.1.16 --tag shyim/shopware:cli-6.4.16.1-php8.1.16  --push .
   shopware-6_4_16_0-8_0:
     name: 6.4.16.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -364,10 +364,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.16.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16.0 --tag shyim/shopware:6.4.16.0 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.0 --tag shyim/shopware:6.4.16.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.0.27 --tag shyim/shopware:6.4.16.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.16.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16.0 --tag shyim/shopware:6.4.16.0 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.0 --tag shyim/shopware:6.4.16.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.0.28 --tag shyim/shopware:6.4.16.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.16.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16.0 --tag shyim/shopware:cli-6.4.16.0 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.0 --tag shyim/shopware:cli-6.4.16.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.0.27 --tag shyim/shopware:cli-6.4.16.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.16.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16.0 --tag shyim/shopware:cli-6.4.16.0 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.0 --tag shyim/shopware:cli-6.4.16.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.0.28 --tag shyim/shopware:cli-6.4.16.0-php8.0.28  --push .
   shopware-6_4_16_0-8_1:
     name: 6.4.16.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -388,10 +388,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.16.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.1 --tag shyim/shopware:6.4.16.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.1.15 --tag shyim/shopware:6.4.16.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.16.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.1 --tag shyim/shopware:6.4.16.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.16.0-php8.1.16 --tag shyim/shopware:6.4.16.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.16.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.1 --tag shyim/shopware:cli-6.4.16.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.1.15 --tag shyim/shopware:cli-6.4.16.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.16.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.1 --tag shyim/shopware:cli-6.4.16.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.16.0-php8.1.16 --tag shyim/shopware:cli-6.4.16.0-php8.1.16  --push .
   shopware-6_4_15_2-8_0:
     name: 6.4.15.2 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -412,10 +412,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.15.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15 --tag shyim/shopware:6.4.15 --tag ghcr.io/shyim/shopware:6.4.15-php8.0 --tag shyim/shopware:6.4.15-php8.0 --tag ghcr.io/shyim/shopware:6.4.15-php8.0.27 --tag shyim/shopware:6.4.15-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.15.2 --tag shyim/shopware:6.4.15.2 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.0 --tag shyim/shopware:6.4.15.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.0.27 --tag shyim/shopware:6.4.15.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.15.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15 --tag shyim/shopware:6.4.15 --tag ghcr.io/shyim/shopware:6.4.15-php8.0 --tag shyim/shopware:6.4.15-php8.0 --tag ghcr.io/shyim/shopware:6.4.15-php8.0.28 --tag shyim/shopware:6.4.15-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.15.2 --tag shyim/shopware:6.4.15.2 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.0 --tag shyim/shopware:6.4.15.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.0.28 --tag shyim/shopware:6.4.15.2-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.15.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15 --tag shyim/shopware:cli-6.4.15 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.0 --tag shyim/shopware:cli-6.4.15-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.0.27 --tag shyim/shopware:cli-6.4.15-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.15.2 --tag shyim/shopware:cli-6.4.15.2 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.0 --tag shyim/shopware:cli-6.4.15.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.0.27 --tag shyim/shopware:cli-6.4.15.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.15.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15 --tag shyim/shopware:cli-6.4.15 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.0 --tag shyim/shopware:cli-6.4.15-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.0.28 --tag shyim/shopware:cli-6.4.15-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.15.2 --tag shyim/shopware:cli-6.4.15.2 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.0 --tag shyim/shopware:cli-6.4.15.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.0.28 --tag shyim/shopware:cli-6.4.15.2-php8.0.28  --push .
   shopware-6_4_15_2-8_1:
     name: 6.4.15.2 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -436,10 +436,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.15.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15-php8.1 --tag shyim/shopware:6.4.15-php8.1 --tag ghcr.io/shyim/shopware:6.4.15-php8.1.15 --tag shyim/shopware:6.4.15-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.1 --tag shyim/shopware:6.4.15.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.1.15 --tag shyim/shopware:6.4.15.2-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.15.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15-php8.1 --tag shyim/shopware:6.4.15-php8.1 --tag ghcr.io/shyim/shopware:6.4.15-php8.1.16 --tag shyim/shopware:6.4.15-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.1 --tag shyim/shopware:6.4.15.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.2-php8.1.16 --tag shyim/shopware:6.4.15.2-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.15.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.1 --tag shyim/shopware:cli-6.4.15-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.1.15 --tag shyim/shopware:cli-6.4.15-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.1 --tag shyim/shopware:cli-6.4.15.2-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.1.15 --tag shyim/shopware:cli-6.4.15.2-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.15.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.1 --tag shyim/shopware:cli-6.4.15-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15-php8.1.16 --tag shyim/shopware:cli-6.4.15-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.1 --tag shyim/shopware:cli-6.4.15.2-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.2-php8.1.16 --tag shyim/shopware:cli-6.4.15.2-php8.1.16  --push .
   shopware-6_4_15_1-8_0:
     name: 6.4.15.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -460,10 +460,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.15.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.1 --tag shyim/shopware:6.4.15.1 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.0 --tag shyim/shopware:6.4.15.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.0.27 --tag shyim/shopware:6.4.15.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.15.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.1 --tag shyim/shopware:6.4.15.1 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.0 --tag shyim/shopware:6.4.15.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.0.28 --tag shyim/shopware:6.4.15.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.15.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.1 --tag shyim/shopware:cli-6.4.15.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.0 --tag shyim/shopware:cli-6.4.15.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.0.27 --tag shyim/shopware:cli-6.4.15.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.15.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.1 --tag shyim/shopware:cli-6.4.15.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.0 --tag shyim/shopware:cli-6.4.15.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.0.28 --tag shyim/shopware:cli-6.4.15.1-php8.0.28  --push .
   shopware-6_4_15_1-8_1:
     name: 6.4.15.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -484,10 +484,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.15.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.1 --tag shyim/shopware:6.4.15.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.1.15 --tag shyim/shopware:6.4.15.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.15.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.1 --tag shyim/shopware:6.4.15.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.1-php8.1.16 --tag shyim/shopware:6.4.15.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.15.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.1 --tag shyim/shopware:cli-6.4.15.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.1.15 --tag shyim/shopware:cli-6.4.15.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.15.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.1 --tag shyim/shopware:cli-6.4.15.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.1-php8.1.16 --tag shyim/shopware:cli-6.4.15.1-php8.1.16  --push .
   shopware-6_4_15_0-8_0:
     name: 6.4.15.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -508,10 +508,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.15.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.0 --tag shyim/shopware:6.4.15.0 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.0 --tag shyim/shopware:6.4.15.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.0.27 --tag shyim/shopware:6.4.15.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.15.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.0 --tag shyim/shopware:6.4.15.0 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.0 --tag shyim/shopware:6.4.15.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.0.28 --tag shyim/shopware:6.4.15.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.15.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.0 --tag shyim/shopware:cli-6.4.15.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.0 --tag shyim/shopware:cli-6.4.15.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.0.27 --tag shyim/shopware:cli-6.4.15.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.15.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.0 --tag shyim/shopware:cli-6.4.15.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.0 --tag shyim/shopware:cli-6.4.15.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.0.28 --tag shyim/shopware:cli-6.4.15.0-php8.0.28  --push .
   shopware-6_4_15_0-8_1:
     name: 6.4.15.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -532,10 +532,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.15.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.1 --tag shyim/shopware:6.4.15.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.1.15 --tag shyim/shopware:6.4.15.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.15.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.1 --tag shyim/shopware:6.4.15.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.15.0-php8.1.16 --tag shyim/shopware:6.4.15.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.15.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.1 --tag shyim/shopware:cli-6.4.15.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.1.15 --tag shyim/shopware:cli-6.4.15.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.15.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.1 --tag shyim/shopware:cli-6.4.15.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.15.0-php8.1.16 --tag shyim/shopware:cli-6.4.15.0-php8.1.16  --push .
   shopware-6_4_14_0-8_0:
     name: 6.4.14.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -556,10 +556,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.14.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.14 --tag shyim/shopware:6.4.14 --tag ghcr.io/shyim/shopware:6.4.14-php8.0 --tag shyim/shopware:6.4.14-php8.0 --tag ghcr.io/shyim/shopware:6.4.14-php8.0.27 --tag shyim/shopware:6.4.14-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.14.0 --tag shyim/shopware:6.4.14.0 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.0 --tag shyim/shopware:6.4.14.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.0.27 --tag shyim/shopware:6.4.14.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.14.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.14 --tag shyim/shopware:6.4.14 --tag ghcr.io/shyim/shopware:6.4.14-php8.0 --tag shyim/shopware:6.4.14-php8.0 --tag ghcr.io/shyim/shopware:6.4.14-php8.0.28 --tag shyim/shopware:6.4.14-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.14.0 --tag shyim/shopware:6.4.14.0 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.0 --tag shyim/shopware:6.4.14.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.0.28 --tag shyim/shopware:6.4.14.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.14.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.14 --tag shyim/shopware:cli-6.4.14 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.0 --tag shyim/shopware:cli-6.4.14-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.0.27 --tag shyim/shopware:cli-6.4.14-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.14.0 --tag shyim/shopware:cli-6.4.14.0 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.0 --tag shyim/shopware:cli-6.4.14.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.0.27 --tag shyim/shopware:cli-6.4.14.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.14.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.14 --tag shyim/shopware:cli-6.4.14 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.0 --tag shyim/shopware:cli-6.4.14-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.0.28 --tag shyim/shopware:cli-6.4.14-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.14.0 --tag shyim/shopware:cli-6.4.14.0 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.0 --tag shyim/shopware:cli-6.4.14.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.0.28 --tag shyim/shopware:cli-6.4.14.0-php8.0.28  --push .
   shopware-6_4_14_0-8_1:
     name: 6.4.14.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -580,10 +580,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.14.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.14-php8.1 --tag shyim/shopware:6.4.14-php8.1 --tag ghcr.io/shyim/shopware:6.4.14-php8.1.15 --tag shyim/shopware:6.4.14-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.1 --tag shyim/shopware:6.4.14.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.1.15 --tag shyim/shopware:6.4.14.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.14.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.14-php8.1 --tag shyim/shopware:6.4.14-php8.1 --tag ghcr.io/shyim/shopware:6.4.14-php8.1.16 --tag shyim/shopware:6.4.14-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.1 --tag shyim/shopware:6.4.14.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.14.0-php8.1.16 --tag shyim/shopware:6.4.14.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.14.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.1 --tag shyim/shopware:cli-6.4.14-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.1.15 --tag shyim/shopware:cli-6.4.14-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.1 --tag shyim/shopware:cli-6.4.14.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.1.15 --tag shyim/shopware:cli-6.4.14.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.14.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.1 --tag shyim/shopware:cli-6.4.14-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.14-php8.1.16 --tag shyim/shopware:cli-6.4.14-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.1 --tag shyim/shopware:cli-6.4.14.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.14.0-php8.1.16 --tag shyim/shopware:cli-6.4.14.0-php8.1.16  --push .
   shopware-6_4_13_0-8_0:
     name: 6.4.13.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -604,10 +604,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.13.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.13 --tag shyim/shopware:6.4.13 --tag ghcr.io/shyim/shopware:6.4.13-php8.0 --tag shyim/shopware:6.4.13-php8.0 --tag ghcr.io/shyim/shopware:6.4.13-php8.0.27 --tag shyim/shopware:6.4.13-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.13.0 --tag shyim/shopware:6.4.13.0 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.0 --tag shyim/shopware:6.4.13.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.0.27 --tag shyim/shopware:6.4.13.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.13.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.13 --tag shyim/shopware:6.4.13 --tag ghcr.io/shyim/shopware:6.4.13-php8.0 --tag shyim/shopware:6.4.13-php8.0 --tag ghcr.io/shyim/shopware:6.4.13-php8.0.28 --tag shyim/shopware:6.4.13-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.13.0 --tag shyim/shopware:6.4.13.0 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.0 --tag shyim/shopware:6.4.13.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.0.28 --tag shyim/shopware:6.4.13.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.13.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.13 --tag shyim/shopware:cli-6.4.13 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.0 --tag shyim/shopware:cli-6.4.13-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.0.27 --tag shyim/shopware:cli-6.4.13-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.13.0 --tag shyim/shopware:cli-6.4.13.0 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.0 --tag shyim/shopware:cli-6.4.13.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.0.27 --tag shyim/shopware:cli-6.4.13.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.13.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.13 --tag shyim/shopware:cli-6.4.13 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.0 --tag shyim/shopware:cli-6.4.13-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.0.28 --tag shyim/shopware:cli-6.4.13-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.13.0 --tag shyim/shopware:cli-6.4.13.0 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.0 --tag shyim/shopware:cli-6.4.13.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.0.28 --tag shyim/shopware:cli-6.4.13.0-php8.0.28  --push .
   shopware-6_4_13_0-8_1:
     name: 6.4.13.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -628,10 +628,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.13.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.13-php8.1 --tag shyim/shopware:6.4.13-php8.1 --tag ghcr.io/shyim/shopware:6.4.13-php8.1.15 --tag shyim/shopware:6.4.13-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.1 --tag shyim/shopware:6.4.13.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.1.15 --tag shyim/shopware:6.4.13.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.13.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.13-php8.1 --tag shyim/shopware:6.4.13-php8.1 --tag ghcr.io/shyim/shopware:6.4.13-php8.1.16 --tag shyim/shopware:6.4.13-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.1 --tag shyim/shopware:6.4.13.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.13.0-php8.1.16 --tag shyim/shopware:6.4.13.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.13.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.1 --tag shyim/shopware:cli-6.4.13-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.1.15 --tag shyim/shopware:cli-6.4.13-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.1 --tag shyim/shopware:cli-6.4.13.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.1.15 --tag shyim/shopware:cli-6.4.13.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.13.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.1 --tag shyim/shopware:cli-6.4.13-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.13-php8.1.16 --tag shyim/shopware:cli-6.4.13-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.1 --tag shyim/shopware:cli-6.4.13.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.13.0-php8.1.16 --tag shyim/shopware:cli-6.4.13.0-php8.1.16  --push .
   shopware-6_4_12_0-8_0:
     name: 6.4.12.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -652,10 +652,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.12.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.12 --tag shyim/shopware:6.4.12 --tag ghcr.io/shyim/shopware:6.4.12-php8.0 --tag shyim/shopware:6.4.12-php8.0 --tag ghcr.io/shyim/shopware:6.4.12-php8.0.27 --tag shyim/shopware:6.4.12-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.12.0 --tag shyim/shopware:6.4.12.0 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.0 --tag shyim/shopware:6.4.12.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.0.27 --tag shyim/shopware:6.4.12.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.12.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.12 --tag shyim/shopware:6.4.12 --tag ghcr.io/shyim/shopware:6.4.12-php8.0 --tag shyim/shopware:6.4.12-php8.0 --tag ghcr.io/shyim/shopware:6.4.12-php8.0.28 --tag shyim/shopware:6.4.12-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.12.0 --tag shyim/shopware:6.4.12.0 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.0 --tag shyim/shopware:6.4.12.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.0.28 --tag shyim/shopware:6.4.12.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.12.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.12 --tag shyim/shopware:cli-6.4.12 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.0 --tag shyim/shopware:cli-6.4.12-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.0.27 --tag shyim/shopware:cli-6.4.12-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.12.0 --tag shyim/shopware:cli-6.4.12.0 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.0 --tag shyim/shopware:cli-6.4.12.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.0.27 --tag shyim/shopware:cli-6.4.12.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.12.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.12 --tag shyim/shopware:cli-6.4.12 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.0 --tag shyim/shopware:cli-6.4.12-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.0.28 --tag shyim/shopware:cli-6.4.12-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.12.0 --tag shyim/shopware:cli-6.4.12.0 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.0 --tag shyim/shopware:cli-6.4.12.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.0.28 --tag shyim/shopware:cli-6.4.12.0-php8.0.28  --push .
   shopware-6_4_12_0-8_1:
     name: 6.4.12.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -676,10 +676,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.12.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.12-php8.1 --tag shyim/shopware:6.4.12-php8.1 --tag ghcr.io/shyim/shopware:6.4.12-php8.1.15 --tag shyim/shopware:6.4.12-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.1 --tag shyim/shopware:6.4.12.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.1.15 --tag shyim/shopware:6.4.12.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.12.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.12-php8.1 --tag shyim/shopware:6.4.12-php8.1 --tag ghcr.io/shyim/shopware:6.4.12-php8.1.16 --tag shyim/shopware:6.4.12-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.1 --tag shyim/shopware:6.4.12.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.12.0-php8.1.16 --tag shyim/shopware:6.4.12.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.12.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.1 --tag shyim/shopware:cli-6.4.12-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.1.15 --tag shyim/shopware:cli-6.4.12-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.1 --tag shyim/shopware:cli-6.4.12.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.1.15 --tag shyim/shopware:cli-6.4.12.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.12.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.1 --tag shyim/shopware:cli-6.4.12-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.12-php8.1.16 --tag shyim/shopware:cli-6.4.12-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.1 --tag shyim/shopware:cli-6.4.12.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.12.0-php8.1.16 --tag shyim/shopware:cli-6.4.12.0-php8.1.16  --push .
   shopware-6_4_11_1-8_0:
     name: 6.4.11.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -700,10 +700,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.11.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11 --tag shyim/shopware:6.4.11 --tag ghcr.io/shyim/shopware:6.4.11-php8.0 --tag shyim/shopware:6.4.11-php8.0 --tag ghcr.io/shyim/shopware:6.4.11-php8.0.27 --tag shyim/shopware:6.4.11-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.11.1 --tag shyim/shopware:6.4.11.1 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.0 --tag shyim/shopware:6.4.11.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.0.27 --tag shyim/shopware:6.4.11.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.11.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11 --tag shyim/shopware:6.4.11 --tag ghcr.io/shyim/shopware:6.4.11-php8.0 --tag shyim/shopware:6.4.11-php8.0 --tag ghcr.io/shyim/shopware:6.4.11-php8.0.28 --tag shyim/shopware:6.4.11-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.11.1 --tag shyim/shopware:6.4.11.1 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.0 --tag shyim/shopware:6.4.11.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.0.28 --tag shyim/shopware:6.4.11.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.11.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11 --tag shyim/shopware:cli-6.4.11 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.0 --tag shyim/shopware:cli-6.4.11-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.0.27 --tag shyim/shopware:cli-6.4.11-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.11.1 --tag shyim/shopware:cli-6.4.11.1 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.0 --tag shyim/shopware:cli-6.4.11.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.0.27 --tag shyim/shopware:cli-6.4.11.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.11.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11 --tag shyim/shopware:cli-6.4.11 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.0 --tag shyim/shopware:cli-6.4.11-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.0.28 --tag shyim/shopware:cli-6.4.11-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.11.1 --tag shyim/shopware:cli-6.4.11.1 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.0 --tag shyim/shopware:cli-6.4.11.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.0.28 --tag shyim/shopware:cli-6.4.11.1-php8.0.28  --push .
   shopware-6_4_11_1-8_1:
     name: 6.4.11.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -724,10 +724,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.11.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11-php8.1 --tag shyim/shopware:6.4.11-php8.1 --tag ghcr.io/shyim/shopware:6.4.11-php8.1.15 --tag shyim/shopware:6.4.11-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.1 --tag shyim/shopware:6.4.11.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.1.15 --tag shyim/shopware:6.4.11.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.11.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11-php8.1 --tag shyim/shopware:6.4.11-php8.1 --tag ghcr.io/shyim/shopware:6.4.11-php8.1.16 --tag shyim/shopware:6.4.11-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.1 --tag shyim/shopware:6.4.11.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.11.1-php8.1.16 --tag shyim/shopware:6.4.11.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.11.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.1 --tag shyim/shopware:cli-6.4.11-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.1.15 --tag shyim/shopware:cli-6.4.11-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.1 --tag shyim/shopware:cli-6.4.11.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.1.15 --tag shyim/shopware:cli-6.4.11.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.11.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.1 --tag shyim/shopware:cli-6.4.11-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.11-php8.1.16 --tag shyim/shopware:cli-6.4.11-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.1 --tag shyim/shopware:cli-6.4.11.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.11.1-php8.1.16 --tag shyim/shopware:cli-6.4.11.1-php8.1.16  --push .
   shopware-6_4_11_0-8_0:
     name: 6.4.11.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -748,10 +748,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.11.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11.0 --tag shyim/shopware:6.4.11.0 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.0 --tag shyim/shopware:6.4.11.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.0.27 --tag shyim/shopware:6.4.11.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.11.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11.0 --tag shyim/shopware:6.4.11.0 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.0 --tag shyim/shopware:6.4.11.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.0.28 --tag shyim/shopware:6.4.11.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.11.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11.0 --tag shyim/shopware:cli-6.4.11.0 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.0 --tag shyim/shopware:cli-6.4.11.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.0.27 --tag shyim/shopware:cli-6.4.11.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.11.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11.0 --tag shyim/shopware:cli-6.4.11.0 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.0 --tag shyim/shopware:cli-6.4.11.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.0.28 --tag shyim/shopware:cli-6.4.11.0-php8.0.28  --push .
   shopware-6_4_11_0-8_1:
     name: 6.4.11.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -772,10 +772,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.11.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.1 --tag shyim/shopware:6.4.11.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.1.15 --tag shyim/shopware:6.4.11.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.11.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.1 --tag shyim/shopware:6.4.11.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.11.0-php8.1.16 --tag shyim/shopware:6.4.11.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.11.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.1 --tag shyim/shopware:cli-6.4.11.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.1.15 --tag shyim/shopware:cli-6.4.11.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.11.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.1 --tag shyim/shopware:cli-6.4.11.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.11.0-php8.1.16 --tag shyim/shopware:cli-6.4.11.0-php8.1.16  --push .
   shopware-6_4_10_1-8_0:
     name: 6.4.10.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -796,10 +796,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.10.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10 --tag shyim/shopware:6.4.10 --tag ghcr.io/shyim/shopware:6.4.10-php8.0 --tag shyim/shopware:6.4.10-php8.0 --tag ghcr.io/shyim/shopware:6.4.10-php8.0.27 --tag shyim/shopware:6.4.10-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.10.1 --tag shyim/shopware:6.4.10.1 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.0 --tag shyim/shopware:6.4.10.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.0.27 --tag shyim/shopware:6.4.10.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.10.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10 --tag shyim/shopware:6.4.10 --tag ghcr.io/shyim/shopware:6.4.10-php8.0 --tag shyim/shopware:6.4.10-php8.0 --tag ghcr.io/shyim/shopware:6.4.10-php8.0.28 --tag shyim/shopware:6.4.10-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.10.1 --tag shyim/shopware:6.4.10.1 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.0 --tag shyim/shopware:6.4.10.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.0.28 --tag shyim/shopware:6.4.10.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.10.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10 --tag shyim/shopware:cli-6.4.10 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.0 --tag shyim/shopware:cli-6.4.10-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.0.27 --tag shyim/shopware:cli-6.4.10-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.10.1 --tag shyim/shopware:cli-6.4.10.1 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.0 --tag shyim/shopware:cli-6.4.10.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.0.27 --tag shyim/shopware:cli-6.4.10.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.10.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10 --tag shyim/shopware:cli-6.4.10 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.0 --tag shyim/shopware:cli-6.4.10-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.0.28 --tag shyim/shopware:cli-6.4.10-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.10.1 --tag shyim/shopware:cli-6.4.10.1 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.0 --tag shyim/shopware:cli-6.4.10.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.0.28 --tag shyim/shopware:cli-6.4.10.1-php8.0.28  --push .
   shopware-6_4_10_1-8_1:
     name: 6.4.10.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -820,10 +820,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.10.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10-php8.1 --tag shyim/shopware:6.4.10-php8.1 --tag ghcr.io/shyim/shopware:6.4.10-php8.1.15 --tag shyim/shopware:6.4.10-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.1 --tag shyim/shopware:6.4.10.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.1.15 --tag shyim/shopware:6.4.10.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.10.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10-php8.1 --tag shyim/shopware:6.4.10-php8.1 --tag ghcr.io/shyim/shopware:6.4.10-php8.1.16 --tag shyim/shopware:6.4.10-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.1 --tag shyim/shopware:6.4.10.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.10.1-php8.1.16 --tag shyim/shopware:6.4.10.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.10.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.1 --tag shyim/shopware:cli-6.4.10-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.1.15 --tag shyim/shopware:cli-6.4.10-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.1 --tag shyim/shopware:cli-6.4.10.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.1.15 --tag shyim/shopware:cli-6.4.10.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.10.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.1 --tag shyim/shopware:cli-6.4.10-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.10-php8.1.16 --tag shyim/shopware:cli-6.4.10-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.1 --tag shyim/shopware:cli-6.4.10.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.10.1-php8.1.16 --tag shyim/shopware:cli-6.4.10.1-php8.1.16  --push .
   shopware-6_4_10_0-8_0:
     name: 6.4.10.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -844,10 +844,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.10.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10.0 --tag shyim/shopware:6.4.10.0 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.0 --tag shyim/shopware:6.4.10.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.0.27 --tag shyim/shopware:6.4.10.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.10.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10.0 --tag shyim/shopware:6.4.10.0 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.0 --tag shyim/shopware:6.4.10.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.0.28 --tag shyim/shopware:6.4.10.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.10.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10.0 --tag shyim/shopware:cli-6.4.10.0 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.0 --tag shyim/shopware:cli-6.4.10.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.0.27 --tag shyim/shopware:cli-6.4.10.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.10.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10.0 --tag shyim/shopware:cli-6.4.10.0 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.0 --tag shyim/shopware:cli-6.4.10.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.0.28 --tag shyim/shopware:cli-6.4.10.0-php8.0.28  --push .
   shopware-6_4_10_0-8_1:
     name: 6.4.10.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -868,10 +868,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.10.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.1 --tag shyim/shopware:6.4.10.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.1.15 --tag shyim/shopware:6.4.10.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.10.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.1 --tag shyim/shopware:6.4.10.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.10.0-php8.1.16 --tag shyim/shopware:6.4.10.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.10.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.1 --tag shyim/shopware:cli-6.4.10.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.1.15 --tag shyim/shopware:cli-6.4.10.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.10.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.1 --tag shyim/shopware:cli-6.4.10.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.10.0-php8.1.16 --tag shyim/shopware:cli-6.4.10.0-php8.1.16  --push .
   shopware-6_4_9_0-8_0:
     name: 6.4.9.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -892,10 +892,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.9.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.9 --tag shyim/shopware:6.4.9 --tag ghcr.io/shyim/shopware:6.4.9-php8.0 --tag shyim/shopware:6.4.9-php8.0 --tag ghcr.io/shyim/shopware:6.4.9-php8.0.27 --tag shyim/shopware:6.4.9-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.9.0 --tag shyim/shopware:6.4.9.0 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.0 --tag shyim/shopware:6.4.9.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.0.27 --tag shyim/shopware:6.4.9.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.9.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.9 --tag shyim/shopware:6.4.9 --tag ghcr.io/shyim/shopware:6.4.9-php8.0 --tag shyim/shopware:6.4.9-php8.0 --tag ghcr.io/shyim/shopware:6.4.9-php8.0.28 --tag shyim/shopware:6.4.9-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.9.0 --tag shyim/shopware:6.4.9.0 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.0 --tag shyim/shopware:6.4.9.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.0.28 --tag shyim/shopware:6.4.9.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.9.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.9 --tag shyim/shopware:cli-6.4.9 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.0 --tag shyim/shopware:cli-6.4.9-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.0.27 --tag shyim/shopware:cli-6.4.9-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.9.0 --tag shyim/shopware:cli-6.4.9.0 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.0 --tag shyim/shopware:cli-6.4.9.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.0.27 --tag shyim/shopware:cli-6.4.9.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.9.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.9 --tag shyim/shopware:cli-6.4.9 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.0 --tag shyim/shopware:cli-6.4.9-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.0.28 --tag shyim/shopware:cli-6.4.9-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.9.0 --tag shyim/shopware:cli-6.4.9.0 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.0 --tag shyim/shopware:cli-6.4.9.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.0.28 --tag shyim/shopware:cli-6.4.9.0-php8.0.28  --push .
   shopware-6_4_9_0-8_1:
     name: 6.4.9.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -916,10 +916,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.9.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.9-php8.1 --tag shyim/shopware:6.4.9-php8.1 --tag ghcr.io/shyim/shopware:6.4.9-php8.1.15 --tag shyim/shopware:6.4.9-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.1 --tag shyim/shopware:6.4.9.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.1.15 --tag shyim/shopware:6.4.9.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.9.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.9-php8.1 --tag shyim/shopware:6.4.9-php8.1 --tag ghcr.io/shyim/shopware:6.4.9-php8.1.16 --tag shyim/shopware:6.4.9-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.1 --tag shyim/shopware:6.4.9.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.9.0-php8.1.16 --tag shyim/shopware:6.4.9.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.9.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.1 --tag shyim/shopware:cli-6.4.9-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.1.15 --tag shyim/shopware:cli-6.4.9-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.1 --tag shyim/shopware:cli-6.4.9.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.1.15 --tag shyim/shopware:cli-6.4.9.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.9.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.1 --tag shyim/shopware:cli-6.4.9-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.9-php8.1.16 --tag shyim/shopware:cli-6.4.9-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.1 --tag shyim/shopware:cli-6.4.9.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.9.0-php8.1.16 --tag shyim/shopware:cli-6.4.9.0-php8.1.16  --push .
   shopware-6_4_8_2-8_0:
     name: 6.4.8.2 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -940,10 +940,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.8.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8 --tag shyim/shopware:6.4.8 --tag ghcr.io/shyim/shopware:6.4.8-php8.0 --tag shyim/shopware:6.4.8-php8.0 --tag ghcr.io/shyim/shopware:6.4.8-php8.0.27 --tag shyim/shopware:6.4.8-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.8.2 --tag shyim/shopware:6.4.8.2 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.0 --tag shyim/shopware:6.4.8.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.0.27 --tag shyim/shopware:6.4.8.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.8.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8 --tag shyim/shopware:6.4.8 --tag ghcr.io/shyim/shopware:6.4.8-php8.0 --tag shyim/shopware:6.4.8-php8.0 --tag ghcr.io/shyim/shopware:6.4.8-php8.0.28 --tag shyim/shopware:6.4.8-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.8.2 --tag shyim/shopware:6.4.8.2 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.0 --tag shyim/shopware:6.4.8.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.0.28 --tag shyim/shopware:6.4.8.2-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.8.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8 --tag shyim/shopware:cli-6.4.8 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.0 --tag shyim/shopware:cli-6.4.8-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.0.27 --tag shyim/shopware:cli-6.4.8-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.8.2 --tag shyim/shopware:cli-6.4.8.2 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.0 --tag shyim/shopware:cli-6.4.8.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.0.27 --tag shyim/shopware:cli-6.4.8.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.8.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8 --tag shyim/shopware:cli-6.4.8 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.0 --tag shyim/shopware:cli-6.4.8-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.0.28 --tag shyim/shopware:cli-6.4.8-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.8.2 --tag shyim/shopware:cli-6.4.8.2 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.0 --tag shyim/shopware:cli-6.4.8.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.0.28 --tag shyim/shopware:cli-6.4.8.2-php8.0.28  --push .
   shopware-6_4_8_2-8_1:
     name: 6.4.8.2 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -964,10 +964,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.8.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8-php8.1 --tag shyim/shopware:6.4.8-php8.1 --tag ghcr.io/shyim/shopware:6.4.8-php8.1.15 --tag shyim/shopware:6.4.8-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.1 --tag shyim/shopware:6.4.8.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.1.15 --tag shyim/shopware:6.4.8.2-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.8.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8-php8.1 --tag shyim/shopware:6.4.8-php8.1 --tag ghcr.io/shyim/shopware:6.4.8-php8.1.16 --tag shyim/shopware:6.4.8-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.1 --tag shyim/shopware:6.4.8.2-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.2-php8.1.16 --tag shyim/shopware:6.4.8.2-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.8.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.1 --tag shyim/shopware:cli-6.4.8-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.1.15 --tag shyim/shopware:cli-6.4.8-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.1 --tag shyim/shopware:cli-6.4.8.2-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.1.15 --tag shyim/shopware:cli-6.4.8.2-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.8.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.1 --tag shyim/shopware:cli-6.4.8-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8-php8.1.16 --tag shyim/shopware:cli-6.4.8-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.1 --tag shyim/shopware:cli-6.4.8.2-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.2-php8.1.16 --tag shyim/shopware:cli-6.4.8.2-php8.1.16  --push .
   shopware-6_4_8_1-8_0:
     name: 6.4.8.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -988,10 +988,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.1 --tag shyim/shopware:6.4.8.1 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.0 --tag shyim/shopware:6.4.8.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.0.27 --tag shyim/shopware:6.4.8.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.1 --tag shyim/shopware:6.4.8.1 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.0 --tag shyim/shopware:6.4.8.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.0.28 --tag shyim/shopware:6.4.8.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.8.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.1 --tag shyim/shopware:cli-6.4.8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.0 --tag shyim/shopware:cli-6.4.8.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.0.27 --tag shyim/shopware:cli-6.4.8.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.8.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.1 --tag shyim/shopware:cli-6.4.8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.0 --tag shyim/shopware:cli-6.4.8.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.0.28 --tag shyim/shopware:cli-6.4.8.1-php8.0.28  --push .
   shopware-6_4_8_1-8_1:
     name: 6.4.8.1 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -1012,10 +1012,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.1 --tag shyim/shopware:6.4.8.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.1.15 --tag shyim/shopware:6.4.8.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.8.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.1 --tag shyim/shopware:6.4.8.1-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.1-php8.1.16 --tag shyim/shopware:6.4.8.1-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.8.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.1 --tag shyim/shopware:cli-6.4.8.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.1.15 --tag shyim/shopware:cli-6.4.8.1-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.8.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.1 --tag shyim/shopware:cli-6.4.8.1-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.1-php8.1.16 --tag shyim/shopware:cli-6.4.8.1-php8.1.16  --push .
   shopware-6_4_8_0-8_0:
     name: 6.4.8.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1036,10 +1036,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.0 --tag shyim/shopware:6.4.8.0 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.0 --tag shyim/shopware:6.4.8.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.0.27 --tag shyim/shopware:6.4.8.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.0 --tag shyim/shopware:6.4.8.0 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.0 --tag shyim/shopware:6.4.8.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.0.28 --tag shyim/shopware:6.4.8.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.8.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.0 --tag shyim/shopware:cli-6.4.8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.0 --tag shyim/shopware:cli-6.4.8.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.0.27 --tag shyim/shopware:cli-6.4.8.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.8.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.0 --tag shyim/shopware:cli-6.4.8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.0 --tag shyim/shopware:cli-6.4.8.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.0.28 --tag shyim/shopware:cli-6.4.8.0-php8.0.28  --push .
   shopware-6_4_8_0-8_1:
     name: 6.4.8.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -1060,10 +1060,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.1 --tag shyim/shopware:6.4.8.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.1.15 --tag shyim/shopware:6.4.8.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.8.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.1 --tag shyim/shopware:6.4.8.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.8.0-php8.1.16 --tag shyim/shopware:6.4.8.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.8.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.1 --tag shyim/shopware:cli-6.4.8.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.1.15 --tag shyim/shopware:cli-6.4.8.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.8.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.1 --tag shyim/shopware:cli-6.4.8.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.8.0-php8.1.16 --tag shyim/shopware:cli-6.4.8.0-php8.1.16  --push .
   shopware-6_4_7_0-8_0:
     name: 6.4.7.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1084,10 +1084,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.7.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.7 --tag shyim/shopware:6.4.7 --tag ghcr.io/shyim/shopware:6.4.7-php8.0 --tag shyim/shopware:6.4.7-php8.0 --tag ghcr.io/shyim/shopware:6.4.7-php8.0.27 --tag shyim/shopware:6.4.7-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.7.0 --tag shyim/shopware:6.4.7.0 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.0 --tag shyim/shopware:6.4.7.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.0.27 --tag shyim/shopware:6.4.7.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.7.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.7 --tag shyim/shopware:6.4.7 --tag ghcr.io/shyim/shopware:6.4.7-php8.0 --tag shyim/shopware:6.4.7-php8.0 --tag ghcr.io/shyim/shopware:6.4.7-php8.0.28 --tag shyim/shopware:6.4.7-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.7.0 --tag shyim/shopware:6.4.7.0 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.0 --tag shyim/shopware:6.4.7.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.0.28 --tag shyim/shopware:6.4.7.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.7.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.7 --tag shyim/shopware:cli-6.4.7 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.0 --tag shyim/shopware:cli-6.4.7-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.0.27 --tag shyim/shopware:cli-6.4.7-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.7.0 --tag shyim/shopware:cli-6.4.7.0 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.0 --tag shyim/shopware:cli-6.4.7.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.0.27 --tag shyim/shopware:cli-6.4.7.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.7.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.7 --tag shyim/shopware:cli-6.4.7 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.0 --tag shyim/shopware:cli-6.4.7-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.0.28 --tag shyim/shopware:cli-6.4.7-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.7.0 --tag shyim/shopware:cli-6.4.7.0 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.0 --tag shyim/shopware:cli-6.4.7.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.0.28 --tag shyim/shopware:cli-6.4.7.0-php8.0.28  --push .
   shopware-6_4_7_0-8_1:
     name: 6.4.7.0 with PHP 8.1
     runs-on: ubuntu-20.04
@@ -1108,10 +1108,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.1/6.4.7.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.7-php8.1 --tag shyim/shopware:6.4.7-php8.1 --tag ghcr.io/shyim/shopware:6.4.7-php8.1.15 --tag shyim/shopware:6.4.7-php8.1.15 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.1 --tag shyim/shopware:6.4.7.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.1.15 --tag shyim/shopware:6.4.7.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.7.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.7-php8.1 --tag shyim/shopware:6.4.7-php8.1 --tag ghcr.io/shyim/shopware:6.4.7-php8.1.16 --tag shyim/shopware:6.4.7-php8.1.16 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.1 --tag shyim/shopware:6.4.7.0-php8.1 --tag ghcr.io/shyim/shopware:6.4.7.0-php8.1.16 --tag shyim/shopware:6.4.7.0-php8.1.16  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.1/6.4.7.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.1 --tag shyim/shopware:cli-6.4.7-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.1.15 --tag shyim/shopware:cli-6.4.7-php8.1.15 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.1 --tag shyim/shopware:cli-6.4.7.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.1.15 --tag shyim/shopware:cli-6.4.7.0-php8.1.15  --push .
+        run: docker buildx build -f ./shopware/8.1/6.4.7.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.1 --tag shyim/shopware:cli-6.4.7-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.7-php8.1.16 --tag shyim/shopware:cli-6.4.7-php8.1.16 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.1 --tag shyim/shopware:cli-6.4.7.0-php8.1 --tag ghcr.io/shyim/shopware:cli-6.4.7.0-php8.1.16 --tag shyim/shopware:cli-6.4.7.0-php8.1.16  --push .
   shopware-6_4_6_1-8_0:
     name: 6.4.6.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1132,10 +1132,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.6.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.6 --tag shyim/shopware:6.4.6 --tag ghcr.io/shyim/shopware:6.4.6-php8.0 --tag shyim/shopware:6.4.6-php8.0 --tag ghcr.io/shyim/shopware:6.4.6-php8.0.27 --tag shyim/shopware:6.4.6-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.6.1 --tag shyim/shopware:6.4.6.1 --tag ghcr.io/shyim/shopware:6.4.6.1-php8.0 --tag shyim/shopware:6.4.6.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.6.1-php8.0.27 --tag shyim/shopware:6.4.6.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.6.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.6 --tag shyim/shopware:6.4.6 --tag ghcr.io/shyim/shopware:6.4.6-php8.0 --tag shyim/shopware:6.4.6-php8.0 --tag ghcr.io/shyim/shopware:6.4.6-php8.0.28 --tag shyim/shopware:6.4.6-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.6.1 --tag shyim/shopware:6.4.6.1 --tag ghcr.io/shyim/shopware:6.4.6.1-php8.0 --tag shyim/shopware:6.4.6.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.6.1-php8.0.28 --tag shyim/shopware:6.4.6.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.6.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.6 --tag shyim/shopware:cli-6.4.6 --tag ghcr.io/shyim/shopware:cli-6.4.6-php8.0 --tag shyim/shopware:cli-6.4.6-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.6-php8.0.27 --tag shyim/shopware:cli-6.4.6-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.6.1 --tag shyim/shopware:cli-6.4.6.1 --tag ghcr.io/shyim/shopware:cli-6.4.6.1-php8.0 --tag shyim/shopware:cli-6.4.6.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.6.1-php8.0.27 --tag shyim/shopware:cli-6.4.6.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.6.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.6 --tag shyim/shopware:cli-6.4.6 --tag ghcr.io/shyim/shopware:cli-6.4.6-php8.0 --tag shyim/shopware:cli-6.4.6-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.6-php8.0.28 --tag shyim/shopware:cli-6.4.6-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.6.1 --tag shyim/shopware:cli-6.4.6.1 --tag ghcr.io/shyim/shopware:cli-6.4.6.1-php8.0 --tag shyim/shopware:cli-6.4.6.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.6.1-php8.0.28 --tag shyim/shopware:cli-6.4.6.1-php8.0.28  --push .
   shopware-6_4_6_0-8_0:
     name: 6.4.6.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1156,10 +1156,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.6.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.6.0 --tag shyim/shopware:6.4.6.0 --tag ghcr.io/shyim/shopware:6.4.6.0-php8.0 --tag shyim/shopware:6.4.6.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.6.0-php8.0.27 --tag shyim/shopware:6.4.6.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.6.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.6.0 --tag shyim/shopware:6.4.6.0 --tag ghcr.io/shyim/shopware:6.4.6.0-php8.0 --tag shyim/shopware:6.4.6.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.6.0-php8.0.28 --tag shyim/shopware:6.4.6.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.6.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.6.0 --tag shyim/shopware:cli-6.4.6.0 --tag ghcr.io/shyim/shopware:cli-6.4.6.0-php8.0 --tag shyim/shopware:cli-6.4.6.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.6.0-php8.0.27 --tag shyim/shopware:cli-6.4.6.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.6.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.6.0 --tag shyim/shopware:cli-6.4.6.0 --tag ghcr.io/shyim/shopware:cli-6.4.6.0-php8.0 --tag shyim/shopware:cli-6.4.6.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.6.0-php8.0.28 --tag shyim/shopware:cli-6.4.6.0-php8.0.28  --push .
   shopware-6_4_5_1-8_0:
     name: 6.4.5.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1180,10 +1180,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.5.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.5 --tag shyim/shopware:6.4.5 --tag ghcr.io/shyim/shopware:6.4.5-php8.0 --tag shyim/shopware:6.4.5-php8.0 --tag ghcr.io/shyim/shopware:6.4.5-php8.0.27 --tag shyim/shopware:6.4.5-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.5.1 --tag shyim/shopware:6.4.5.1 --tag ghcr.io/shyim/shopware:6.4.5.1-php8.0 --tag shyim/shopware:6.4.5.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.5.1-php8.0.27 --tag shyim/shopware:6.4.5.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.5.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.5 --tag shyim/shopware:6.4.5 --tag ghcr.io/shyim/shopware:6.4.5-php8.0 --tag shyim/shopware:6.4.5-php8.0 --tag ghcr.io/shyim/shopware:6.4.5-php8.0.28 --tag shyim/shopware:6.4.5-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.5.1 --tag shyim/shopware:6.4.5.1 --tag ghcr.io/shyim/shopware:6.4.5.1-php8.0 --tag shyim/shopware:6.4.5.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.5.1-php8.0.28 --tag shyim/shopware:6.4.5.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.5.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.5 --tag shyim/shopware:cli-6.4.5 --tag ghcr.io/shyim/shopware:cli-6.4.5-php8.0 --tag shyim/shopware:cli-6.4.5-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.5-php8.0.27 --tag shyim/shopware:cli-6.4.5-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.5.1 --tag shyim/shopware:cli-6.4.5.1 --tag ghcr.io/shyim/shopware:cli-6.4.5.1-php8.0 --tag shyim/shopware:cli-6.4.5.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.5.1-php8.0.27 --tag shyim/shopware:cli-6.4.5.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.5.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.5 --tag shyim/shopware:cli-6.4.5 --tag ghcr.io/shyim/shopware:cli-6.4.5-php8.0 --tag shyim/shopware:cli-6.4.5-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.5-php8.0.28 --tag shyim/shopware:cli-6.4.5-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.5.1 --tag shyim/shopware:cli-6.4.5.1 --tag ghcr.io/shyim/shopware:cli-6.4.5.1-php8.0 --tag shyim/shopware:cli-6.4.5.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.5.1-php8.0.28 --tag shyim/shopware:cli-6.4.5.1-php8.0.28  --push .
   shopware-6_4_5_0-8_0:
     name: 6.4.5.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1204,10 +1204,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.5.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.5.0 --tag shyim/shopware:6.4.5.0 --tag ghcr.io/shyim/shopware:6.4.5.0-php8.0 --tag shyim/shopware:6.4.5.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.5.0-php8.0.27 --tag shyim/shopware:6.4.5.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.5.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.5.0 --tag shyim/shopware:6.4.5.0 --tag ghcr.io/shyim/shopware:6.4.5.0-php8.0 --tag shyim/shopware:6.4.5.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.5.0-php8.0.28 --tag shyim/shopware:6.4.5.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.5.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.5.0 --tag shyim/shopware:cli-6.4.5.0 --tag ghcr.io/shyim/shopware:cli-6.4.5.0-php8.0 --tag shyim/shopware:cli-6.4.5.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.5.0-php8.0.27 --tag shyim/shopware:cli-6.4.5.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.5.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.5.0 --tag shyim/shopware:cli-6.4.5.0 --tag ghcr.io/shyim/shopware:cli-6.4.5.0-php8.0 --tag shyim/shopware:cli-6.4.5.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.5.0-php8.0.28 --tag shyim/shopware:cli-6.4.5.0-php8.0.28  --push .
   shopware-6_4_4_1-8_0:
     name: 6.4.4.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1228,10 +1228,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.4.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.4 --tag shyim/shopware:6.4.4 --tag ghcr.io/shyim/shopware:6.4.4-php8.0 --tag shyim/shopware:6.4.4-php8.0 --tag ghcr.io/shyim/shopware:6.4.4-php8.0.27 --tag shyim/shopware:6.4.4-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.4.1 --tag shyim/shopware:6.4.4.1 --tag ghcr.io/shyim/shopware:6.4.4.1-php8.0 --tag shyim/shopware:6.4.4.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.4.1-php8.0.27 --tag shyim/shopware:6.4.4.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.4.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.4 --tag shyim/shopware:6.4.4 --tag ghcr.io/shyim/shopware:6.4.4-php8.0 --tag shyim/shopware:6.4.4-php8.0 --tag ghcr.io/shyim/shopware:6.4.4-php8.0.28 --tag shyim/shopware:6.4.4-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.4.1 --tag shyim/shopware:6.4.4.1 --tag ghcr.io/shyim/shopware:6.4.4.1-php8.0 --tag shyim/shopware:6.4.4.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.4.1-php8.0.28 --tag shyim/shopware:6.4.4.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.4.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.4 --tag shyim/shopware:cli-6.4.4 --tag ghcr.io/shyim/shopware:cli-6.4.4-php8.0 --tag shyim/shopware:cli-6.4.4-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.4-php8.0.27 --tag shyim/shopware:cli-6.4.4-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.4.1 --tag shyim/shopware:cli-6.4.4.1 --tag ghcr.io/shyim/shopware:cli-6.4.4.1-php8.0 --tag shyim/shopware:cli-6.4.4.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.4.1-php8.0.27 --tag shyim/shopware:cli-6.4.4.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.4.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.4 --tag shyim/shopware:cli-6.4.4 --tag ghcr.io/shyim/shopware:cli-6.4.4-php8.0 --tag shyim/shopware:cli-6.4.4-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.4-php8.0.28 --tag shyim/shopware:cli-6.4.4-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.4.1 --tag shyim/shopware:cli-6.4.4.1 --tag ghcr.io/shyim/shopware:cli-6.4.4.1-php8.0 --tag shyim/shopware:cli-6.4.4.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.4.1-php8.0.28 --tag shyim/shopware:cli-6.4.4.1-php8.0.28  --push .
   shopware-6_4_4_0-8_0:
     name: 6.4.4.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1252,10 +1252,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.4.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.4.0 --tag shyim/shopware:6.4.4.0 --tag ghcr.io/shyim/shopware:6.4.4.0-php8.0 --tag shyim/shopware:6.4.4.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.4.0-php8.0.27 --tag shyim/shopware:6.4.4.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.4.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.4.0 --tag shyim/shopware:6.4.4.0 --tag ghcr.io/shyim/shopware:6.4.4.0-php8.0 --tag shyim/shopware:6.4.4.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.4.0-php8.0.28 --tag shyim/shopware:6.4.4.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.4.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.4.0 --tag shyim/shopware:cli-6.4.4.0 --tag ghcr.io/shyim/shopware:cli-6.4.4.0-php8.0 --tag shyim/shopware:cli-6.4.4.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.4.0-php8.0.27 --tag shyim/shopware:cli-6.4.4.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.4.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.4.0 --tag shyim/shopware:cli-6.4.4.0 --tag ghcr.io/shyim/shopware:cli-6.4.4.0-php8.0 --tag shyim/shopware:cli-6.4.4.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.4.0-php8.0.28 --tag shyim/shopware:cli-6.4.4.0-php8.0.28  --push .
   shopware-6_4_3_1-8_0:
     name: 6.4.3.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1276,10 +1276,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.3.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.3 --tag shyim/shopware:6.4.3 --tag ghcr.io/shyim/shopware:6.4.3-php8.0 --tag shyim/shopware:6.4.3-php8.0 --tag ghcr.io/shyim/shopware:6.4.3-php8.0.27 --tag shyim/shopware:6.4.3-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.3.1 --tag shyim/shopware:6.4.3.1 --tag ghcr.io/shyim/shopware:6.4.3.1-php8.0 --tag shyim/shopware:6.4.3.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.3.1-php8.0.27 --tag shyim/shopware:6.4.3.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.3.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.3 --tag shyim/shopware:6.4.3 --tag ghcr.io/shyim/shopware:6.4.3-php8.0 --tag shyim/shopware:6.4.3-php8.0 --tag ghcr.io/shyim/shopware:6.4.3-php8.0.28 --tag shyim/shopware:6.4.3-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.3.1 --tag shyim/shopware:6.4.3.1 --tag ghcr.io/shyim/shopware:6.4.3.1-php8.0 --tag shyim/shopware:6.4.3.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.3.1-php8.0.28 --tag shyim/shopware:6.4.3.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.3.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.3 --tag shyim/shopware:cli-6.4.3 --tag ghcr.io/shyim/shopware:cli-6.4.3-php8.0 --tag shyim/shopware:cli-6.4.3-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.3-php8.0.27 --tag shyim/shopware:cli-6.4.3-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.3.1 --tag shyim/shopware:cli-6.4.3.1 --tag ghcr.io/shyim/shopware:cli-6.4.3.1-php8.0 --tag shyim/shopware:cli-6.4.3.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.3.1-php8.0.27 --tag shyim/shopware:cli-6.4.3.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.3.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.3 --tag shyim/shopware:cli-6.4.3 --tag ghcr.io/shyim/shopware:cli-6.4.3-php8.0 --tag shyim/shopware:cli-6.4.3-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.3-php8.0.28 --tag shyim/shopware:cli-6.4.3-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.3.1 --tag shyim/shopware:cli-6.4.3.1 --tag ghcr.io/shyim/shopware:cli-6.4.3.1-php8.0 --tag shyim/shopware:cli-6.4.3.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.3.1-php8.0.28 --tag shyim/shopware:cli-6.4.3.1-php8.0.28  --push .
   shopware-6_4_3_0-8_0:
     name: 6.4.3.0 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1300,10 +1300,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.3.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.3.0 --tag shyim/shopware:6.4.3.0 --tag ghcr.io/shyim/shopware:6.4.3.0-php8.0 --tag shyim/shopware:6.4.3.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.3.0-php8.0.27 --tag shyim/shopware:6.4.3.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.3.0/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.3.0 --tag shyim/shopware:6.4.3.0 --tag ghcr.io/shyim/shopware:6.4.3.0-php8.0 --tag shyim/shopware:6.4.3.0-php8.0 --tag ghcr.io/shyim/shopware:6.4.3.0-php8.0.28 --tag shyim/shopware:6.4.3.0-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.3.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.3.0 --tag shyim/shopware:cli-6.4.3.0 --tag ghcr.io/shyim/shopware:cli-6.4.3.0-php8.0 --tag shyim/shopware:cli-6.4.3.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.3.0-php8.0.27 --tag shyim/shopware:cli-6.4.3.0-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.3.0/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.3.0 --tag shyim/shopware:cli-6.4.3.0 --tag ghcr.io/shyim/shopware:cli-6.4.3.0-php8.0 --tag shyim/shopware:cli-6.4.3.0-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.3.0-php8.0.28 --tag shyim/shopware:cli-6.4.3.0-php8.0.28  --push .
   shopware-6_4_2_1-8_0:
     name: 6.4.2.1 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1324,10 +1324,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.2.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.2 --tag shyim/shopware:6.4.2 --tag ghcr.io/shyim/shopware:6.4.2-php8.0 --tag shyim/shopware:6.4.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.2-php8.0.27 --tag shyim/shopware:6.4.2-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.2.1 --tag shyim/shopware:6.4.2.1 --tag ghcr.io/shyim/shopware:6.4.2.1-php8.0 --tag shyim/shopware:6.4.2.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.2.1-php8.0.27 --tag shyim/shopware:6.4.2.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.2.1/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.2 --tag shyim/shopware:6.4.2 --tag ghcr.io/shyim/shopware:6.4.2-php8.0 --tag shyim/shopware:6.4.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.2-php8.0.28 --tag shyim/shopware:6.4.2-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.2.1 --tag shyim/shopware:6.4.2.1 --tag ghcr.io/shyim/shopware:6.4.2.1-php8.0 --tag shyim/shopware:6.4.2.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.2.1-php8.0.28 --tag shyim/shopware:6.4.2.1-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.2.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.2 --tag shyim/shopware:cli-6.4.2 --tag ghcr.io/shyim/shopware:cli-6.4.2-php8.0 --tag shyim/shopware:cli-6.4.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.2-php8.0.27 --tag shyim/shopware:cli-6.4.2-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.2.1 --tag shyim/shopware:cli-6.4.2.1 --tag ghcr.io/shyim/shopware:cli-6.4.2.1-php8.0 --tag shyim/shopware:cli-6.4.2.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.2.1-php8.0.27 --tag shyim/shopware:cli-6.4.2.1-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.2.1/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.2 --tag shyim/shopware:cli-6.4.2 --tag ghcr.io/shyim/shopware:cli-6.4.2-php8.0 --tag shyim/shopware:cli-6.4.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.2-php8.0.28 --tag shyim/shopware:cli-6.4.2-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.2.1 --tag shyim/shopware:cli-6.4.2.1 --tag ghcr.io/shyim/shopware:cli-6.4.2.1-php8.0 --tag shyim/shopware:cli-6.4.2.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.2.1-php8.0.28 --tag shyim/shopware:cli-6.4.2.1-php8.0.28  --push .
   shopware-6_4_1_2-8_0:
     name: 6.4.1.2 with PHP 8.0
     runs-on: ubuntu-20.04
@@ -1348,7 +1348,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build PHP Web
-        run: docker buildx build -f ./shopware/8.0/6.4.1.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.1 --tag shyim/shopware:6.4.1 --tag ghcr.io/shyim/shopware:6.4.1-php8.0 --tag shyim/shopware:6.4.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.1-php8.0.27 --tag shyim/shopware:6.4.1-php8.0.27 --tag ghcr.io/shyim/shopware:6.4.1.2 --tag shyim/shopware:6.4.1.2 --tag ghcr.io/shyim/shopware:6.4.1.2-php8.0 --tag shyim/shopware:6.4.1.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.1.2-php8.0.27 --tag shyim/shopware:6.4.1.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.1.2/Dockerfile --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:6.4.1 --tag shyim/shopware:6.4.1 --tag ghcr.io/shyim/shopware:6.4.1-php8.0 --tag shyim/shopware:6.4.1-php8.0 --tag ghcr.io/shyim/shopware:6.4.1-php8.0.28 --tag shyim/shopware:6.4.1-php8.0.28 --tag ghcr.io/shyim/shopware:6.4.1.2 --tag shyim/shopware:6.4.1.2 --tag ghcr.io/shyim/shopware:6.4.1.2-php8.0 --tag shyim/shopware:6.4.1.2-php8.0 --tag ghcr.io/shyim/shopware:6.4.1.2-php8.0.28 --tag shyim/shopware:6.4.1.2-php8.0.28  --push .
 
       - name: Build PHP CLI
-        run: docker buildx build -f ./shopware/8.0/6.4.1.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.1 --tag shyim/shopware:cli-6.4.1 --tag ghcr.io/shyim/shopware:cli-6.4.1-php8.0 --tag shyim/shopware:cli-6.4.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.1-php8.0.27 --tag shyim/shopware:cli-6.4.1-php8.0.27 --tag ghcr.io/shyim/shopware:cli-6.4.1.2 --tag shyim/shopware:cli-6.4.1.2 --tag ghcr.io/shyim/shopware:cli-6.4.1.2-php8.0 --tag shyim/shopware:cli-6.4.1.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.1.2-php8.0.27 --tag shyim/shopware:cli-6.4.1.2-php8.0.27  --push .
+        run: docker buildx build -f ./shopware/8.0/6.4.1.2/Dockerfile.cli --platform linux/amd64,linux/arm64 --tag ghcr.io/shyim/shopware:cli-6.4.1 --tag shyim/shopware:cli-6.4.1 --tag ghcr.io/shyim/shopware:cli-6.4.1-php8.0 --tag shyim/shopware:cli-6.4.1-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.1-php8.0.28 --tag shyim/shopware:cli-6.4.1-php8.0.28 --tag ghcr.io/shyim/shopware:cli-6.4.1.2 --tag shyim/shopware:cli-6.4.1.2 --tag ghcr.io/shyim/shopware:cli-6.4.1.2-php8.0 --tag shyim/shopware:cli-6.4.1.2-php8.0 --tag ghcr.io/shyim/shopware:cli-6.4.1.2-php8.0.28 --tag shyim/shopware:cli-6.4.1.2-php8.0.28  --push .
