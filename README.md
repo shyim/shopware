@@ -15,18 +15,19 @@ Smallest example with docker-compose
 version: "3.8"
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: shopware
       MYSQL_USER: shopware
       MYSQL_PASSWORD: shopware
   shopware:
-    image: shyim/shopware:6.4.17-php8.1
+    image: shyim/shopware:6.4.20-php8.2
     environment:
       APP_SECRET: 440dec3766de53010c5ccf6231c182acfc90bd25cff82e771245f736fd276518
       INSTANCE_ID: 10612e3916e153dd3447850e944a03fabe89440970295447a30a75b151bd844e
       APP_URL: http://localhost
+      BLUE_GREEN_DEPLOYMENT: 0
       DATABASE_HOST: mysql
       DATABASE_URL: mysql://shopware:shopware@mysql:3306/shopware
     ports:
