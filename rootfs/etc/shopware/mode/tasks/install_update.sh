@@ -6,6 +6,8 @@ if [[ -e /state/installed_version ]]; then
 
     if [[ "$IMAGE_VERSION" != "$INSTALLED_VERSION" ]]; then
       for f in /etc/shopware/scripts/on-update/*; do source $f; done
+      
+      cp /shopware_version /state/installed_version
     fi
 else
    for f in /etc/shopware/scripts/on-install/*; do source $f; done
