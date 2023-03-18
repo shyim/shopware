@@ -13,3 +13,4 @@ workflows:
           config-path: .circleci/docker-build.yml
           mapping: |
             php/.* build-image true
+            rootfs/.* build-image true
