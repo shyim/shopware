@@ -28,6 +28,7 @@
                 "restart": "always",
                 "environment": {
                     "DATABASE_HOST": "srv-captain--$$cap_appname-db:3306",
+                    "DATABASE_PORT": "3306",
                     "DATABASE_URL": "mysql://$$cap_db_user:$$cap_db_pass@srv-captain--$$cap_appname-db:3306/shopware",
                     "DB_USER": "$$cap_db_user",
                     "DB_PASSWORD": "$$cap_db_pass",
