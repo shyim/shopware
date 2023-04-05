@@ -2,6 +2,7 @@ FROM php:8.0.28-fpm-alpine
 
 ENV APP_ENV=prod \
     MAILER_URL=null://localhost \
+    DATABASE_PORT=3306 \
     SHOPWARE_ES_HOSTS= \
     SHOPWARE_ES_ENABLED=0 \
     SHOPWARE_ES_INDEXING_ENABLED=0 \
