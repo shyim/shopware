@@ -35,7 +35,7 @@ services:
       - 80:80
 ```
 
-[![Try](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/shyim/shopware-image/master/docker-compose.yml)
+[![Try](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/shyim/shopware/main/docker-compose.yml)
 
 The installation will be accessible at `http://localhost`. The default credentials for the administration are `admin` and `shopware` as password.
 
