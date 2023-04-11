@@ -1,2 +1,8 @@
 .idea
 matrix.json
+
+# Devenv
+.devenv*
+.direnv
+devenv.local.nix
+
