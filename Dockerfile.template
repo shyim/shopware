@@ -1,5 +1,6 @@
 FROM ghcr.io/shyim/shopware-php:${PHP_VERSION}
 
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 COPY patches /usr/local/src/sw-patches
 
 RUN cd /var/www/html && \

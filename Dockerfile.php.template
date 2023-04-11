@@ -38,7 +38,6 @@ ENV APP_ENV=prod \
     LD_PRELOAD="/usr/lib/preloadable_libiconv.so php"
 
 COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord
-COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 COPY --from=ghcr.io/shyim/gnu-libiconv:v3.14 /gnu-libiconv-1.15-r3.apk /gnu-libiconv-1.15-r3.apk
 
@@ -52,10 +51,7 @@ RUN apk add --no-cache \
       patch \
       jq && \
     apk add --no-cache --allow-untrusted /gnu-libiconv-1.15-r3.apk && rm /gnu-libiconv-1.15-r3.apk && \
-    apk add --no-cache libavif libavif-dev aom-libs aom-dev dav1d dav1d-dev && \
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip ffi redis opcache apcu && \
-    apk del libavif-dev aom-dev dav1d-dev && \
-    ln -s /usr/local/bin/php /usr/bin/php && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
     rm -rf /var/lib/nginx/tmp && \
