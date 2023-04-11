@@ -6,3 +6,4 @@ matrix.json
 .direnv
 devenv.local.nix
 
+/test
