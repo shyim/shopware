@@ -1,4 +1,4 @@
-FROM ghcr.io/shyim/shopware-php:8.2.4
+FROM ghcr.io/shyim/shopware-php:8.2.5
 
 COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 COPY patches /usr/local/src/sw-patches
