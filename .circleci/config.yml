@@ -12,5 +12,6 @@ workflows:
           base-revision: main
           config-path: .circleci/nginx.yml
           mapping: |
+            .circleci/nginx.yml build-image true
             nginx/.* build-image true
             rootfs/.* build-image true
