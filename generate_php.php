@@ -102,6 +102,7 @@ TPL;
       '${PHP_VERSION_SHORT}' => $phpShort,
       '${PHP_VERSION}' => $supportedVersion,
       '${PHP_PATCH_VERSION}' => $patchVersion['version'],
+      '${SERVER}' => $image,
     ];
 
     $workflow .= str_replace(array_keys($replaces), array_values($replaces), $workflowTpl);
