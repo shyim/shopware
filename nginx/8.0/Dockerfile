@@ -70,3 +70,4 @@ EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
 
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:80/admin
+
