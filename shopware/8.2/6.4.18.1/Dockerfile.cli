@@ -1,7 +1,6 @@
 FROM ghcr.io/shyim/shopware-php:8.2.5
 
 COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
-COPY patches /usr/local/src/sw-patches
 
 RUN cd /var/www/html && \
     wget -qq "https://releases.shopware.com/sw6/install_v6.4.18.1_59339d6a6e5b37eca3c18dddaf428fcffe8e472b.zip" && \
@@ -10,7 +9,6 @@ RUN cd /var/www/html && \
     mkdir /state && \
     touch /var/www/html/install.lock && \
     echo "6.4.18.1" > /shopware_version && \
-    for f in /usr/local/src/sw-patches/*.patch; do patch -p1 < $f || true; done && \
     rm -f /var/www/html/config/services/defaults_test.xml && \
     cp /etc/shopware/configs/services/jwt.xml /var/www/html/config/services/ && \
     cp /etc/shopware/configs/services/services.xml /var/www/html/config/ && \

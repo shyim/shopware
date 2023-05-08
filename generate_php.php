@@ -2,7 +2,7 @@
 
 $supportedVersions = ['8.0', '8.1', '8.2'];
 $index = [];
-$tpl = file_get_contents('Dockerfile.php.template');
+$tpl = file_get_contents('Dockerfile.nginx-php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';
 
 $workflow = <<<YML
@@ -46,7 +46,7 @@ foreach ($supportedVersions as $supportedVersion)
         throw new \RuntimeException('There is no version found for PHP ' . $supportedVersion);
     }
 
-    $folder = 'php/' . $supportedVersion . '/';
+    $folder = 'nginx/' . $supportedVersion . '/';
     if (!file_exists($folder)) {
         mkdir($folder, 0777, true);
     }
@@ -66,7 +66,7 @@ foreach ($supportedVersions as $supportedVersion)
 
       - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64 -f php/${PHP_VERSION}/Dockerfile .
+      - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64 -f nginx/${PHP_VERSION}/Dockerfile .
 
       - run: docker push ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64
 
@@ -82,7 +82,7 @@ foreach ($supportedVersions as $supportedVersion)
   
         - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
   
-        - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-amd64 -f php/${PHP_VERSION}/Dockerfile .
+        - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-amd64 -f nginx/${PHP_VERSION}/Dockerfile .
   
         - run: docker push ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64
 

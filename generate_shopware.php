@@ -30,7 +30,7 @@ exec('rm -rf shopware');
 
 foreach($shopwareVersions as $shopwareVersion) {
     // skip very old versions
-    if (version_compare('6.2.0', $shopwareVersion['version'], '>')) {
+    if (version_compare('6.4.2.0', $shopwareVersion['version'], '>')) {
         continue;
     }
 
