@@ -63,7 +63,7 @@ RUN apk add --no-cache \
     chown -R www-data:www-data /var/www && \
     usermod -u 1000 www-data
 
-COPY rootfs /
+COPY nginx/rootfs /
 
 EXPOSE 80
 
