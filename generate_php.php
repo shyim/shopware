@@ -1,8 +1,15 @@
 <?php
 
+$image = $argv[1] ?? 'nginx';
+
+if (!in_array($image, ['nginx', 'caddy'], true)) {
+  echo "Server can be only nginx or caddy" . PHP_EOL;
+  exit(1);
+}
+
 $supportedVersions = ['8.0', '8.1', '8.2'];
 $index = [];
-$tpl = file_get_contents('Dockerfile.nginx-php.template');
+$tpl = file_get_contents('Dockerfile.' . $image . '-php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';
 
 $workflow = <<<YML
@@ -46,7 +53,7 @@ foreach ($supportedVersions as $supportedVersion)
         throw new \RuntimeException('There is no version found for PHP ' . $supportedVersion);
     }
 
-    $folder = 'nginx/' . $supportedVersion . '/';
+    $folder = $image . '/' . $supportedVersion . '/';
     if (!file_exists($folder)) {
         mkdir($folder, 0777, true);
     }
@@ -66,11 +73,11 @@ foreach ($supportedVersions as $supportedVersion)
 
       - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64 -f nginx/${PHP_VERSION}/Dockerfile .
+      - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
 
-      - run: docker push ghcr.io/shyim/shopware-php:${PHP_VERSION}-arm64
+      - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64
 
-      - run: docker push ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64
+      - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
 
   php${PHP_VERSION_SHORT}-amd64:
       machine:
@@ -82,11 +89,11 @@ foreach ($supportedVersions as $supportedVersion)
   
         - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
   
-        - run: docker build -t ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-amd64 -f nginx/${PHP_VERSION}/Dockerfile .
+        - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
   
-        - run: docker push ghcr.io/shyim/shopware-php:${PHP_VERSION}-amd64
+        - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-amd64
 
-        - run: docker push ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-amd64
+        - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64
   
 TPL;
 
@@ -99,10 +106,10 @@ TPL;
 
     $workflow .= str_replace(array_keys($replaces), array_values($replaces), $workflowTpl);
 
-    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-php:' . $supportedVersion . ' --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-arm64';
-    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . ' --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-php:' . $patchVersion['version'] . '-arm64';
-    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-php:' . $supportedVersion;
-    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-php:' . $patchVersion['version'];
+    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion . ' --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-arm64';
+    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . ' --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-arm64';
+    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion;
+    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'];
 
     $stages[] = 'php' . $phpShort . '-arm64';
     $stages[] = 'php' . $phpShort . '-amd64';
@@ -142,5 +149,5 @@ foreach ($stages as $stage) {
   $workflow .= '            - ' . $stage . "\n";
 }
 
-file_put_contents('.circleci/docker-build.yml', $workflow);
+file_put_contents('.circleci/' . $image . '.yml', $workflow);
 file_put_contents('index_php.json', json_encode($index, true, JSON_PRETTY_PRINT));

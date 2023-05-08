@@ -10,7 +10,7 @@ workflows:
     jobs:
       - path-filtering/filter:
           base-revision: main
-          config-path: .circleci/docker-build.yml
+          config-path: .circleci/nginx.yml
           mapping: |
-            php/.* build-image true
+            nginx/.* build-image true
             rootfs/.* build-image true
