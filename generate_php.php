@@ -73,7 +73,7 @@ foreach ($supportedVersions as $supportedVersion)
 
       - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-php:${PHP_PATCH_VERSION}-arm64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
+      - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
 
       - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64
 
