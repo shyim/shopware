@@ -34,6 +34,10 @@ foreach($shopwareVersions as $shopwareVersion) {
         continue;
     }
 
+    if (!version_compare('6.5.0', $shopwareVersion['version'], '>=')) {
+        continue;
+    }
+
     $versionTags = [];
 
     if (!isset($usedTags['latest'])) {
