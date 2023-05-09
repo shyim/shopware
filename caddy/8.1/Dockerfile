@@ -29,9 +29,9 @@ ENV APP_ENV=prod \
     PHP_MEMORY_LIMIT=512m \
     PHP_ERROR_REPORTING=E_ALL
 
-COPY --from=ghcr.io/shyim/supervisord /usr/local/bin/supervisord /usr/bin/supervisord
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
-COPY --from=caddy /usr/bin/caddy /usr/bin/caddy
+COPY --from=ghcr.io/shyim/supervisord --link /usr/local/bin/supervisord /usr/bin/supervisord
+COPY --from=mlocati/php-extension-installer --link /usr/bin/install-php-extensions /usr/bin/
+COPY --from=caddy --link /usr/bin/caddy /usr/bin/caddy
 
 RUN apk add --no-cache bash curl && \
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip ffi redis opcache apcu amqp

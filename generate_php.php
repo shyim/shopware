@@ -22,6 +22,9 @@ on:
     paths:
       - "${image}/**"
 
+env:
+  DOCKER_BUILDKIT: 1
+
 jobs:
 YML;
 

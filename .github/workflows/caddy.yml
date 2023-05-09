@@ -7,6 +7,9 @@ on:
     paths:
       - "caddy/**"
 
+env:
+  DOCKER_BUILDKIT: 1
+
 jobs:
   caddy-php80-arm64:
     name: 8.0 on ARM64
