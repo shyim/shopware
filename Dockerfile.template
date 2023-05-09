@@ -1,4 +1,4 @@
-FROM ghcr.io/shyim/shopware-php:${PHP_VERSION}
+FROM ghcr.io/shyim/shopware-nginx:${PHP_VERSION}
 
 COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 
