@@ -63,7 +63,7 @@ foreach ($supportedVersions as $supportedVersion)
 
     $workflowTpl = <<<'TPL'
 
-  php${PHP_VERSION_SHORT}-arm64:
+  ${SERVER}-php${PHP_VERSION_SHORT}-arm64:
     machine:
       image: ubuntu-2004:current
       docker_layer_caching: true 
@@ -79,7 +79,7 @@ foreach ($supportedVersions as $supportedVersion)
 
       - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
 
-  php${PHP_VERSION_SHORT}-amd64:
+  ${SERVER}-php${PHP_VERSION_SHORT}-amd64:
       machine:
         image: ubuntu-2004:current
         docker_layer_caching: true 
@@ -112,13 +112,13 @@ TPL;
     $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion;
     $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'];
 
-    $stages[] = 'php' . $phpShort . '-arm64';
-    $stages[] = 'php' . $phpShort . '-amd64';
+    $stages[] = $image . '-php' . $phpShort . '-arm64';
+    $stages[] = $image . '-php' . $phpShort . '-amd64';
 }
 
 $workflow .= '
 
-  merge-manifest:
+  merge-' . $image . '-manifest:
     machine:
       image: ubuntu-2004:current
       docker_layer_caching: true 
@@ -133,7 +133,7 @@ foreach ($dockerMerges as $merge) {
 }
 
 $workflow .= 'workflows:
-  build-base-image:
+  build-' . $image . '-image:
     when: << pipeline.parameters.build-image >>
     jobs:
 ';
@@ -143,7 +143,7 @@ foreach ($stages as $stage) {
 }
 
 
-$workflow .= "      - merge-manifest:
+$workflow .= "      - merge-" . $image . "-manifest:
           requires:\n";
 
 foreach ($stages as $stage) {

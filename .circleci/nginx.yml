@@ -6,7 +6,7 @@ parameters:
     default: false
 
 jobs:
-  php80-arm64:
+  nginx-php80-arm64:
     machine:
       image: ubuntu-2004:current
       docker_layer_caching: true 
@@ -22,7 +22,7 @@ jobs:
 
       - run: docker push ghcr.io/shyim/shopware-nginx:8.0.28-arm64
 
-  php80-amd64:
+  nginx-php80-amd64:
       machine:
         image: ubuntu-2004:current
         docker_layer_caching: true 
@@ -38,7 +38,7 @@ jobs:
 
         - run: docker push ghcr.io/shyim/shopware-nginx:8.0.28-amd64
   
-  php81-arm64:
+  nginx-php81-arm64:
     machine:
       image: ubuntu-2004:current
       docker_layer_caching: true 
@@ -54,7 +54,7 @@ jobs:
 
       - run: docker push ghcr.io/shyim/shopware-nginx:8.1.18-arm64
 
-  php81-amd64:
+  nginx-php81-amd64:
       machine:
         image: ubuntu-2004:current
         docker_layer_caching: true 
@@ -70,7 +70,7 @@ jobs:
 
         - run: docker push ghcr.io/shyim/shopware-nginx:8.1.18-amd64
   
-  php82-arm64:
+  nginx-php82-arm64:
     machine:
       image: ubuntu-2004:current
       docker_layer_caching: true 
@@ -86,7 +86,7 @@ jobs:
 
       - run: docker push ghcr.io/shyim/shopware-nginx:8.2.5-arm64
 
-  php82-amd64:
+  nginx-php82-amd64:
       machine:
         image: ubuntu-2004:current
         docker_layer_caching: true 
@@ -103,7 +103,7 @@ jobs:
         - run: docker push ghcr.io/shyim/shopware-nginx:8.2.5-amd64
   
 
-  merge-manifest:
+  merge-nginx-manifest:
     machine:
       image: ubuntu-2004:current
       docker_layer_caching: true 
@@ -136,20 +136,20 @@ jobs:
       - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.2.5
 
 workflows:
-  build-base-image:
+  build-nginx-image:
     when: << pipeline.parameters.build-image >>
     jobs:
-      - php80-arm64
-      - php80-amd64
-      - php81-arm64
-      - php81-amd64
-      - php82-arm64
-      - php82-amd64
-      - merge-manifest:
+      - nginx-php80-arm64
+      - nginx-php80-amd64
+      - nginx-php81-arm64
+      - nginx-php81-amd64
+      - nginx-php82-arm64
+      - nginx-php82-amd64
+      - merge-nginx-manifest:
           requires:
-            - php80-arm64
-            - php80-amd64
-            - php81-arm64
-            - php81-amd64
-            - php82-arm64
-            - php82-amd64
+            - nginx-php80-arm64
+            - nginx-php80-amd64
+            - nginx-php81-arm64
+            - nginx-php81-amd64
+            - nginx-php82-arm64
+            - nginx-php82-amd64
