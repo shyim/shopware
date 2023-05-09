@@ -19,7 +19,8 @@ jobs:
       - name: Generate files
         run: |
           php generate_shopware.php
-          php generate_php.php
+          php generate_php.php nginx
+          php generate_php.php caddy
           
       - name: my-app-install token
         id: gh-app

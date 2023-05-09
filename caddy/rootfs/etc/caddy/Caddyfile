@@ -1,0 +1,12 @@
+:8000
+
+log
+
+route {
+    root * /var/www/html/public
+    php_fastcgi unix//tmp/php-fpm.sock {
+        trusted_proxies private_ranges
+    }
+    encode zstd gzip
+    file_server
+}
