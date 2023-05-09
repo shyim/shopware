@@ -14,4 +14,9 @@ workflows:
           mapping: |
             .circleci/nginx.yml build-image true
             nginx/.* build-image true
-            rootfs/.* build-image true
+      - path-filtering/filter:
+          base-revision: main
+          config-path: .circleci/caddy.yml
+          mapping: |
+            .circleci/caddy.yml build-image true
+            caddy/.* build-image true
