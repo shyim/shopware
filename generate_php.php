@@ -13,12 +13,14 @@ $tpl = file_get_contents('Dockerfile.' . $image . '-php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';
 
 $workflow = <<<YML
-version: 2.1
-
-parameters:
-  build-image:
-    type: boolean
-    default: false
+name: Build ${image}
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "${image}/**"
 
 jobs:
 YML;
@@ -64,14 +66,13 @@ foreach ($supportedVersions as $supportedVersion)
     $workflowTpl = <<<'TPL'
 
   ${SERVER}-php${PHP_VERSION_SHORT}-arm64:
-    machine:
-      image: ubuntu-2004:current
-      docker_layer_caching: true 
-    resource_class: arm.medium
+    name: ${PHP_VERSION} on ARM64
+    runs-on: ubuntu-22.04
     steps:
-      - checkout
-
-      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
+      - uses: actions/checkout@v3
+  
+      - name: Login into Github Docker Registery
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
 
@@ -80,14 +81,13 @@ foreach ($supportedVersions as $supportedVersion)
       - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
 
   ${SERVER}-php${PHP_VERSION_SHORT}-amd64:
-      machine:
-        image: ubuntu-2004:current
-        docker_layer_caching: true 
-      resource_class: medium
+      name: ${PHP_VERSION} on AMD64
+      runs-on: ubuntu-22.04
       steps:
-        - checkout
+        - uses: actions/checkout@v3
   
-        - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
+        - name: Login into Github Docker Registery
+          run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
   
         - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
   
@@ -118,37 +118,25 @@ TPL;
 
 $workflow .= '
 
-  merge-' . $image . '-manifest:
-    machine:
-      image: ubuntu-2004:current
-      docker_layer_caching: true 
-    resource_class: medium
-    steps:
-      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
-
-';
-
-foreach ($dockerMerges as $merge) {
-  $workflow .= "      - run: " . $merge . "\n\n";
-}
-
-$workflow .= 'workflows:
-  build-' . $image . '-image:
-    when: << pipeline.parameters.build-image >>
-    jobs:
+  merge-manifest:
+    name: Merge Manifest
+    runs-on: ubuntu-22.04
+    needs:
 ';
 
 foreach ($stages as $stage) {
   $workflow .= '      - ' . $stage . "\n";
 }
 
+$workflow .= '
+    steps:
+      - name: Login into Github Docker Registery
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+';
 
-$workflow .= "      - merge-" . $image . "-manifest:
-          requires:\n";
-
-foreach ($stages as $stage) {
-  $workflow .= '            - ' . $stage . "\n";
+foreach ($dockerMerges as $merge) {
+  $workflow .= "      - run: " . $merge . "\n\n";
 }
 
-file_put_contents('.circleci/' . $image . '.yml', $workflow);
+file_put_contents('.github/workflows/' . $image . '.yml', $workflow);
 file_put_contents('index_php.json', json_encode($index, true, JSON_PRETTY_PRINT));
