@@ -7,10 +7,13 @@ on:
     paths:
       - "nginx/**"
 
+env:
+  DOCKER_BUILDKIT: 1
+
 jobs:
   nginx-php80-arm64:
     name: 8.0 on ARM64
-    runs-on: ubuntu-22.04
+    runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
   
@@ -40,7 +43,7 @@ jobs:
   
   nginx-php81-arm64:
     name: 8.1 on ARM64
-    runs-on: ubuntu-22.04
+    runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
   
@@ -70,7 +73,7 @@ jobs:
   
   nginx-php82-arm64:
     name: 8.2 on ARM64
-    runs-on: ubuntu-22.04
+    runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
   

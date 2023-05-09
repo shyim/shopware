@@ -70,7 +70,7 @@ foreach ($supportedVersions as $supportedVersion)
 
   ${SERVER}-php${PHP_VERSION_SHORT}-arm64:
     name: ${PHP_VERSION} on ARM64
-    runs-on: ubuntu-22.04
+    runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
   
