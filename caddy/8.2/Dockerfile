@@ -34,12 +34,14 @@ COPY --from=mlocati/php-extension-installer --link /usr/bin/install-php-extensio
 COPY --from=caddy --link /usr/bin/caddy /usr/bin/caddy
 
 RUN apk add --no-cache icu-data-full curl && \
-    install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip ffi redis opcache apcu amqp
+    install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip ffi redis opcache apcu amqp && \
+    mkdir -p /var/www/html
 
 USER www-data
 
 COPY --link caddy/rootfs /
 
 EXPOSE 8000
+WORKDIR /var/www/html
 
 ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
