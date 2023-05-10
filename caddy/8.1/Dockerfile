@@ -40,4 +40,6 @@ USER www-data
 
 COPY --link caddy/rootfs /
 
+EXPOSE 8000
+
 ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
