@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.4
 
-FROM php:8.2.5-fpm-alpine
+FROM php:8.2.6-fpm-alpine
 
 ENV APP_ENV=prod \
     MAILER_URL=null://localhost \
