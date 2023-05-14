@@ -3,7 +3,8 @@
 FROM php:8.2.6-fpm-alpine
 
 ENV APP_ENV=prod \
-    MAILER_URL=null://localhost \
+    LOCK_DSN=flock \
+    MAILER_DSN=null://localhost \
     DATABASE_PORT=3306 \
     OPENSEARCH_URL= \
     SHOPWARE_ES_ENABLED=0 \
