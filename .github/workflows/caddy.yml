@@ -160,6 +160,10 @@ jobs:
 
       - run: docker manifest push ghcr.io/shyim/shopware-caddy:8.0.28
 
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.0
+
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.0.28
+
       - run: docker manifest create ghcr.io/shyim/shopware-caddy:8.1 --amend ghcr.io/shyim/shopware-caddy:8.1.19-amd64 --amend ghcr.io/shyim/shopware-caddy:8.1.19-arm64
 
       - run: docker manifest create ghcr.io/shyim/shopware-caddy:8.1.19 --amend ghcr.io/shyim/shopware-caddy:8.1.19-amd64 --amend ghcr.io/shyim/shopware-caddy:8.1.19-arm64
@@ -168,6 +172,10 @@ jobs:
 
       - run: docker manifest push ghcr.io/shyim/shopware-caddy:8.1.19
 
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.1
+
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.1.19
+
       - run: docker manifest create ghcr.io/shyim/shopware-caddy:8.2 --amend ghcr.io/shyim/shopware-caddy:8.2.6-amd64 --amend ghcr.io/shyim/shopware-caddy:8.2.6-arm64
 
       - run: docker manifest create ghcr.io/shyim/shopware-caddy:8.2.6 --amend ghcr.io/shyim/shopware-caddy:8.2.6-amd64 --amend ghcr.io/shyim/shopware-caddy:8.2.6-arm64
@@ -175,4 +183,8 @@ jobs:
       - run: docker manifest push ghcr.io/shyim/shopware-caddy:8.2
 
       - run: docker manifest push ghcr.io/shyim/shopware-caddy:8.2.6
+
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.2
+
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.2.6
 

@@ -131,6 +131,9 @@ TPL;
     $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion;
     $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'];
 
+    $dockerMerges[] = 'cosign sign --yes ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion;
+    $dockerMerges[] = 'cosign sign --yes ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'];
+
     $stages[] = $image . '-php' . $phpShort . '-arm64';
     $stages[] = $image . '-php' . $phpShort . '-amd64';
 }
