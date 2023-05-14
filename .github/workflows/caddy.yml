@@ -9,6 +9,12 @@ on:
 
 env:
   DOCKER_BUILDKIT: 1
+  COSIGN_EXPERIMENTAL: 1
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
 
 jobs:
   caddy-php80-arm64:
@@ -16,6 +22,9 @@ jobs:
     runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
   
       - name: Login into Github Docker Registery
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -26,11 +35,16 @@ jobs:
 
       - run: docker push ghcr.io/shyim/shopware-caddy:8.0.28-arm64
 
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.0.28-arm64
+
   caddy-php80-amd64:
       name: 8.0 on AMD64
       runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v3
+
+        - name: Install Cosign
+          uses: sigstore/cosign-installer@v3
   
         - name: Login into Github Docker Registery
           run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -40,12 +54,17 @@ jobs:
         - run: docker push ghcr.io/shyim/shopware-caddy:8.0-amd64
 
         - run: docker push ghcr.io/shyim/shopware-caddy:8.0.28-amd64
+
+        - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.0.28-amd64
   
   caddy-php81-arm64:
     name: 8.1 on ARM64
     runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
   
       - name: Login into Github Docker Registery
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -56,11 +75,16 @@ jobs:
 
       - run: docker push ghcr.io/shyim/shopware-caddy:8.1.19-arm64
 
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.1.19-arm64
+
   caddy-php81-amd64:
       name: 8.1 on AMD64
       runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v3
+
+        - name: Install Cosign
+          uses: sigstore/cosign-installer@v3
   
         - name: Login into Github Docker Registery
           run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -70,12 +94,17 @@ jobs:
         - run: docker push ghcr.io/shyim/shopware-caddy:8.1-amd64
 
         - run: docker push ghcr.io/shyim/shopware-caddy:8.1.19-amd64
+
+        - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.1.19-amd64
   
   caddy-php82-arm64:
     name: 8.2 on ARM64
     runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
   
       - name: Login into Github Docker Registery
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -86,11 +115,16 @@ jobs:
 
       - run: docker push ghcr.io/shyim/shopware-caddy:8.2.6-arm64
 
+      - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.2.6-arm64
+
   caddy-php82-amd64:
       name: 8.2 on AMD64
       runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v3
+
+        - name: Install Cosign
+          uses: sigstore/cosign-installer@v3
   
         - name: Login into Github Docker Registery
           run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -100,6 +134,8 @@ jobs:
         - run: docker push ghcr.io/shyim/shopware-caddy:8.2-amd64
 
         - run: docker push ghcr.io/shyim/shopware-caddy:8.2.6-amd64
+
+        - run: cosign sign --yes ghcr.io/shyim/shopware-caddy:8.2.6-amd64
   
 
   merge-manifest:

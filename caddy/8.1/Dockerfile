@@ -33,7 +33,7 @@ COPY --from=ghcr.io/shyim/supervisord --link /usr/local/bin/supervisord /usr/bin
 COPY --from=mlocati/php-extension-installer --link /usr/bin/install-php-extensions /usr/bin/
 COPY --from=caddy --link /usr/bin/caddy /usr/bin/caddy
 
-RUN apk add --no-cache icu-data-full curl && \
+RUN apk add --no-cache icu-data-full curl jq && \
     install-php-extensions bcmath gd intl mysqli pdo_mysql sockets bz2 gmp soap zip ffi redis opcache apcu amqp && \
     mkdir -p /var/www/html
 

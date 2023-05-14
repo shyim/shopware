@@ -24,6 +24,12 @@ on:
 
 env:
   DOCKER_BUILDKIT: 1
+  COSIGN_EXPERIMENTAL: 1
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
 
 jobs:
 YML;
@@ -73,6 +79,9 @@ foreach ($supportedVersions as $supportedVersion)
     runs-on: ARM64
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3
   
       - name: Login into Github Docker Registery
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -83,11 +92,16 @@ foreach ($supportedVersions as $supportedVersion)
 
       - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
 
+      - run: cosign sign --yes ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
+
   ${SERVER}-php${PHP_VERSION_SHORT}-amd64:
       name: ${PHP_VERSION} on AMD64
       runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v3
+
+        - name: Install Cosign
+          uses: sigstore/cosign-installer@v3
   
         - name: Login into Github Docker Registery
           run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -97,6 +111,8 @@ foreach ($supportedVersions as $supportedVersion)
         - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-amd64
 
         - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64
+
+        - run: cosign sign --yes ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64
   
 TPL;
 
