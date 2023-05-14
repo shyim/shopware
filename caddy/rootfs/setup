@@ -25,9 +25,7 @@ install_all_plugins() {
   done
 }
 
-php bin/console system:config:get shopware.installed
-
-if [[ $? == 0 ]]; then
+if [[ php bin/console system:config:get shopware.installed ]]; then
   php bin/console system:update:finish
   php bin/console plugin:refresh
 

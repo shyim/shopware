@@ -2,4 +2,9 @@
 matrix.json
 
 /test
-/sw
+/example-project/*
+!/example-project/.dockerignore
+!/example-project/composer.*
+!/example-project/Dockerfile
+!/example-project/docker-compose.yml
+!/example-project/.app.env
