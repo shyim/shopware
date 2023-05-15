@@ -34,7 +34,7 @@ if php bin/console system:config:get shopware.installed; then
   php bin/console theme:compile
 else
   # Shopware is not installed
-  php bin/console system:install --create-database "--shop-locale=$INSTALL_LOCALE" "--shop-currency=$INSTALL_CURRENCY"
+  php bin/console system:install --create-database "--shop-locale=$INSTALL_LOCALE" "--shop-currency=$INSTALL_CURRENCY" --force
   php bin/console user:create "$INSTALL_ADMIN_USERNAME" --admin --password="$INSTALL_ADMIN_PASSWORD" -n
   php bin/console sales-channel:create:storefront --name=Storefront --url="$APP_URL"
   php bin/console theme:change --all Storefront
