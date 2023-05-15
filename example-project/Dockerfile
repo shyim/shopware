@@ -14,7 +14,7 @@ WORKDIR /src
 RUN --mount=type=secret,id=composer_auth,dst=/src/auth.json \
     --mount=type=cache,target=/root/.composer \
     --mount=type=cache,target=/root/.npm \
-    bash -c 'source /usr/local/bin/entrypoint.sh && shopware-cli project ci /src'
+    /usr/local/bin/entrypoint.sh shopware-cli project ci /src
 
 # build final image
 

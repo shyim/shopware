@@ -23,6 +23,8 @@ services:
 
   init:
     image: local
+    build:
+      context: .
     env_file: .app.env
     entrypoint: /setup
     volumes_from:
@@ -34,6 +36,8 @@ services:
         condition: service_completed_successfully
   web:
     image: local
+    build:
+      context: .
     volumes_from:
       - init-perm
     depends_on:
