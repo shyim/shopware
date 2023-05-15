@@ -1,6 +1,7 @@
 FROM php:8.1.19-fpm-alpine
 
 ENV APP_ENV=prod \
+    LOCK_DSN=flock \
     MAILER_URL=null://localhost \
     DATABASE_PORT=3306 \
     SHOPWARE_ES_HOSTS= \
