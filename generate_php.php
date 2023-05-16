@@ -1,35 +1,17 @@
 <?php
 
-$image = $argv[1] ?? 'nginx';
-
-if (!in_array($image, ['nginx', 'caddy'], true)) {
-  echo "Server can be only nginx or caddy" . PHP_EOL;
-  exit(1);
-}
-
 $supportedVersions = ['8.0', '8.1', '8.2'];
 $index = [];
-$tpl = file_get_contents('Dockerfile.' . $image . '-php.template');
+$tpl = file_get_contents('Dockerfile.nginx-php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';
 
 $workflow = <<<YML
-name: Build ${image}
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "${image}/**"
+version: 2.1
 
-env:
-  DOCKER_BUILDKIT: 1
-  COSIGN_EXPERIMENTAL: 1
-
-permissions:
-  contents: write
-  id-token: write
-  packages: write
+parameters:
+  build-image:
+    type: boolean
+    default: false
 
 jobs:
 YML;
@@ -64,7 +46,7 @@ foreach ($supportedVersions as $supportedVersion)
         throw new \RuntimeException('There is no version found for PHP ' . $supportedVersion);
     }
 
-    $folder = $image . '/' . $supportedVersion . '/';
+    $folder = 'nginx/' . $supportedVersion . '/';
     if (!file_exists($folder)) {
         mkdir($folder, 0777, true);
     }
@@ -74,45 +56,37 @@ foreach ($supportedVersions as $supportedVersion)
 
     $workflowTpl = <<<'TPL'
 
-  ${SERVER}-php${PHP_VERSION_SHORT}-arm64:
-    name: ${PHP_VERSION} on ARM64
-    runs-on: ARM64
+  php${PHP_VERSION_SHORT}-arm64:
+    machine:
+      image: ubuntu-2004:current
+      docker_layer_caching: true 
+    resource_class: arm.medium
     steps:
-      - uses: actions/checkout@v3
+      - checkout
 
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3
-  
-      - name: Login into Github Docker Registery
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
+      - run: docker build -t ghcr.io/shyim/shopware-nginx:${PHP_VERSION}-arm64 -t ghcr.io/shyim/shopware-nginx:${PHP_PATCH_VERSION}-arm64 -f nginx/${PHP_VERSION}/Dockerfile .
 
-      - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-arm64
+      - run: docker push ghcr.io/shyim/shopware-nginx:${PHP_VERSION}-arm64
 
-      - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
+      - run: docker push ghcr.io/shyim/shopware-nginx:${PHP_PATCH_VERSION}-arm64
 
-      - run: cosign sign --yes ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-arm64
-
-  ${SERVER}-php${PHP_VERSION_SHORT}-amd64:
-      name: ${PHP_VERSION} on AMD64
-      runs-on: ubuntu-22.04
+  php${PHP_VERSION_SHORT}-amd64:
+      machine:
+        image: ubuntu-2004:current
+        docker_layer_caching: true 
+      resource_class: medium
       steps:
-        - uses: actions/checkout@v3
-
-        - name: Install Cosign
-          uses: sigstore/cosign-installer@v3
+        - checkout
   
-        - name: Login into Github Docker Registery
-          run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
   
-        - run: docker build -t ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64 -f ${SERVER}/${PHP_VERSION}/Dockerfile .
+        - run: docker build -t ghcr.io/shyim/shopware-nginx:${PHP_VERSION}-amd64 -t ghcr.io/shyim/shopware-nginx:${PHP_PATCH_VERSION}-amd64 -f nginx/${PHP_VERSION}/Dockerfile .
   
-        - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_VERSION}-amd64
+        - run: docker push ghcr.io/shyim/shopware-nginx:${PHP_VERSION}-amd64
 
-        - run: docker push ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64
-
-        - run: cosign sign --yes ghcr.io/shyim/shopware-${SERVER}:${PHP_PATCH_VERSION}-amd64
+        - run: docker push ghcr.io/shyim/shopware-nginx:${PHP_PATCH_VERSION}-amd64
   
 TPL;
 
@@ -121,42 +95,28 @@ TPL;
       '${PHP_VERSION_SHORT}' => $phpShort,
       '${PHP_VERSION}' => $supportedVersion,
       '${PHP_PATCH_VERSION}' => $patchVersion['version'],
-      '${SERVER}' => $image,
     ];
 
     $workflow .= str_replace(array_keys($replaces), array_values($replaces), $workflowTpl);
 
-    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion . ' --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-arm64';
-    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . ' --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'] . '-arm64';
-    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion;
-    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'];
+    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-nginx:' . $supportedVersion . ' --amend ghcr.io/shyim/shopware-nginx:' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-nginx:' . $patchVersion['version'] . '-arm64';
+    $dockerMerges[] = 'docker manifest create ghcr.io/shyim/shopware-nginx:' . $patchVersion['version'] . ' --amend ghcr.io/shyim/shopware-nginx:' . $patchVersion['version'] . '-amd64 --amend ghcr.io/shyim/shopware-nginx:' . $patchVersion['version'] . '-arm64';
+    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-nginx:' . $supportedVersion;
+    $dockerMerges[] = 'docker manifest push ghcr.io/shyim/shopware-nginx:' . $patchVersion['version'];
 
-    $dockerMerges[] = 'cosign sign --yes ghcr.io/shyim/shopware-' . $image . ':' . $supportedVersion;
-    $dockerMerges[] = 'cosign sign --yes ghcr.io/shyim/shopware-' . $image . ':' . $patchVersion['version'];
-
-    $stages[] = $image . '-php' . $phpShort . '-arm64';
-    $stages[] = $image . '-php' . $phpShort . '-amd64';
+    $stages[] = 'php' . $phpShort . '-arm64';
+    $stages[] = 'php' . $phpShort . '-amd64';
 }
 
 $workflow .= '
 
   merge-manifest:
-    name: Merge Manifest
-    runs-on: ubuntu-22.04
-    needs:
-';
-
-foreach ($stages as $stage) {
-  $workflow .= '      - ' . $stage . "\n";
-}
-
-$workflow .= '
+    machine:
+      image: ubuntu-2004:current
+      docker_layer_caching: true 
+    resource_class: medium
     steps:
-      - name: Login into Github Docker Registery
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3
+      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
 ';
 
@@ -164,5 +124,23 @@ foreach ($dockerMerges as $merge) {
   $workflow .= "      - run: " . $merge . "\n\n";
 }
 
-file_put_contents('.github/workflows/' . $image . '.yml', $workflow);
+$workflow .= 'workflows:
+  build-base-image:
+    when: << pipeline.parameters.build-image >>
+    jobs:
+';
+
+foreach ($stages as $stage) {
+  $workflow .= '      - ' . $stage . "\n";
+}
+
+
+$workflow .= "      - merge-manifest:
+          requires:\n";
+
+foreach ($stages as $stage) {
+  $workflow .= '            - ' . $stage . "\n";
+}
+
+file_put_contents('.circleci/docker-build.yml', $workflow);
 file_put_contents('index_php.json', json_encode($index, true, JSON_PRETTY_PRINT));

@@ -1,5 +1,0 @@
-Dockerfile
-.env*
-files
-public/bundles
-vendor
