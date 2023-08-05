@@ -48,11 +48,11 @@ jobs:
 
       - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - run: docker build -t ghcr.io/shyim/shopware-nginx:8.1-arm64 -t ghcr.io/shyim/shopware-nginx:8.1.21-arm64 -f nginx/8.1/Dockerfile .
+      - run: docker build -t ghcr.io/shyim/shopware-nginx:8.1-arm64 -t ghcr.io/shyim/shopware-nginx:8.1.22-arm64 -f nginx/8.1/Dockerfile .
 
       - run: docker push ghcr.io/shyim/shopware-nginx:8.1-arm64
 
-      - run: docker push ghcr.io/shyim/shopware-nginx:8.1.21-arm64
+      - run: docker push ghcr.io/shyim/shopware-nginx:8.1.22-arm64
 
   php81-amd64:
       machine:
@@ -64,11 +64,11 @@ jobs:
   
         - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
   
-        - run: docker build -t ghcr.io/shyim/shopware-nginx:8.1-amd64 -t ghcr.io/shyim/shopware-nginx:8.1.21-amd64 -f nginx/8.1/Dockerfile .
+        - run: docker build -t ghcr.io/shyim/shopware-nginx:8.1-amd64 -t ghcr.io/shyim/shopware-nginx:8.1.22-amd64 -f nginx/8.1/Dockerfile .
   
         - run: docker push ghcr.io/shyim/shopware-nginx:8.1-amd64
 
-        - run: docker push ghcr.io/shyim/shopware-nginx:8.1.21-amd64
+        - run: docker push ghcr.io/shyim/shopware-nginx:8.1.22-amd64
   
   php82-arm64:
     machine:
@@ -119,13 +119,13 @@ jobs:
 
       - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.0.29
 
-      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.1 --amend ghcr.io/shyim/shopware-nginx:8.1.21-amd64 --amend ghcr.io/shyim/shopware-nginx:8.1.21-arm64
+      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.1 --amend ghcr.io/shyim/shopware-nginx:8.1.22-amd64 --amend ghcr.io/shyim/shopware-nginx:8.1.22-arm64
 
-      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.1.21 --amend ghcr.io/shyim/shopware-nginx:8.1.21-amd64 --amend ghcr.io/shyim/shopware-nginx:8.1.21-arm64
+      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.1.22 --amend ghcr.io/shyim/shopware-nginx:8.1.22-amd64 --amend ghcr.io/shyim/shopware-nginx:8.1.22-arm64
 
       - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.1
 
-      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.1.21
+      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.1.22
 
       - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.2 --amend ghcr.io/shyim/shopware-nginx:8.2.8-amd64 --amend ghcr.io/shyim/shopware-nginx:8.2.8-arm64
 
