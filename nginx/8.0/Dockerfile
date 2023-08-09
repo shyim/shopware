@@ -1,4 +1,4 @@
-FROM php:8.0.29-fpm-alpine
+FROM php:8.0.30-fpm-alpine
 
 ENV APP_ENV=prod \
     LOCK_DSN=flock \
