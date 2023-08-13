@@ -1,4 +1,4 @@
-FROM ghcr.io/shyim/shopware-nginx:8.0.29
+FROM ghcr.io/shyim/shopware-nginx:8.0.30
 
 COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 
