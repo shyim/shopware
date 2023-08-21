@@ -1,13 +1,16 @@
+FROM ghcr.io/friendsofshopware/shopware-cli as project-creator
+
+WORKDIR /
+RUN shopware-cli project create shop 6.5.3.1
+
 FROM ghcr.io/shyim/shopware-nginx:8.1.22
 
 COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 
-RUN cd /var/www/ &&\
-    rm -rf /var/www/html && \
-    composer create-project shopware/production:6.5.3.1 /var/www/html && \
-    cd /var/www/html && \
+COPY --from=project-creator /shop /var/www/html
+
+RUN cd /var/www/ && \
     mkdir /state && \
-    touch /var/www/html/install.lock && \
     echo "6.5.3.1" > /shopware_version && \
     chown -R www-data:www-data /var/www
 
