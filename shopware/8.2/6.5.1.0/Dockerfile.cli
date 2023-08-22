@@ -9,8 +9,7 @@ COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 
 COPY --from=project-creator /shop /var/www/html
 
-RUN cd /var/www/ && \
-    mkdir /state && \
+RUN mkdir /state && \
     echo "6.5.1.0" > /shopware_version && \
     chown -R www-data:www-data /var/www
 
