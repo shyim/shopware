@@ -8,7 +8,7 @@ Shopware is a trendsetting ecommerce platform to power your online business. Our
 # How to use this image
 
 > [!IMPORTANT]  
-> With Shopware 6.5 this Docker image is not recommanded anymore as extensions can require additional Composer dependencies which will modify the vendor folder what is not mounted. [Checkout the new approach](https://github.com/FriendsOfShopware/production-docker)
+> With Shopware 6.5 this Docker image is not recommanded anymore as extensions can require additional Composer dependencies which will modify the vendor folder what is not mounted. [Checkout the new approach](https://github.com/shopware/docker)
 
 To run Shopware 6 you will need a compatible MySQL or MariaDB container.
 
