@@ -6,38 +6,6 @@ parameters:
     default: false
 
 jobs:
-  php80-arm64:
-    machine:
-      image: ubuntu-2004:current
-      docker_layer_caching: true 
-    resource_class: arm.medium
-    steps:
-      - checkout
-
-      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
-
-      - run: docker build -t ghcr.io/shyim/shopware-nginx:8.0-arm64 -t ghcr.io/shyim/shopware-nginx:8.0.30-arm64 -f nginx/8.0/Dockerfile .
-
-      - run: docker push ghcr.io/shyim/shopware-nginx:8.0-arm64
-
-      - run: docker push ghcr.io/shyim/shopware-nginx:8.0.30-arm64
-
-  php80-amd64:
-      machine:
-        image: ubuntu-2004:current
-        docker_layer_caching: true 
-      resource_class: medium
-      steps:
-        - checkout
-  
-        - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
-  
-        - run: docker build -t ghcr.io/shyim/shopware-nginx:8.0-amd64 -t ghcr.io/shyim/shopware-nginx:8.0.30-amd64 -f nginx/8.0/Dockerfile .
-  
-        - run: docker push ghcr.io/shyim/shopware-nginx:8.0-amd64
-
-        - run: docker push ghcr.io/shyim/shopware-nginx:8.0.30-amd64
-  
   php81-arm64:
     machine:
       image: ubuntu-2004:current
@@ -102,6 +70,38 @@ jobs:
 
         - run: docker push ghcr.io/shyim/shopware-nginx:8.2.13-amd64
   
+  php83-arm64:
+    machine:
+      image: ubuntu-2004:current
+      docker_layer_caching: true 
+    resource_class: arm.medium
+    steps:
+      - checkout
+
+      - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
+
+      - run: docker build -t ghcr.io/shyim/shopware-nginx:8.3-arm64 -t ghcr.io/shyim/shopware-nginx:8.3.0-arm64 -f nginx/8.3/Dockerfile .
+
+      - run: docker push ghcr.io/shyim/shopware-nginx:8.3-arm64
+
+      - run: docker push ghcr.io/shyim/shopware-nginx:8.3.0-arm64
+
+  php83-amd64:
+      machine:
+        image: ubuntu-2004:current
+        docker_layer_caching: true 
+      resource_class: medium
+      steps:
+        - checkout
+  
+        - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
+  
+        - run: docker build -t ghcr.io/shyim/shopware-nginx:8.3-amd64 -t ghcr.io/shyim/shopware-nginx:8.3.0-amd64 -f nginx/8.3/Dockerfile .
+  
+        - run: docker push ghcr.io/shyim/shopware-nginx:8.3-amd64
+
+        - run: docker push ghcr.io/shyim/shopware-nginx:8.3.0-amd64
+  
 
   merge-manifest:
     machine:
@@ -110,14 +110,6 @@ jobs:
     resource_class: medium
     steps:
       - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
-
-      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.0 --amend ghcr.io/shyim/shopware-nginx:8.0.30-amd64 --amend ghcr.io/shyim/shopware-nginx:8.0.30-arm64
-
-      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.0.30 --amend ghcr.io/shyim/shopware-nginx:8.0.30-amd64 --amend ghcr.io/shyim/shopware-nginx:8.0.30-arm64
-
-      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.0
-
-      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.0.30
 
       - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.1 --amend ghcr.io/shyim/shopware-nginx:8.1.26-amd64 --amend ghcr.io/shyim/shopware-nginx:8.1.26-arm64
 
@@ -135,21 +127,29 @@ jobs:
 
       - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.2.13
 
+      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.3 --amend ghcr.io/shyim/shopware-nginx:8.3.0-amd64 --amend ghcr.io/shyim/shopware-nginx:8.3.0-arm64
+
+      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.3.0 --amend ghcr.io/shyim/shopware-nginx:8.3.0-amd64 --amend ghcr.io/shyim/shopware-nginx:8.3.0-arm64
+
+      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.3
+
+      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.3.0
+
 workflows:
   build-base-image:
     when: << pipeline.parameters.build-image >>
     jobs:
-      - php80-arm64
-      - php80-amd64
       - php81-arm64
       - php81-amd64
       - php82-arm64
       - php82-amd64
+      - php83-arm64
+      - php83-amd64
       - merge-manifest:
           requires:
-            - php80-arm64
-            - php80-amd64
             - php81-arm64
             - php81-amd64
             - php82-arm64
             - php82-amd64
+            - php83-arm64
+            - php83-amd64

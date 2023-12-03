@@ -1,6 +1,6 @@
 <?php
 
-$supportedVersions = ['8.0', '8.1', '8.2'];
+$supportedVersions = ['8.1', '8.2', '8.3'];
 $index = [];
 $tpl = file_get_contents('Dockerfile.nginx-php.template');
 $versionRegex ='/^(?<version>\d\.\d\.\d{1,})/m';

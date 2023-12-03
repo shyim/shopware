@@ -31,9 +31,8 @@ $findShopwareDL = static function ($version) use ($shopwareVersions): string {
 
 $phpMatrix = [
     '6.5.0.0' => ['8.1', '8.2'],
-    '6.4.18.0' => ['8.0', '8.1', '8.2'],
-    '6.4.7.0' => ['8.0', '8.1'],
-    '6.4.1.2' => ['8.0'],
+    '6.4.18.0' => ['8.1', '8.2'],
+    '6.4.7.0' => ['8.1'],
     'default' => [],
 ];
 $phpIndex = json_decode(file_get_contents('index_php.json'), true);
