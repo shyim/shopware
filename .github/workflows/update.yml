@@ -22,17 +22,16 @@ jobs:
           php generate_php.php nginx
           php generate_php.php caddy
           
-      - name: my-app-install token
-        id: gh-app
-        uses: getsentry/action-github-app-token@v2
+      - uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
+        id: octo-sts
         with:
-          app_id: ${{ secrets.GH_APP_ID }}
-          private_key: ${{ secrets.GH_APP_SECRET }}
+          scope: ${{ github.repository }}
+          identity: update
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ steps.gh-app.outputs.token }}
+          token: ${{ steps.octo-sts.outputs.token }}
           commit-message: 'New docker updates'
           delete-branch: true
           assignees: shyim
