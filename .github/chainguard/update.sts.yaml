@@ -1,0 +1,9 @@
+issuer: https://token.actions.githubusercontent.com
+subject: repo:shyim/shopware:ref:refs/heads/main
+claim_pattern:
+  job_workflow_ref: shyim/shopware/.github/workflows/update.yml@refs/heads/main
+
+permissions:
+  contents: write
+  pull_requests: write
+  workflows: write
