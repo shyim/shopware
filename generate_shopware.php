@@ -14,6 +14,10 @@ $shopwareTags = json_decode(
     true
 );
 
+if ($shopwareTags === null) {
+    die('cannot fetch shopware tags');
+}
+
 $shopwareVersions = $shopwareVersions = json_decode(
     file_get_contents('https://update-api.shopware.com/v1/releases/install?major=6'),
     true
