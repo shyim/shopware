@@ -3,7 +3,7 @@ FROM ghcr.io/friendsofshopware/shopware-cli as project-creator
 WORKDIR /
 RUN shopware-cli project create shop 6.6.8.2
 
-FROM ghcr.io/shyim/shopware-nginx:8.2.25
+FROM ghcr.io/shyim/shopware-nginx:8.2.26
 
 COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 
