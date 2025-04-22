@@ -138,7 +138,7 @@ foreach ($shopwareTags as $shopwareTag) {
 
   #JOBKEY#:
     name: #NAME#
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
     
