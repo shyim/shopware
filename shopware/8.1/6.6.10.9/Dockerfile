@@ -1,7 +1,7 @@
 FROM ghcr.io/friendsofshopware/shopware-cli as project-creator
 
 WORKDIR /
-RUN shopware-cli project create shop 6.6.8.0
+RUN shopware-cli project create shop 6.6.10.9
 
 FROM ghcr.io/shyim/shopware-nginx:8.1.33
 
@@ -10,10 +10,7 @@ COPY --from=composer/composer:2-bin /composer /usr/local/bin/composer
 COPY --from=project-creator /shop /var/www/html
 
 RUN mkdir /state && \
-    echo "6.6.8.0" > /shopware_version && \
+    echo "6.6.10.9" > /shopware_version && \
     chown -R www-data:www-data /var/www
 
 VOLUME /state /var/www/html/custom/plugins /var/www/html/files /var/www/html/var/log /var/www/html/public/theme /var/www/html/public/media /var/www/html/public/bundles /var/www/html/public/sitemap /var/www/html/public/thumbnail /var/www/html/config/jwt
-
-ENV RUN_NGINX=0
-HEALTHCHECK NONE
