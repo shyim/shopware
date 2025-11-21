@@ -80,11 +80,11 @@ jobs:
 
       - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
 
-      - run: docker build -t ghcr.io/shyim/shopware-nginx:8.3-arm64 -t ghcr.io/shyim/shopware-nginx:8.3.27-arm64 -f nginx/8.3/Dockerfile .
+      - run: docker build -t ghcr.io/shyim/shopware-nginx:8.3-arm64 -t ghcr.io/shyim/shopware-nginx:8.3.28-arm64 -f nginx/8.3/Dockerfile .
 
       - run: docker push ghcr.io/shyim/shopware-nginx:8.3-arm64
 
-      - run: docker push ghcr.io/shyim/shopware-nginx:8.3.27-arm64
+      - run: docker push ghcr.io/shyim/shopware-nginx:8.3.28-arm64
 
   php83-amd64:
       machine:
@@ -96,11 +96,11 @@ jobs:
   
         - run: echo "$GHCR_PASSWORD" | docker login ghcr.io -u shyim --password-stdin
   
-        - run: docker build -t ghcr.io/shyim/shopware-nginx:8.3-amd64 -t ghcr.io/shyim/shopware-nginx:8.3.27-amd64 -f nginx/8.3/Dockerfile .
+        - run: docker build -t ghcr.io/shyim/shopware-nginx:8.3-amd64 -t ghcr.io/shyim/shopware-nginx:8.3.28-amd64 -f nginx/8.3/Dockerfile .
   
         - run: docker push ghcr.io/shyim/shopware-nginx:8.3-amd64
 
-        - run: docker push ghcr.io/shyim/shopware-nginx:8.3.27-amd64
+        - run: docker push ghcr.io/shyim/shopware-nginx:8.3.28-amd64
   
 
   merge-manifest:
@@ -127,13 +127,13 @@ jobs:
 
       - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.2.29
 
-      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.3 --amend ghcr.io/shyim/shopware-nginx:8.3.27-amd64 --amend ghcr.io/shyim/shopware-nginx:8.3.27-arm64
+      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.3 --amend ghcr.io/shyim/shopware-nginx:8.3.28-amd64 --amend ghcr.io/shyim/shopware-nginx:8.3.28-arm64
 
-      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.3.27 --amend ghcr.io/shyim/shopware-nginx:8.3.27-amd64 --amend ghcr.io/shyim/shopware-nginx:8.3.27-arm64
+      - run: docker manifest create ghcr.io/shyim/shopware-nginx:8.3.28 --amend ghcr.io/shyim/shopware-nginx:8.3.28-amd64 --amend ghcr.io/shyim/shopware-nginx:8.3.28-arm64
 
       - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.3
 
-      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.3.27
+      - run: docker manifest push ghcr.io/shyim/shopware-nginx:8.3.28
 
 workflows:
   build-base-image:
